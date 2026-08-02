@@ -20,9 +20,9 @@ max_per_topic: 5
 #    아래 예시의 # 을 지우고 내 주제로 바꾸면 그때부터 매주 돈다.
 topics: []
 
-  # - id: my-lab
-  #   label: "우리 연구실 주제"
-  #   query: "neural prosthetics implantable electrode decoding"
+   - id: SSL
+     label: "AI 반도체에서 관련 NPU, PIM"
+     query: "https://ssl.kaist.ac.kr/"
 
   # - id: example-mosfet
   #   label: "MOSFET 신뢰성"
