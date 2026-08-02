@@ -1,0 +1,285 @@
+{
+ "concepts": [
+  {
+   "id": "kcl",
+   "label": "KCL",
+   "domain": "전자회로 기초",
+   "state": "암기",
+   "importance": "H",
+   "prereq": [
+    "전하-보존",
+    "노드"
+   ],
+   "sources": [
+    {
+     "file": "daily/2026-08-02-circuit-recovery-scan.md",
+     "kind": "지식",
+     "match": "KCL에서 노드로 들어오는 전류의 합과 나가는 전류의 합이 같다는 계산 원리를 기억하고 있다."
+    },
+    {
+     "file": "daily/2026-08-02-circuit-recovery-scan.md",
+     "kind": "지식",
+     "match": "KCL은 전하 보존과 연결되고, KVL은 에너지 보존과 연결된다는 구분을 보완했다."
+    },
+    {
+     "file": "daily/2026-08-02-circuit-recovery-scan.md",
+     "kind": "내말",
+     "match": "\"KCL은 회로에서 전류에 대한 공식이야. 전류가 들어온 만큼, 전류가 나온다는 것이 기본적인 개념이며, 회로의 특정 부분을 기준으로 전류가 내부로 들어오는 양이 x라고 하면, 외부로 빠져나가는 양도 x로 일정하게 유지됨을 의미해. 그래서 KCL은 회로에서 전류의 입출력과정에서 특정 전류의 값을 모를 때 KCL을 통해 알 수 있지.\""
+    },
+    {
+     "file": "daily/2026-08-02-circuit-recovery-scan.md",
+     "kind": "내말",
+     "match": "\"KCL, KVL모두 전류나 전압이 보존된다는 점에 있어서 에너지보존법칙?과 연결된다고 볼 수도 있을 것 같아.\""
+    },
+    {
+     "file": "daily/2026-08-02-circuit-recovery-scan.md",
+     "kind": "교정",
+     "match": "KCL의 근거를 \"전하는 보존되지 않기 때문\"이라고 말했지만 반대다. KCL은 전하 보존 때문에 성립하며, 정상상태 노드에 전하가 계속 축적되지 않는다는 뜻이다."
+    },
+    {
+     "file": "daily/2026-08-02-circuit-recovery-scan.md",
+     "kind": "취약",
+     "match": "KCL을 전하 보존과 노드의 전하 축적 관점에서 정확히 설명하는 것"
+    },
+    {
+     "file": "daily/2026-08-02-circuit-recovery-scan.md",
+     "kind": "원장",
+     "match": ""
+    }
+   ],
+   "note": "2026-08-02"
+  },
+  {
+   "id": "kvl",
+   "label": "KVL",
+   "domain": "전자회로 기초",
+   "state": "암기",
+   "importance": "H",
+   "prereq": [
+    "에너지-보존",
+    "폐회로"
+   ],
+   "sources": [
+    {
+     "file": "daily/2026-08-02-circuit-recovery-scan.md",
+     "kind": "지식",
+     "match": "KVL에서 하나의 loop를 따라 전압 상승과 전압 강하를 반영하면 전압의 대수합이 0이 된다는 계산 원리를 기억하고 있다."
+    },
+    {
+     "file": "daily/2026-08-02-circuit-recovery-scan.md",
+     "kind": "지식",
+     "match": "KCL은 전하 보존과 연결되고, KVL은 에너지 보존과 연결된다는 구분을 보완했다."
+    },
+    {
+     "file": "daily/2026-08-02-circuit-recovery-scan.md",
+     "kind": "내말",
+     "match": "\"KVL은 전압강하에 대한 내용으로, 하나의 loop에서 주어진 voltage가 있다면, 회로의 한 바퀴를 돌 때 일어나는 전압강하를 다 반영했을 때 V-I1R1-I2R2... = 0이 되는 법칙이야. 이것 역시, 특정 전류나 전압을 알아내기 위해 쓰여.\""
+    },
+    {
+     "file": "daily/2026-08-02-circuit-recovery-scan.md",
+     "kind": "교정",
+     "match": "KVL에서 저항이 전압을 \"할당받는다\"기보다, 전원이 전하에 공급한 에너지가 저항에서 열 등으로 변환되고 한 바퀴 뒤 순에너지 변화가 0이 되기 때문에 전압의 대수합이 0이 된다."
+    },
+    {
+     "file": "daily/2026-08-02-circuit-recovery-scan.md",
+     "kind": "취약",
+     "match": "KVL을 전원의 에너지 공급, 저항에서의 에너지 변환, 한 바퀴 후 순에너지 변화 0으로 연결해 설명하는 것"
+    },
+    {
+     "file": "daily/2026-08-02-circuit-recovery-scan.md",
+     "kind": "퀴즈",
+     "match": "Q2: 에너지 관점에서 저항의 전압 강하와 KVL을 설명하라. / 내 답: \"전하가 저항을 통과하는 과정에서 에너지가 쓰이기 때문이지, 그리고 한 바퀴안에 모든 전압을 저항에 비례하게 할당하여 에너지를 사용하기 때문\" / 채점: 저항에서 에너지가 변환된다는 핵심은 맞음. 한 바퀴 후 순에너지 변화가 0이라는 설명은 보완 필요."
+    },
+    {
+     "file": "daily/2026-08-02-circuit-recovery-scan.md",
+     "kind": "원장",
+     "match": ""
+    }
+   ],
+   "note": "2026-08-02"
+  },
+  {
+   "id": "전하-보존",
+   "label": "전하 보존",
+   "domain": "미분류",
+   "state": "미학습",
+   "importance": "M",
+   "prereq": [],
+   "sources": [
+    {
+     "file": "daily/2026-08-02-circuit-recovery-scan.md",
+     "kind": "지식",
+     "match": "KCL은 전하 보존과 연결되고, KVL은 에너지 보존과 연결된다는 구분을 보완했다."
+    },
+    {
+     "file": "daily/2026-08-02-circuit-recovery-scan.md",
+     "kind": "교정",
+     "match": "KCL의 근거를 \"전하는 보존되지 않기 때문\"이라고 말했지만 반대다. KCL은 전하 보존 때문에 성립하며, 정상상태 노드에 전하가 계속 축적되지 않는다는 뜻이다."
+    },
+    {
+     "file": "daily/2026-08-02-circuit-recovery-scan.md",
+     "kind": "취약",
+     "match": "KCL을 전하 보존과 노드의 전하 축적 관점에서 정확히 설명하는 것"
+    },
+    {
+     "file": "daily/2026-08-02-circuit-recovery-scan.md",
+     "kind": "퀴즈",
+     "match": "Q1: 노드로 2A와 3A가 들어오고 4A가 나갈 때 남은 가지 전류는 얼마이며 왜 그런가? / 내 답: \"1A가 흘러야 하지, 왜냐면 전하는 보존되지 않기 때문\" / 채점: 수치는 정답. 근거는 반대로 말했으며 전하 보존 때문에 1A가 나가야 한다."
+    }
+   ],
+   "note": ""
+  },
+  {
+   "id": "노드",
+   "label": "노드",
+   "domain": "미분류",
+   "state": "미학습",
+   "importance": "M",
+   "prereq": [],
+   "sources": [
+    {
+     "file": "daily/2026-08-02-circuit-recovery-scan.md",
+     "kind": "지식",
+     "match": "KCL에서 노드로 들어오는 전류의 합과 나가는 전류의 합이 같다는 계산 원리를 기억하고 있다."
+    },
+    {
+     "file": "daily/2026-08-02-circuit-recovery-scan.md",
+     "kind": "교정",
+     "match": "KCL의 근거를 \"전하는 보존되지 않기 때문\"이라고 말했지만 반대다. KCL은 전하 보존 때문에 성립하며, 정상상태 노드에 전하가 계속 축적되지 않는다는 뜻이다."
+    },
+    {
+     "file": "daily/2026-08-02-circuit-recovery-scan.md",
+     "kind": "취약",
+     "match": "KCL을 전하 보존과 노드의 전하 축적 관점에서 정확히 설명하는 것"
+    },
+    {
+     "file": "daily/2026-08-02-circuit-recovery-scan.md",
+     "kind": "퀴즈",
+     "match": "Q1: 노드로 2A와 3A가 들어오고 4A가 나갈 때 남은 가지 전류는 얼마이며 왜 그런가? / 내 답: \"1A가 흘러야 하지, 왜냐면 전하는 보존되지 않기 때문\" / 채점: 수치는 정답. 근거는 반대로 말했으며 전하 보존 때문에 1A가 나가야 한다."
+    }
+   ],
+   "note": ""
+  },
+  {
+   "id": "에너지-보존",
+   "label": "에너지 보존",
+   "domain": "미분류",
+   "state": "미학습",
+   "importance": "M",
+   "prereq": [],
+   "sources": [
+    {
+     "file": "daily/2026-08-02-circuit-recovery-scan.md",
+     "kind": "지식",
+     "match": "KCL은 전하 보존과 연결되고, KVL은 에너지 보존과 연결된다는 구분을 보완했다."
+    }
+   ],
+   "note": ""
+  },
+  {
+   "id": "폐회로",
+   "label": "폐회로",
+   "domain": "미분류",
+   "state": "미학습",
+   "importance": "M",
+   "prereq": [],
+   "sources": [],
+   "note": ""
+  },
+  {
+   "id": "node-analysis",
+   "label": "Node Analysis",
+   "domain": "전자회로 기초",
+   "state": "미학습",
+   "importance": "M",
+   "prereq": [
+    "kcl",
+    "기준-노드",
+    "node-voltage"
+   ],
+   "sources": [
+    {
+     "file": "daily/2026-08-02-circuit-recovery-scan.md",
+     "kind": "지식",
+     "match": "Node Analysis에서 GND, node voltage, supernode를 사용해 회로의 특정 전류나 전압을 계산한다는 내용은 단서를 주면 기억난다."
+    },
+    {
+     "file": "daily/2026-08-02-circuit-recovery-scan.md",
+     "kind": "취약",
+     "match": "Node Analysis, supernode는 인지 수준으로 확인했지만 아직 스스로 적용하거나 설명하는 검증은 하지 않음"
+    }
+   ],
+   "note": ""
+  },
+  {
+   "id": "기준-노드",
+   "label": "기준 노드",
+   "domain": "미분류",
+   "state": "미학습",
+   "importance": "M",
+   "prereq": [],
+   "sources": [],
+   "note": ""
+  },
+  {
+   "id": "node-voltage",
+   "label": "node voltage",
+   "domain": "미분류",
+   "state": "미학습",
+   "importance": "M",
+   "prereq": [],
+   "sources": [
+    {
+     "file": "daily/2026-08-02-circuit-recovery-scan.md",
+     "kind": "지식",
+     "match": "Node Analysis에서 GND, node voltage, supernode를 사용해 회로의 특정 전류나 전압을 계산한다는 내용은 단서를 주면 기억난다."
+    },
+    {
+     "file": "daily/2026-08-02-circuit-recovery-scan.md",
+     "kind": "내말",
+     "match": "\"이건 기억나. GND도 알고, node voltage, supernode 에 개념도 알어. 회로에서 특정 전류나 전압을 계산하는 과정은 알아.\""
+    }
+   ],
+   "note": ""
+  },
+  {
+   "id": "supernode",
+   "label": "supernode",
+   "domain": "전자회로 기초",
+   "state": "미학습",
+   "importance": "M",
+   "prereq": [
+    "node-analysis",
+    "전압원"
+   ],
+   "sources": [
+    {
+     "file": "daily/2026-08-02-circuit-recovery-scan.md",
+     "kind": "지식",
+     "match": "Node Analysis에서 GND, node voltage, supernode를 사용해 회로의 특정 전류나 전압을 계산한다는 내용은 단서를 주면 기억난다."
+    },
+    {
+     "file": "daily/2026-08-02-circuit-recovery-scan.md",
+     "kind": "내말",
+     "match": "\"이건 기억나. GND도 알고, node voltage, supernode 에 개념도 알어. 회로에서 특정 전류나 전압을 계산하는 과정은 알아.\""
+    },
+    {
+     "file": "daily/2026-08-02-circuit-recovery-scan.md",
+     "kind": "취약",
+     "match": "Node Analysis, supernode는 인지 수준으로 확인했지만 아직 스스로 적용하거나 설명하는 검증은 하지 않음"
+    }
+   ],
+   "note": ""
+  },
+  {
+   "id": "전압원",
+   "label": "전압원",
+   "domain": "미분류",
+   "state": "미학습",
+   "importance": "M",
+   "prereq": [],
+   "sources": [],
+   "note": ""
+  }
+ ]
+}
