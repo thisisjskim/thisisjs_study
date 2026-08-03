@@ -21,8 +21,8 @@ kind: status
 
 ## 🎯 오늘의 추천 목표 — 오늘 할 것 (15~60분)
 
-- 다음 세션에서 짧은 설명이나 인출 단서를 먼저 제시한 뒤 Mesh Analysis의 기억 상태를 확인한다.
-- Node Analysis는 실제 회로에 KCL 식을 세우는 작은 적용 문제로 검증한다.
+- 다음 세션에서 Independent source만 있는 간단한 회로로 Vth와 Rth를 직접 계산한다.
+- 이후 Dependent source가 포함된 회로에 Test Source를 적용하고, Norton Equivalent로 연결한다.
 
 ## 지금 약한 것 (top 5 — 세션은 여기서 시작)
 > 전체는 [[mastery.md]]. 아직 `설명가능`이 아닌 것부터.

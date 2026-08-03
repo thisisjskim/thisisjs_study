@@ -17,6 +17,12 @@ kind: mastery
 |---|---|---|---|---|---|
 | KCL | 암기 | H | 2026-08-02 | daily/2026-08-02-circuit-recovery-scan.md | 식과 계산은 기억하지만 전하 보존의 근거를 반대로 설명해 보완이 필요함 |
 | KVL | 암기 | H | 2026-08-02 | daily/2026-08-02-circuit-recovery-scan.md | 전압 강하와 에너지 변환은 기억하지만 순에너지 변화 0까지 안정적으로 설명하는 검증이 더 필요함 |
+| Thevenin Equivalent | 설명가능 | H | 2026-08-03 | daily/2026-08-03-thevenin-norton-equivalent.md | 단자 관점의 모델링 목적과 Vth, Rth의 역할을 자신의 말로 설명함 |
+| Vth | 설명가능 | H | 2026-08-03 | daily/2026-08-03-thevenin-norton-equivalent.md | Open Circuit에서 I=0이고 내부 전압 강하가 없어 단자 전압이 Vth가 됨을 이해함 |
+| Independent voltage source 제거 | 설명가능 | H | 2026-08-03 | daily/2026-08-03-thevenin-norton-equivalent.md | 0V 전압원이 Short와 동일한 이유를 설명함 |
+| Independent current source 제거 | 설명가능 | H | 2026-08-03 | daily/2026-08-03-thevenin-norton-equivalent.md | 0A 전류원이 Open과 동일한 이유를 설명함 |
+| Test Source | 설명가능 | H | 2026-08-03 | daily/2026-08-03-thevenin-norton-equivalent.md | Dependent source를 유지한 채 전압-전류 응답으로 Rth를 측정하는 이유를 설명함 |
+| Norton Equivalent | 암기 | H | 2026-08-03 | daily/2026-08-03-thevenin-norton-equivalent.md | 이름과 Thevenin과의 연관은 기억하지만 계산 절차는 아직 검증하지 않음 |
 <!-- MASTERY-TABLE:END -->
 
 ## 읽는 법
