@@ -18,12 +18,19 @@ max_per_topic: 5
 
 # ⬇️ 비어 있으면 아무 일도 일어나지 않는다(안전 기본값).
 #    아래 예시의 # 을 지우고 내 주제로 바꾸면 그때부터 매주 돈다.
-topics: []
+topics:
+  - id: ssl-ai-semiconductor
+    label: "SSL AI Semiconductor, NPU, and PIM"
+    query: '"Hoi-Jun Yoo" AND ("AI accelerator" OR NPU OR "processing-in-memory" OR "computing-in-memory")'
 
-   - id: SSL
-     label: "AI 반도체에서 관련 NPU, PIM"
-     query: "유회준 교수님"
+  - id: on-device-ai
+    label: "On-device AI accelerator"
+    query: '"on-device AI" AND (accelerator OR processor OR SoC)'
 
-  # - id: example-mosfet
-  #   label: "MOSFET 신뢰성"
-  #   query: "MOSFET threshold voltage reliability degradation"
+  - id: neural-rendering-accelerator
+    label: "Neural rendering and NeRF accelerator"
+    query: '("neural rendering" OR NeRF) AND (accelerator OR processor OR hardware)'
+
+  - id: cim-pim
+    label: "Computing-in-memory and processing-in-memory"
+    query: '("computing-in-memory" OR "processing-in-memory") AND (AI OR neural network)'
