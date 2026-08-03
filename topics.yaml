@@ -22,7 +22,7 @@ topics: []
 
    - id: SSL
      label: "AI 반도체에서 관련 NPU, PIM"
-     query: "https://ssl.kaist.ac.kr/"
+     query: "유회준 교수님"
 
   # - id: example-mosfet
   #   label: "MOSFET 신뢰성"
