@@ -22,7 +22,8 @@ kind: mastery
 | Independent voltage source 제거 | 설명가능 | H | 2026-08-03 | daily/2026-08-03-thevenin-norton-equivalent.md | 0V 전압원이 Short와 동일한 이유를 설명함 |
 | Independent current source 제거 | 설명가능 | H | 2026-08-03 | daily/2026-08-03-thevenin-norton-equivalent.md | 0A 전류원이 Open과 동일한 이유를 설명함 |
 | Test Source | 설명가능 | H | 2026-08-03 | daily/2026-08-03-thevenin-norton-equivalent.md | Dependent source를 유지한 채 전압-전류 응답으로 Rth를 측정하는 이유를 설명함 |
-| Norton Equivalent | 암기 | H | 2026-08-03 | daily/2026-08-03-thevenin-norton-equivalent.md | 이름과 Thevenin과의 연관은 기억하지만 계산 절차는 아직 검증하지 않음 |
+| Norton Equivalent | 설명가능 | H | 2026-08-04 | daily/2026-08-04-thevenin-norton-review-2.md | Thevenin과의 관계 및 Open/Short의 목적을 자신의 말로 설명함 |
+| Thevenin 알고리즘 | 설명가능 | H | 2026-08-04 | daily/2026-08-04-thevenin-norton-review-2.md | 풀이 순서를 스스로 수정하고 설명함 |
 <!-- MASTERY-TABLE:END -->
 
 ## 읽는 법

@@ -101,7 +101,7 @@
   {
    "id": "thevenin-equivalent",
    "label": "Thevenin Equivalent",
-   "domain": "회로 등가화",
+   "domain": "전자회로",
    "state": "설명가능",
    "importance": "H",
    "prereq": [
@@ -200,6 +200,26 @@
      "match": "Q1: 왜 Vth를 Open Circuit에서 구하는가? / 내 답: \"그 어떤 저항을 연결해도, 그 저항을 연결하기 이전 회로에서의 전압차를 측정하여 그 전압차(Vth)의 특성을 지닌 회로를 분석하기 위해서지. 그 회로에 RL이 붙었을 때 기존 Vth와의 관계를 유도하여 회로를 풀어나갈꺼야\" / 채점: 방향은 맞음. Open Circuit에서 I=0이라 Rth의 전압 강하가 0이고 단자 전압이 Vth가 된다는 물리적 이유를 보완함."
     },
     {
+     "file": "daily/2026-08-04-thevenin-norton-review-2.md",
+     "kind": "지식",
+     "match": "Thevenin 문제 풀이 순서는 RL 제거(Open Circuit) → Vth 계산 → Independent Source 제거 → Rth 계산 → 등가회로 구성이다."
+    },
+    {
+     "file": "daily/2026-08-04-thevenin-norton-review-2.md",
+     "kind": "지식",
+     "match": "Vth는 Source가 살아있는 원래 회로에서 구해야 한다. Source를 먼저 제거하면 원래 회로의 특성을 잃는다."
+    },
+    {
+     "file": "daily/2026-08-04-thevenin-norton-review-2.md",
+     "kind": "내말",
+     "match": "Independent source를 먼저 제거하고 Rth를 구한 뒤 Vth를 구한다고 설명함."
+    },
+    {
+     "file": "daily/2026-08-04-thevenin-norton-review-2.md",
+     "kind": "교정",
+     "match": "Vth 계산 시에는 Independent Source를 제거하지 않는다."
+    },
+    {
      "file": "daily/2026-08-03-thevenin-norton-equivalent.md",
      "kind": "원장",
      "match": ""
@@ -272,12 +292,13 @@
   {
    "id": "norton-equivalent",
    "label": "Norton Equivalent",
-   "domain": "회로 등가화",
-   "state": "암기",
+   "domain": "전자회로",
+   "state": "설명가능",
    "importance": "H",
    "prereq": [
     "thevenin-equivalent",
-    "short-circuit-current"
+    "short-circuit-current",
+    "등가-저항"
    ],
    "sources": [
     {
@@ -296,12 +317,33 @@
      "match": "Source Transformation과 Thevenin/Norton Equivalent의 구분"
     },
     {
-     "file": "daily/2026-08-03-thevenin-norton-equivalent.md",
+     "file": "daily/2026-08-04-thevenin-norton-review-2.md",
+     "kind": "지식",
+     "match": "Norton Equivalent는 Thevenin 이후에 만드는 것이 아니라 같은 회로를 표현하는 또 다른 등가 모델이다."
+    },
+    {
+     "file": "daily/2026-08-04-thevenin-norton-review-2.md",
      "kind": "원장",
      "match": ""
     }
    ],
-   "note": "2026-08-03"
+   "note": "2026-08-04"
+  },
+  {
+   "id": "thevenin-알고리즘",
+   "label": "Thevenin 알고리즘",
+   "domain": "미분류",
+   "state": "설명가능",
+   "importance": "H",
+   "prereq": [],
+   "sources": [
+    {
+     "file": "daily/2026-08-04-thevenin-norton-review-2.md",
+     "kind": "원장",
+     "match": ""
+    }
+   ],
+   "note": "2026-08-04"
   },
   {
    "id": "전하-보존",
@@ -483,7 +525,13 @@
    "state": "미학습",
    "importance": "M",
    "prereq": [],
-   "sources": [],
+   "sources": [
+    {
+     "file": "daily/2026-08-04-thevenin-norton-review-2.md",
+     "kind": "지식",
+     "match": "Norton은 Short Circuit Current를 이용해 전류원을 대표하며, Thevenin은 Open Circuit Voltage를 이용해 전압원을 대표한다."
+    }
+   ],
    "note": ""
   },
   {
@@ -499,11 +547,19 @@
   {
    "id": "open-circuit-voltage",
    "label": "Open Circuit Voltage",
-   "domain": "미분류",
+   "domain": "전자회로",
    "state": "미학습",
    "importance": "M",
-   "prereq": [],
-   "sources": [],
+   "prereq": [
+    "vth"
+   ],
+   "sources": [
+    {
+     "file": "daily/2026-08-04-thevenin-norton-review-2.md",
+     "kind": "지식",
+     "match": "Norton은 Short Circuit Current를 이용해 전류원을 대표하며, Thevenin은 Open Circuit Voltage를 이용해 전압원을 대표한다."
+    }
+   ],
    "note": ""
   },
   {
@@ -539,6 +595,16 @@
      "file": "daily/2026-08-03-thevenin-norton-equivalent.md",
      "kind": "퀴즈",
      "match": "Q1: 왜 Vth를 Open Circuit에서 구하는가? / 내 답: \"그 어떤 저항을 연결해도, 그 저항을 연결하기 이전 회로에서의 전압차를 측정하여 그 전압차(Vth)의 특성을 지닌 회로를 분석하기 위해서지. 그 회로에 RL이 붙었을 때 기존 Vth와의 관계를 유도하여 회로를 풀어나갈꺼야\" / 채점: 방향은 맞음. Open Circuit에서 I=0이라 Rth의 전압 강하가 0이고 단자 전압이 Vth가 된다는 물리적 이유를 보완함."
+    },
+    {
+     "file": "daily/2026-08-04-thevenin-norton-review-2.md",
+     "kind": "지식",
+     "match": "Thevenin 문제 풀이 순서는 RL 제거(Open Circuit) → Vth 계산 → Independent Source 제거 → Rth 계산 → 등가회로 구성이다."
+    },
+    {
+     "file": "daily/2026-08-04-thevenin-norton-review-2.md",
+     "kind": "지식",
+     "match": "Open Circuit은 회로가 만들어내는 단자 전압을 측정하기 위한 상태이고, Short Circuit은 회로가 공급할 수 있는 단자 전류를 측정하기 위한 상태이다."
     }
    ],
    "note": ""
@@ -560,6 +626,11 @@
      "file": "daily/2026-08-03-thevenin-norton-equivalent.md",
      "kind": "퀴즈",
      "match": "Q1: 왜 Vth를 Open Circuit에서 구하는가? / 내 답: \"그 어떤 저항을 연결해도, 그 저항을 연결하기 이전 회로에서의 전압차를 측정하여 그 전압차(Vth)의 특성을 지닌 회로를 분석하기 위해서지. 그 회로에 RL이 붙었을 때 기존 Vth와의 관계를 유도하여 회로를 풀어나갈꺼야\" / 채점: 방향은 맞음. Open Circuit에서 I=0이라 Rth의 전압 강하가 0이고 단자 전압이 Vth가 된다는 물리적 이유를 보완함."
+    },
+    {
+     "file": "daily/2026-08-04-thevenin-norton-review-2.md",
+     "kind": "지식",
+     "match": "Open Circuit은 회로가 만들어내는 단자 전압을 측정하기 위한 상태이고, Short Circuit은 회로가 공급할 수 있는 단자 전류를 측정하기 위한 상태이다."
     }
    ],
    "note": ""
@@ -614,6 +685,16 @@
      "file": "daily/2026-08-03-thevenin-norton-equivalent.md",
      "kind": "퀴즈",
      "match": "Q1: 왜 Vth를 Open Circuit에서 구하는가? / 내 답: \"그 어떤 저항을 연결해도, 그 저항을 연결하기 이전 회로에서의 전압차를 측정하여 그 전압차(Vth)의 특성을 지닌 회로를 분석하기 위해서지. 그 회로에 RL이 붙었을 때 기존 Vth와의 관계를 유도하여 회로를 풀어나갈꺼야\" / 채점: 방향은 맞음. Open Circuit에서 I=0이라 Rth의 전압 강하가 0이고 단자 전압이 Vth가 된다는 물리적 이유를 보완함."
+    },
+    {
+     "file": "daily/2026-08-04-thevenin-norton-review-2.md",
+     "kind": "내말",
+     "match": "Independent source를 먼저 제거하고 Rth를 구한 뒤 Vth를 구한다고 설명함."
+    },
+    {
+     "file": "daily/2026-08-04-thevenin-norton-review-2.md",
+     "kind": "교정",
+     "match": "Source 제거는 Rth를 구할 때만 수행한다."
     }
    ],
    "note": ""
@@ -624,7 +705,9 @@
    "domain": "미분류",
    "state": "미학습",
    "importance": "M",
-   "prereq": [],
+   "prereq": [
+    "rth-계산"
+   ],
    "sources": [],
    "note": ""
   },
@@ -676,6 +759,11 @@
      "file": "daily/2026-08-03-thevenin-norton-equivalent.md",
      "kind": "퀴즈",
      "match": "Q2: 왜 0V 전압원은 Short인가? / 내 답: \"0V 전압원은 사실상 전압강하가 일어나지 않고, 이는 저항이 없는 전류의 흐름으로 이해할 수 있기 때문에 단순한 도선으로 생각하여 short라고 판단할 수 있기 때문이야\" / 채점: 핵심 정답. 양단 전위차를 항상 0V로 강제한다는 표현으로 보완함."
+    },
+    {
+     "file": "daily/2026-08-04-thevenin-norton-review-2.md",
+     "kind": "지식",
+     "match": "Open Circuit은 회로가 만들어내는 단자 전압을 측정하기 위한 상태이고, Short Circuit은 회로가 공급할 수 있는 단자 전류를 측정하기 위한 상태이다."
     }
    ],
    "note": ""
@@ -766,10 +854,12 @@
   {
    "id": "short-circuit-current",
    "label": "Short Circuit Current",
-   "domain": "미분류",
+   "domain": "전자회로",
    "state": "미학습",
    "importance": "M",
-   "prereq": [],
+   "prereq": [
+    "in"
+   ],
    "sources": [
     {
      "file": "daily/2026-08-03-thevenin-norton-equivalent.md",
@@ -780,6 +870,11 @@
      "file": "daily/2026-08-03-thevenin-norton-equivalent.md",
      "kind": "취약",
      "match": "Norton Equivalent의 Short Circuit Current와 Thevenin-Norton 변환"
+    },
+    {
+     "file": "daily/2026-08-04-thevenin-norton-review-2.md",
+     "kind": "지식",
+     "match": "Norton은 Short Circuit Current를 이용해 전류원을 대표하며, Thevenin은 Open Circuit Voltage를 이용해 전압원을 대표한다."
     }
    ],
    "note": ""
@@ -815,6 +910,50 @@
    "importance": "M",
    "prereq": [],
    "sources": [],
+   "note": ""
+  },
+  {
+   "id": "in",
+   "label": "In",
+   "domain": "미분류",
+   "state": "미학습",
+   "importance": "M",
+   "prereq": [],
+   "sources": [],
+   "note": ""
+  },
+  {
+   "id": "independent-source-제거",
+   "label": "Independent Source 제거",
+   "domain": "전자회로",
+   "state": "미학습",
+   "importance": "M",
+   "prereq": [
+    "rth-계산"
+   ],
+   "sources": [
+    {
+     "file": "daily/2026-08-04-thevenin-norton-review-2.md",
+     "kind": "지식",
+     "match": "Thevenin 문제 풀이 순서는 RL 제거(Open Circuit) → Vth 계산 → Independent Source 제거 → Rth 계산 → 등가회로 구성이다."
+    }
+   ],
+   "note": ""
+  },
+  {
+   "id": "rth-계산",
+   "label": "Rth 계산",
+   "domain": "미분류",
+   "state": "미학습",
+   "importance": "M",
+   "prereq": [],
+   "sources": [
+    {
+     "file": "daily/2026-08-04-thevenin-norton-review-2.md",
+     "kind": "지식",
+     "match": "Thevenin 문제 풀이 순서는 RL 제거(Open Circuit) → Vth 계산 → Independent Source 제거 → Rth 계산 → 등가회로 구성이다."
+    }
+   ],
    "note": ""
   }
  ]
