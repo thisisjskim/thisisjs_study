@@ -20,7 +20,7 @@ max_per_topic: 5
 #    아래 예시의 # 을 지우고 내 주제로 바꾸면 그때부터 매주 돈다.
 topics:
   - id: ssl-ai-semiconductor
-    label: "SSL AI Semiconductor, NPU, and PIM"
+    label: "Yoo, Hoi-Jun"
     query: '"Hoi-Jun Yoo" AND ("AI accelerator" OR NPU OR "processing-in-memory" OR "computing-in-memory")'
 
   - id: on-device-ai
