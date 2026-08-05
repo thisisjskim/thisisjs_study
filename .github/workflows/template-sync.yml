@@ -1,27 +1,39 @@
 name: template-sync
 
-# 템플릿 업데이트 받아오기 — 주 1회 확인하고, 바뀐 게 있으면 **PR로** 알려준다.
+# 템플릿 업데이트 받아오기 — 주 1회 확인하고 **바로 적용한다.**
 #
-# 왜: `Use this template`로 만든 저장소는 그 시점의 복사본이라 템플릿이 고쳐져도
-# 따라오지 않는다. 그래서 고칠 때마다 쓰는 사람들에게 "이 파일들을 복사하세요"라고
-# 전해야 했는데, 계속 생기면 아무도 안 한다 — 결국 각자 다른 버전을 쓰게 되고
-# 버그 보고가 재현되지 않는다. 이 워크플로가 그 전달을 대신한다.
+# 이 파일이 **쓰는 사람이 설치할 유일한 파일**이다. 로직은 템플릿에서 받아 온 것을
+# 그대로 실행한다(`/tmp/tpl/scripts/...`).
 #
-# 경계: 가져오는 것은 **엔진**(scripts · runner · presets · templates · workflows · 문서)뿐이다.
+# 왜 받아온 쪽을 실행하나: 로직을 저장소 안에 두면, 그 로직이 낡았을 때 **동기화 자체가
+# 실패해서 새 로직을 받지 못한다**(자기모순). 실제로 2026-08-03에 그 일이 났다 —
+# 워크플로를 얇게 만들며 로직을 scripts/로 내렸는데 설치 목록을 안 고쳐 첫 실행이 죽었다.
+# 받아온 것을 실행하면 동기화 로직은 언제나 최신이고, 설치는 이 파일 하나로 끝난다.
+#
+# 경계: 가져오는 것은 엔진(scripts · runner · presets · templates · 문서)뿐이다.
 # 내 기록과 설정(daily · materials · papers · mastery · STATUS · drills · concepts.json ·
-# topics.yaml · README)은 어느 경우에도 건드리지 않는다 — 목록은 scripts/sync_from_template.py에 있다.
+# topics.yaml · README)은 어느 경우에도 건드리지 않는다. 그 약속은 적용 **전에** 검사한다.
 #
-# 그리고 **자동으로 합치지 않는다.** PR을 열어 둘 뿐이라, 무엇이 바뀌는지 보고 내가 누른다.
+# 남는 수동 작업은 GPT 지침 재붙여넣기 하나뿐이다 — ChatGPT Custom GPT의 Instructions는
+# API로 접근할 수 없어 어떤 방법으로도 자동화되지 않는다. 그것만 Issue로 알린다.
 
 on:
   schedule:
-    # 매주 월요일 09:20 KST (UTC 00:20). paper-scan(08:10 KST)보다 뒤에 둬서
-    # 같은 시각에 두 워크플로가 같은 브랜치를 밀지 않게 한다.
-    - cron: "20 0 * * 1"
+    # 매일 09:20 KST (UTC 00:20). paper-scan(08:10 KST) 뒤에 둬서 겹치지 않게.
+    #
+    # 2026-08-04: 주 1회(월요일)였다. 그래서 템플릿을 고쳐도 학습자 repo는 **최대 7일**
+    # 뒤에야 받았고, 그 사이 새 기능은 "왜 내 repo에선 안 되지"로만 보였다(`[자료]` Issue가
+    # 도착지 없이 사라진 사고). 사람이 Actions에서 손으로 돌려야 하는 것은 자동화가 아니다.
+    #
+    # 진짜 지연을 없애는 것은 아래 cron이 아니라 **세션 끝의 디스패치**다 —
+    # `learning-note-ingest`가 세션을 접고 나서 이 워크플로를 깨운다. 그래서 다음 세션은
+    # 언제나 최신으로 시작한다. cron은 그 경로가 죽었을 때의 그물이다.
+    - cron: "20 0 * * *"
   workflow_dispatch:
 
 permissions:
   contents: write
+  issues: write
   pull-requests: write
 
 concurrency:
@@ -35,9 +47,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-
-      - name: 경로 정책 자체 점검 (내 기록을 덮지 않는지)
-        run: python3 scripts/test_sync_from_template.py
+        with:
+          # PAT이 있으면 그것으로 체크아웃해야 뒤의 푸시도 같은 토큰으로 나간다.
+          token: ${{ secrets.TEMPLATE_SYNC_TOKEN || github.token }}
 
       - name: 템플릿 내려받기
         run: |
@@ -46,73 +58,20 @@ jobs:
             | tar xz -C /tmp/tpl --strip-components=1
           echo "받은 파일 $(find /tmp/tpl -type f | wc -l)개"
 
-      - name: 바뀐 것 가져오기
-        id: sync
-        run: python3 scripts/sync_from_template.py --from /tmp/tpl
+      - name: 내 기록을 덮지 않는지 먼저 검사
+        run: python3 /tmp/tpl/scripts/test_sync_from_template.py
 
-      - name: 바뀐 게 있으면 PR 열기
-        if: steps.sync.outputs.changed == 'true'
+      - name: 동기화
         env:
-          GH_TOKEN: ${{ github.token }}
+          GH_TOKEN: ${{ secrets.TEMPLATE_SYNC_TOKEN || github.token }}
+          HAS_PAT: ${{ secrets.TEMPLATE_SYNC_TOKEN != '' }}
+          SYNC_MODE: ${{ vars.TEMPLATE_SYNC_MODE || 'auto' }}
         run: |
-          BRANCH="template-sync/$(date -u +%Y-%m-%d)"
-          git config user.name  "socralearner[bot]"
-          git config user.email "noreply@github.com"
-          git checkout -B "$BRANCH"
-          git add -A
-          git commit -m "템플릿 업데이트 가져오기 ($(date -u +%F))"
-          git push -f origin "$BRANCH"
-
-          # 무엇이 왜 바뀌었는지는 템플릿의 CHANGELOG가 말한다 — 최근 항목을 붙인다.
-          NOTES=$(sed -n '/^## /,$p' /tmp/tpl/CHANGELOG.md 2>/dev/null | head -60)
-
-          if gh pr view "$BRANCH" --json number >/dev/null 2>&1; then
-            echo "이미 열린 PR이 있다 — 브랜치만 갱신했다"; exit 0
-          fi
-
-          gh pr create \
-            --title "템플릿 업데이트 — ${{ steps.sync.outputs.summary }}" \
-            --head "$BRANCH" \
-            --body "$(cat <<EOF
-          Socralearner 템플릿이 업데이트됐습니다. **엔진 부분만** 가져왔습니다.
-
-          ${{ steps.sync.outputs.summary }}
-
-          ## 내 기록은 그대로입니다
-
-          \`daily/\` · \`materials/\` · \`papers/\` · \`mastery.md\` · \`STATUS.md\` ·
-          \`drills.md\` · \`concepts.json\` · \`topics.yaml\` · \`README.md\` 는
-          **어느 경우에도 건드리지 않습니다.** 바뀐 파일 목록은 아래 diff에서 확인하세요.
-
-          ## 무엇이 바뀌었나
-
-          $NOTES
-
-          ## 하면 되는 일
-
-          1. 아래 **Files changed** 를 훑어봅니다.
-          2. **Merge** 를 누릅니다.
-          3. 러너 지침(\`runner/instructions.md\`)이 바뀌었다면 — CHANGELOG에 ⚠️ 로
-             표시돼 있습니다 — ChatGPT의 내 GPT 편집에서 지침을 **다시 붙여넣습니다.**
-             이건 자동으로 안 됩니다.
-
-          <sub>이 PR은 \`template-sync\` 워크플로가 매주 월요일에 확인해 자동으로 엽니다.
-          그만 받고 싶으면 Actions 탭에서 이 워크플로를 비활성화하면 됩니다.</sub>
-          EOF
-          )"
+          export SYNC_DATE="$(TZ=Asia/Seoul date +%F)"
+          python3 /tmp/tpl/scripts/template_sync_ci.py --from /tmp/tpl
 
       - name: 실패를 조용히 넘기지 않는다
         if: failure()
-        uses: actions/github-script@v7
-        with:
-          script: |
-            const url = `${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`;
-            await github.rest.issues.create({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              title: `[템플릿] 업데이트 확인 실패 — ${new Date().toISOString().slice(0, 10)}`,
-              body: `템플릿 동기화가 실패했습니다 — [실행 로그](${url})\n\n` +
-                    `흔한 원인: 저장소 설정에서 **Settings → Actions → General →** ` +
-                    `**"Allow GitHub Actions to create and approve pull requests"** 가 꺼져 있음.\n` +
-                    `켠 뒤 Actions 탭에서 **template-sync → Run workflow** 로 다시 돌리면 됩니다.`,
-            });
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python3 /tmp/tpl/scripts/ci_notify_failure.py "템플릿 업데이트" || true
