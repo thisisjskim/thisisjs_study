@@ -19,6 +19,8 @@ import json
 import os
 import re
 import sys
+import time
+import urllib.error
 import urllib.parse
 import urllib.request
 
@@ -28,6 +30,12 @@ SEEN_PATH = os.path.join(PAPERS_DIR, "seen.json")
 INBOX_PATH = os.path.join(PAPERS_DIR, "inbox.md")
 OPENALEX = "https://api.openalex.org/works"
 UA = "Socralearner/1.0 (learning repo; https://github.com/topics/socralearner)"
+
+# OpenAlex는 `mailto`를 준 요청을 **polite pool**로 보낸다. 안 주면 공용 풀인데,
+# GitHub Actions 러너는 IP를 대량으로 공유해서 공용 풀이 429/403으로 자주 막힌다
+# (2026-08-03: "topics를 넣었는데 안 돈다"의 원인 중 하나). topics.yaml에
+# `mailto: 내주소@example.com` 한 줄을 두면 그 줄로 옮겨 간다. 없으면 그대로 동작한다.
+MAILTO = ""
 
 
 # ---------------------------------------------------------------- 유틸 (순수)
@@ -96,8 +104,12 @@ def normalize_work(w):
     }
 
 
-def build_inbox(date, found, window_days):
-    """주제별 새 논문 → inbox 마크다운 (순수 — 테스트 가능)."""
+def build_inbox(date, found, window_days, failed=(), unanchored=(), excluded=0):
+    """주제별 새 논문 → inbox 마크다운 (순수 — 테스트 가능).
+
+    `failed`는 조회 자체가 실패한 주제들이다. **"새 논문이 없다"와 "가져오지 못했다"는
+    다른 상태**인데, 예전에는 둘 다 "0편"으로 적혀 구별할 수 없었다.
+    """
     total = sum(len(v) for v in found.values())
     lines = [
         "---",
@@ -113,8 +125,32 @@ def build_inbox(date, found, window_days):
         "> 다 읽을 필요 없다 — **제목과 초록만 훑고 1편만 골라** 깊게 보는 편이 낫다.",
         "",
     ]
+    if failed:
+        lines += [
+            f"> ⚠️ **조회 실패 {len(failed)}개 주제** — {', '.join(failed)}",
+            "> 새 논문이 없는 것이 아니라 **가져오지 못한** 것이다. Actions 로그를 보고",
+            "> `paper-scan → Run workflow`로 다시 돌리면 된다.",
+            "",
+        ]
+    if unanchored:
+        lines += [
+            f"> ⚠️ **분야가 고정되지 않은 주제 {len(unanchored)}개** — {', '.join(unanchored)}",
+            "> 이 주제들은 단어로만 검색된다. 약어가 겹치면 엉뚱한 분야의 논문이 섞인다"
+            "(`HBM` → high bandwidth memory / human breast milk).",
+            "> 세션에서 러너에게 **\"이 주제 분야 고정해줘\"** 라고 하면, 이미 읽은 논문을"
+            " 씨앗으로 삼아 분야를 잡아 준다 — 사람이 코드를 찾을 필요는 없다.",
+            "",
+        ]
+    if excluded:
+        lines += [f"> 배제어로 거른 논문 {excluded}편 (0편으로 보이는 것과 다르다).", ""]
+
     if total == 0:
-        lines += ["이번 주는 새로 걸린 논문이 없다. (주제를 넓히려면 `topics.yaml`의 query를 손보면 된다.)", ""]
+        lines += [
+            "가져온 새 논문이 없다."
+            if failed
+            else "이번 주는 새로 걸린 논문이 없다. (주제를 넓히려면 `topics.yaml`의 query를 손보면 된다.)",
+            "",
+        ]
         return "\n".join(lines)
 
     for label, papers in found.items():
@@ -132,7 +168,9 @@ def build_inbox(date, found, window_days):
             lines.append("")
             if p["abstract"]:
                 lines.append(f"> {p['abstract']}")
-                lines.append("")
+            else:
+                lines.append("> _(초록이 공개돼 있지 않다 — 제목·저널로 판단하거나 원문을 열어 보자.)_")
+            lines.append("")
         lines.append("")
     return "\n".join(lines)
 
@@ -181,21 +219,33 @@ def select_papers(recent, proven, seen_ids, per_topic, blocked):
     사실상 무작위다("최신+좋은 것"이 아니라 "최신+운"). 그래서
     · 🆕 신간(최신순, ~60%) — 따끈한 것. 인용으로 거를 수 없음을 인정한다.
     · ✅ 검증(최근 2년 인용순, 나머지) — 시간이 걸러 준 것.
-    공통 필터: 이미 본 것 제외 · **초록 없는 논문 제외**(판단 불가) ·
-    같은 1저자/저널 2편 초과 제외(5편이 한 그룹 후속작이면 선택지가 1개다).
+    공통 필터: 이미 본 것 제외 · 같은 1저자/저널 2편 초과 제외(5편이 한 그룹
+    후속작이면 선택지가 1개다).
+
+    **초록은 있으면 앞으로 올리되, 없다고 버리지 않는다** (2026-08-03 수정).
+    예전에는 초록이 없으면 제외했는데, OpenAlex는 출판사 라이선스 때문에 상당수
+    논문의 초록을 주지 않는다 — 특히 신간이 그렇다. 그래서 API가 25편을 정상으로
+    돌려줘도 선별 결과가 **0편**이 되어, 사용자에게는 "topics를 넣었는데 아무것도
+    안 걸린다"로 보였다. 초록이 없어도 제목·저널·저자로 고를 수 있다.
+
     막힌 길목과 닿는 논문은 각 트랙 안에서 앞으로 온다(안정 정렬 — 원래 순서 보존).
     """
     n_recent = max(1, round(per_topic * 0.6))
     n_proven = max(0, per_topic - n_recent)
 
     def usable(p):
-        return p.get("id") and p["id"] not in seen_ids and p.get("abstract")
+        return bool(p.get("id")) and p["id"] not in seen_ids
 
     picked, picked_ids, authors, venues = [], set(), {}, {}
 
     def take(pool, n, track):
         count = 0
-        ranked = sorted([p for p in pool if usable(p)], key=lambda p: -len(_blocked_hits(p, blocked)))
+        # 막힌 길목과 닿는 것 먼저, 그다음 초록이 있는 것 먼저. 안정 정렬이라
+        # 같은 등급 안에서는 API가 준 순서(신간=최신순 / 검증=인용순)가 보존된다.
+        ranked = sorted(
+            [p for p in pool if usable(p)],
+            key=lambda p: (-len(_blocked_hits(p, blocked)), 0 if p.get("abstract") else 1),
+        )
         for p in ranked:
             if count >= n or p["id"] in picked_ids:
                 continue
@@ -226,34 +276,162 @@ def select_papers(recent, proven, seen_ids, per_topic, blocked):
 
 # ---------------------------------------------------------------- 네트워크
 
-def _fetch(params):
+def _fetch_raw(url, attempts=3):
+    """단건 조회(work 하나) — 목록이 아니라 객체를 그대로 돌려준다."""
+    ua = UA if not MAILTO else f"{UA} mailto:{MAILTO}"
+    if MAILTO:
+        url = f"{url}?mailto={urllib.parse.quote(MAILTO)}"
+    last = None
+    for i in range(attempts):
+        req = urllib.request.Request(url, headers={"User-Agent": ua, "Accept": "application/json"})
+        try:
+            with urllib.request.urlopen(req, timeout=25) as r:
+                return json.load(r)
+        except urllib.error.HTTPError as e:
+            last = e
+            if e.code not in (403, 429, 500, 502, 503, 504) or i == attempts - 1:
+                raise
+        except (urllib.error.URLError, TimeoutError, json.JSONDecodeError) as e:
+            last = e
+            if i == attempts - 1:
+                raise
+        time.sleep(2 ** i)
+    raise last
+
+
+def _fetch(params, attempts=3):
+    """OpenAlex 조회. 일시적인 한도·장애는 물러났다 다시 시도한다.
+
+    한 번의 429로 그 주의 수집이 통째로 비는 것을 막는다 — 주 1회 도는 작업이라
+    다음 기회가 일주일 뒤다.
+    """
+    if MAILTO:
+        params = dict(params, mailto=MAILTO)
     url = f"{OPENALEX}?{urllib.parse.urlencode(params)}"
-    req = urllib.request.Request(url, headers={"User-Agent": UA, "Accept": "application/json"})
-    with urllib.request.urlopen(req, timeout=25) as r:
-        data = json.load(r)
-    return [normalize_work(w) for w in data.get("results", [])]
+    ua = UA if not MAILTO else f"{UA} mailto:{MAILTO}"
+    last = None
+    for i in range(attempts):
+        req = urllib.request.Request(url, headers={"User-Agent": ua, "Accept": "application/json"})
+        try:
+            with urllib.request.urlopen(req, timeout=25) as r:
+                data = json.load(r)
+            return [normalize_work(w) for w in data.get("results", [])]
+        except urllib.error.HTTPError as e:
+            last = e
+            if e.code not in (403, 429, 500, 502, 503, 504) or i == attempts - 1:
+                raise
+        except (urllib.error.URLError, TimeoutError, json.JSONDecodeError) as e:
+            last = e
+            if i == attempts - 1:
+                raise
+        time.sleep(2 ** i)
+    raise last  # 도달하지 않는다 — 위에서 항상 raise 하거나 return 한다
 
 
-def fetch_recent(query, window_days):
+# ------------------------------------------------------- 주제 고정 (분야 앵커)
+#
+# 2026-08-04: `HBM`으로 주제를 잡았더니 **human breast milk** 논문이 왔다.
+# 질의를 다듬어 고칠 문제가 아니다 — 자연어 검색은 "분야"를 모르기 때문에, 약어가
+# 겹치는 모든 주제에서 같은 일이 반복된다(MI: motor imagery/myocardial infarction,
+# CNN: 신경망/방송사, ADC: 아날로그-디지털/항체-약물 접합체 …).
+# 배제어 목록으로 막으면 두더지 잡기가 된다 — 겪은 오검출만 막고, 처음 보는 것은 못 막는다.
+#
+# 근본 대안: **주제를 단어가 아니라 OpenAlex의 분야 id로 고정한다.** OpenAlex의 모든
+# 논문에는 topic → subfield → field → domain 계층이 붙어 있다. 주제에 field/topic을
+# 걸어 두면 breast milk 논문은 **애초에 후보에 들어오지 못한다**(다른 field라서).
+#
+# 분야 id를 사람이 찾아 적게 하면 아무도 안 한다. 그래서 **씨앗 논문(seed)** 에서
+# 유도한다 — 방금 읽은 논문 하나가 그 주제의 정의다. 러너가 논문을 다 읽으면
+# `[설정]` Issue에 그 논문 DOI를 씨앗으로 넣고, 여기서 분야를 읽어 필터로 쓴다.
+
+
+def _filter_of(topic):
+    """주제의 분야 고정을 OpenAlex filter 조각으로. 없으면 빈 문자열(= 옛 동작)."""
+    parts = []
+    topic_ids = topic.get("topics") or topic.get("topic_ids")
+    if isinstance(topic_ids, str):
+        topic_ids = [x.strip() for x in re.split(r"[|,]", topic_ids) if x.strip()]
+    if topic_ids:
+        parts.append("primary_topic.id:" + "|".join(topic_ids))
+    field = topic.get("field")
+    if field:
+        parts.append(f"primary_topic.field.id:{field}")
+    return "," + ",".join(parts) if parts else ""
+
+
+def resolve_seeds(topic):
+    """씨앗 논문 → 그 논문들의 topic id 목록. 실패하면 빈 목록(조용히 죽지 않는다).
+
+    씨앗은 DOI(`10.…`)나 OpenAlex work id(`W…`)를 받는다. 사람이 분야 코드를 찾아
+    적을 필요가 없게 하는 것이 전부다 — "이 논문과 같은 분야"가 사람이 실제로 갖고
+    있는 정보다.
+    """
+    seeds = topic.get("seed") or topic.get("seeds") or []
+    if isinstance(seeds, str):
+        seeds = [x.strip() for x in re.split(r"[|,]", seeds) if x.strip()]
+    ids = []
+    for s in seeds[:3]:
+        s = s.strip().rstrip("/")
+        if s.lower().startswith("10."):
+            key = f"https://doi.org/{s}"
+        elif s.upper().startswith("W"):
+            key = s
+        else:
+            key = s
+        try:
+            raw = _fetch_raw(f"{OPENALEX}/{urllib.parse.quote(key, safe=':/')}")
+        except Exception as e:  # 씨앗 하나가 죽어도 나머지로 간다
+            print(f"⚠️  씨앗 '{s}' 조회 실패: {e}", file=sys.stderr)
+            continue
+        primary = (raw.get("primary_topic") or {})
+        if primary.get("id"):
+            ids.append(primary["id"].rsplit("/", 1)[-1])
+    return ids
+
+
+def fetch_recent(query, window_days, anchor=""):
     """신간 트랙 — 최근 N일, **최신순**. 신간은 인용으로 못 거른다."""
     since = (datetime.date.today() - datetime.timedelta(days=window_days)).isoformat()
     return _fetch({
         "search": query,
-        "filter": f"from_publication_date:{since}",
+        "filter": f"from_publication_date:{since}{anchor}",
         "sort": "publication_date:desc",
         "per-page": "25",
     })
 
 
-def fetch_proven(query):
+def fetch_proven(query, anchor=""):
     """검증 트랙 — 최근 2년, **인용순**. 여기선 인용이 진짜 신호다."""
     since = (datetime.date.today() - datetime.timedelta(days=PROVEN_DAYS)).isoformat()
     return _fetch({
         "search": query,
-        "filter": f"from_publication_date:{since}",
+        "filter": f"from_publication_date:{since}{anchor}",
         "sort": "cited_by_count:desc",
         "per-page": "25",
     })
+
+
+def drop_excluded(papers, topic):
+    """배제어 — 분야 고정을 못 건 주제의 **응급 처치**(근본 대책은 분야 고정이다).
+
+    제목·초록에 배제어가 있으면 버린다. 몇 편을 왜 버렸는지는 인박스에 적는다 —
+    조용히 버리면 "이번 주는 논문이 없네"로 보이고, 그건 다른 상태다.
+    """
+    terms = topic.get("exclude") or []
+    if isinstance(terms, str):
+        terms = [x.strip() for x in re.split(r"[|,]", terms) if x.strip()]
+    terms = [t.lower() for t in terms if t]
+    if not terms:
+        return papers, 0
+    kept = []
+    dropped = 0
+    for p in papers:
+        text = (p.get("title", "") + " " + p.get("abstract", "")).lower()
+        if any(t in text for t in terms):
+            dropped += 1
+        else:
+            kept.append(p)
+    return kept, dropped
 
 
 # ---------------------------------------------------------------- main
@@ -274,6 +452,9 @@ def main():
         print("topics 비어 있음 — 건너뜀 (topics.yaml에 주제를 추가하세요)")
         return 0
 
+    global MAILTO
+    MAILTO = str(cfg.get("mailto") or "").strip()
+
     window = int(cfg.get("window_days", 14) or 14)
     per_topic = int(cfg.get("max_per_topic", 5) or 5)
     date = args.today or today_iso()
@@ -291,16 +472,31 @@ def main():
     if blocked:
         print(f"막힌 길목 {len(blocked)}개를 가중치로 사용: " + ", ".join(l for l, _ in blocked[:3]) + ("…" if len(blocked) > 3 else ""))
 
-    found, new_ids = {}, []
+    found, new_ids, failed, unanchored, dropped_total = {}, [], [], [], 0
     for t in topics:
         label = t.get("label") or t.get("id") or t["query"]
+        anchor = _filter_of(t)
+        if not anchor and not args.dry_run:
+            # 분야 고정이 없으면 씨앗 논문에서 유도해 본다. 그것도 없으면 옛 동작
+            # (자연어 검색만) — 그 경우 인박스에 경고를 적는다. HBM이 breast milk로
+            # 새던 상태가 바로 이 상태다.
+            seeded = resolve_seeds(t)
+            if seeded:
+                anchor = "," + "primary_topic.id:" + "|".join(seeded)
+                print(f"- {label}: 씨앗 논문에서 분야 고정 → {', '.join(seeded)}")
+        if not anchor:
+            unanchored.append(label)
         try:
-            recent = [] if args.dry_run else fetch_recent(t["query"], window)
-            proven = [] if args.dry_run else fetch_proven(t["query"])
-        except Exception as e:  # 한 주제가 실패해도 나머지는 계속 (조용한 전면 실패 금지)
+            recent = [] if args.dry_run else fetch_recent(t["query"], window, anchor)
+            proven = [] if args.dry_run else fetch_proven(t["query"], anchor)
+        except Exception as e:  # 한 주제가 실패해도 나머지는 계속
             print(f"⚠️  '{label}' 조회 실패: {e}", file=sys.stderr)
             found[label] = []
+            failed.append(label)
             continue
+        recent, d1 = drop_excluded(recent, t)
+        proven, d2 = drop_excluded(proven, t)
+        dropped_total += d1 + d2
         fresh = select_papers(recent, proven, set(seen), per_topic, blocked)
         for p in fresh:
             new_ids.append(p["id"])
@@ -310,7 +506,7 @@ def main():
 
     total = sum(len(v) for v in found.values())
     with open(INBOX_PATH, "w", encoding="utf-8") as f:
-        f.write(build_inbox(date, found, window))
+        f.write(build_inbox(date, found, window, failed, unanchored, dropped_total))
 
     for i in new_ids:
         seen[i] = date
@@ -322,6 +518,16 @@ def main():
     if os.environ.get("GITHUB_OUTPUT"):
         with open(os.environ["GITHUB_OUTPUT"], "a", encoding="utf-8") as f:
             f.write(f"new_count={total}\n")
+
+    # 전부 실패했으면 **실패로 끝낸다** (2026-08-03 수정).
+    # 예전에는 모든 주제의 조회가 죽어도 exit 0이라, 인박스에 "0편"이 적히고
+    # 워크플로의 실패 알림도 뜨지 않았다. 사용자에게는 "주제를 넣었는데 아무 일도
+    # 일어나지 않는다"로만 보이고 단서가 없었다 — 조용한 실패가 제일 나쁘다.
+    if failed and len(failed) == len(topics):
+        print(f"❌ 모든 주제({len(failed)}개)의 조회가 실패했다 — 수집이 이뤄지지 않았다.", file=sys.stderr)
+        return 1
+    if failed:
+        print(f"⚠️  일부 주제 실패: {', '.join(failed)}", file=sys.stderr)
     return 0
 
 

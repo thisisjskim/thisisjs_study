@@ -29,8 +29,43 @@ import sys
 MASTERY = "mastery.md"
 DAILY_DIR = "daily"
 MATERIALS_DIR = "materials"
+DRILLS = "drills.md"
 OUT = "concepts.json"
 SECTION = "개념 지도"
+SUBJECTS_PATH = "subjects.yaml"
+
+# ─────────────────────────── 개념 vs 항목 (2층 구조) ───────────────────────────
+#
+# 2026-08-03: 토익 트랙에서 지식 그래프가 **단어 단위**로 생성되는 것이 발견됐다
+# (`procurement`, `adjacent` … 가 각각 노드가 됐다). 원인은 러너의 잘못이 아니라
+# **개념의 단위가 어디에도 정의돼 있지 않았다**는 것이다. 정의가 없으면 모델은 재료를
+# 그대로 노드로 만든다 — 어휘를 공부하면 어휘가 노드가 된다.
+#
+# 그래서 층을 둘로 나눈다:
+#
+#   개념(concept) = **설명을 요구할 수 있는 것**. 그래프의 노드.
+#                   "왜 그런가"에 여러 문장으로 답해야 하고, 처음 보는 사례에 전이되며,
+#                   다른 개념을 막거나 다른 개념에 막힌다. (10~30개로 수렴한다)
+#   항목(drill)   = **회상 대상**. 그래프에 넣지 않는다.
+#                   단어·연도·공식 값처럼 답이 하나로 끝나고 위계에 참여하지 않는 것.
+#                   (수백 개여도 된다 — 그래서 그래프에 넣으면 그래프가 죽는다)
+#
+# 항목을 **버리지는 않는다.** `concepts.json`의 별도 키 `drills`로 보존한다.
+# Topdown은 `concepts`만 읽으므로 앱을 고치지 않아도 그래프가 깨끗해진다.
+#
+# 자동 판정은 보수적이다 — 사용자의 기록을 CI가 마음대로 지우면 안 된다.
+# `drills.md`에 적힌 것이 항상 이기고, 자동 판정은 아래 두 조건을 **함께** 만족할 때만 한다.
+
+# ① 어휘장 꼴 — "procurement = 조달", "adjacent - 인접한", "procure (조달하다)"
+_VOCAB_GLOSS = re.compile(r"^[A-Za-z][A-Za-z'\-]{2,}\s*[=\-–—:(（]\s*\S")
+
+# ② 소문자만으로 된 외국어 토큰 하나 — "procurement".
+#    대문자가 섞이면 약어·고유명사로 보고 건드리지 않는다(SVD·PCA·ResNet·Transformer).
+_BARE_LOWER = re.compile(r"^[a-z][a-z'\-]{2,19}$")
+
+# ②는 약한 신호다. "backpropagation" 같은 정당한 개념도 이 모양이라, 하나둘 있는 것으로는
+# 판정하지 않는다. 이만큼 쌓여야 "어휘를 통째로 부은 것"으로 본다.
+WEAK_DUMP_MIN = 10
 
 # 선수관계를 읽을 곳. daily는 세션마다 한두 줄씩 쌓이고, materials는 강의자료에서
 # 증류한 개념 목록이라 한 번에 그래프의 뼈대가 들어온다. 둘 다 봐야 그래프가 채워진다.
@@ -269,6 +304,71 @@ def collect_sources(labels, daily_dir=DAILY_DIR):
     return sources
 
 
+def parse_drills(path=DRILLS):
+    """`drills.md`의 불릿 → 항목 라벨 집합. 여기 적힌 것은 **항상** 항목이다(자동 판정보다 우선).
+
+    러너가 어휘·연호처럼 회상 대상인 것을 여기 모으면, 그래프는 개념만 남는다.
+    파일이 없으면 빈 집합 — 전공 트랙은 이 파일 없이도 그대로 동작한다.
+    """
+    if not os.path.exists(path):
+        return set()
+    with open(path, encoding="utf-8") as f:
+        text = f.read()
+    out = set()
+    for line in _bullets(text):
+        name = line.split("—")[0].split(" - ")[0].strip().strip("`").strip()
+        if not name or is_placeholder(name):
+            continue
+        out.add(name)
+        # `procurement = 조달`로 적어 두고 원장에는 `procurement`만 올라오는 경우가 흔하다.
+        # 뜻을 떼어낸 표제어도 같이 등록해 둘이 어긋나지 않게 한다.
+        head = re.split(r"\s*[=:(（]", name, maxsplit=1)[0].strip()
+        if head and head != name:
+            out.add(head)
+    return out
+
+
+def classify_labels(labels, prereq_of, id_of, explicit_drills):
+    """라벨을 개념과 항목으로 가른다 → (개념 목록, 항목 목록, 판정 사유).
+
+    **위계에 참여하면 무조건 개념이다.** 선수 개념을 갖거나 남의 선수이면, 모양이 어휘
+    같아도 노드로 남긴다 — 그래프에서 실제로 일을 하고 있기 때문이다. 이 규칙이 있어서
+    "backpropagation ← chain-rule" 같은 정당한 개념이 어휘로 오인되지 않는다.
+    """
+    has_dependents = set()
+    for _cid, plist in prereq_of.items():
+        has_dependents.update(plist)
+
+    def in_hierarchy(lb):
+        cid = id_of[lb]
+        return bool(prereq_of.get(cid)) or cid in has_dependents
+
+    strong, weak = [], []
+    for lb in labels:
+        if lb in explicit_drills or in_hierarchy(lb):
+            continue
+        if _VOCAB_GLOSS.match(lb):
+            strong.append(lb)
+        elif _BARE_LOWER.match(lb) or len(lb.strip()) <= 2:
+            weak.append(lb)
+
+    drills, reason = set(), {}
+    for lb in labels:
+        if lb in explicit_drills:
+            drills.add(lb)
+            reason[lb] = "drills.md에 적힘"
+    for lb in strong:
+        drills.add(lb)
+        reason[lb] = "어휘장 꼴(단어=뜻)이고 선수관계가 없음"
+    if len(weak) >= WEAK_DUMP_MIN:
+        for lb in weak:
+            drills.add(lb)
+            reason[lb] = "선수관계 없는 단일 외국어 토큰이 %d개 — 어휘 목록으로 판정" % len(weak)
+
+    concepts = [lb for lb in labels if lb not in drills]
+    return concepts, [lb for lb in labels if lb in drills], reason
+
+
 def build(mastery, edges, domain_of, sources):
     """노드(개념) + 선수관계 + 분야 + 원문 근거 → concepts.json 구조."""
     labels = list(mastery.keys())
@@ -288,7 +388,13 @@ def build(mastery, edges, domain_of, sources):
         if pid not in prereq_of[id_of[target]]:
             prereq_of[id_of[target]].append(pid)
 
-    concepts = []
+    # 개념/항목 분리 — 항목은 그래프에서 빠지되 버려지지 않는다.
+    concept_labels, drill_labels, drill_reason = classify_labels(
+        labels, prereq_of, id_of, parse_drills()
+    )
+    drill_set = set(drill_labels)
+
+    concepts, drills = [], []
     for lb in labels:
         info = mastery.get(lb, {})
         cid = id_of[lb]
@@ -298,7 +404,7 @@ def build(mastery, edges, domain_of, sources):
         for m in re.finditer(r"[\w./-]*daily/[\w.\-가-힣]+\.md", info.get("evidence", "")):
             if (m.group(0), "") not in seen:
                 collected.append({"file": m.group(0), "kind": "원장", "match": ""})
-        concepts.append({
+        entry = {
             "id": cid,
             "label": lb,
             "domain": domain_of.get(lb) or UNCLASSIFIED,
@@ -307,8 +413,93 @@ def build(mastery, edges, domain_of, sources):
             "prereq": prereq_of.get(cid, []),
             "sources": collected,
             "note": info.get("verified", ""),
-        })
-    return {"concepts": concepts}
+        }
+        if lb in drill_set:
+            entry["why_drill"] = drill_reason.get(lb, "")
+            drills.append(entry)
+        else:
+            concepts.append(entry)
+
+    # `concepts`만 그래프가 된다. Topdown은 이 키만 읽으므로 앱 수정 없이 반영된다.
+    return {"concepts": concepts, "drills": drills}
+
+
+# ────────────────────────── 분야 정규화 (subjects.yaml) ──────────────────────────
+#
+# 2026-08-04: 같은 과목이 여러 분야로 쪼개지는 것이 발견됐다 — 한 학습자의 그래프에서
+# "회로 등가화"(8)와 "전자회로 기초"(4)가 서로 다른 색으로 갈렸고, 21개는 아예 미분류였다.
+# 원인은 2026-08-03의 "개념의 단위" 사건과 같은 종류다: **분야의 단위가 어디에도 정의돼
+# 있지 않았다.** 정의가 없으면 모델은 그 세션에서 다룬 소주제를 소제목으로 단다.
+#
+# 여기서 하는 것은 둘뿐이다:
+#   ① 별칭 합치기 — `subjects.yaml`에 적힌 이름으로 통일한다(비어 있으면 아무것도 안 한다).
+#   ② 미분류 전파 — 선수관계로 이어진 이웃이 한 분야로만 분류돼 있으면 그 분야로 본다.
+#      이웃이 여러 분야면 **찍지 않는다** — 조용히 틀리는 것보다 미분류가 낫다.
+#
+# 분야는 라벨이지 학습 순서가 아니다(subjects.yaml 헤더 참조). 여기서 정규화하는 것은
+# 보는 축일 뿐이고, 무엇을 배울지는 이 파일이 정하지 않는다.
+
+
+def load_subjects():
+    """subjects.yaml → {별칭(정규화): 대표 이름}. 없거나 비면 빈 표(정규화 안 함)."""
+    if not os.path.exists(SUBJECTS_PATH):
+        return {}
+    try:
+        import yaml  # type: ignore
+        with open(SUBJECTS_PATH, encoding="utf-8") as f:
+            data = yaml.safe_load(f) or {}
+    except Exception:
+        return {}
+    alias_of = {}
+    for entry in (data.get("subjects") or []):
+        if not isinstance(entry, dict):
+            continue
+        name = (entry.get("name") or "").strip()
+        if not name:
+            continue
+        for alias in [name] + list(entry.get("aliases") or []):
+            alias = str(alias).strip()
+            if alias:
+                alias_of[_fold(alias)] = name
+    return alias_of
+
+
+def _fold(text):
+    """비교용 정규화 — 공백·기호를 지운다('회로 등가화' == '회로등가화')."""
+    return re.sub(r"[^\w가-힣]", "", str(text)).lower()
+
+
+def normalize_domains(domain_of, alias_of):
+    """노트에 적힌 분야 이름을 subjects.yaml의 대표 이름으로 합친다."""
+    if not alias_of:
+        return domain_of, 0
+    out, merged = {}, 0
+    for label, domain in domain_of.items():
+        canon = alias_of.get(_fold(domain))
+        if canon and canon != domain:
+            merged += 1
+        out[label] = canon or domain
+    return out, merged
+
+
+def propagate_domains(domain_of, edges, labels):
+    """미분류 개념을 선수관계 이웃의 분야로 채운다 — 이웃이 한 분야일 때만."""
+    neighbors = {}
+    for target, prereq in edges:
+        neighbors.setdefault(target, set()).add(prereq)
+        neighbors.setdefault(prereq, set()).add(target)
+
+    filled = {}
+    for label in labels:
+        if domain_of.get(label):
+            continue
+        found = {domain_of[n] for n in neighbors.get(label, ()) if domain_of.get(n)}
+        # 이웃이 두 분야 이상이면 찍지 않는다 — 가로지르는 개념일 수 있고,
+        # 그런 개념을 한쪽으로 밀어 넣으면 "어디에 걸쳐 있나"라는 정보가 사라진다.
+        if len(found) == 1:
+            filled[label] = next(iter(found))
+    domain_of = {**domain_of, **filled}
+    return domain_of, len(filled)
 
 
 def main():
@@ -321,15 +512,20 @@ def main():
         labels.add(p)
     sources = collect_sources(sorted(labels))
 
+    # 분야 정규화 — 별칭 합치기 → 미분류 전파. 둘 다 안전 기본값(못 정하면 안 바꾼다).
+    domain_of, n_merged = normalize_domains(domain_of, load_subjects())
+    domain_of, n_filled = propagate_domains(domain_of, edges, labels | set(domain_of))
+
     data = build(mastery, edges, domain_of, sources)
 
     n = len(data["concepts"])
+    n_drills = len(data["drills"])
     n_edges = sum(len(c["prereq"]) for c in data["concepts"])
     n_mastered = sum(1 for c in data["concepts"] if c["state"] in MASTERED)
     n_sources = sum(len(c["sources"]) for c in data["concepts"])
     n_domains = len({c["domain"] for c in data["concepts"]} - {UNCLASSIFIED})
 
-    if n == 0:
+    if n == 0 and n_drills == 0:
         print("개념 없음 — concepts.json 생성 건너뜀 (mastery.md가 비어 있고 개념 지도도 없음)")
         return 0
 
@@ -339,8 +535,26 @@ def main():
         f"✅ {OUT} — 개념 {n} · 선수관계 {n_edges} · 설명가능 {n_mastered} · "
         f"원문 근거 {n_sources}조각 · 분야 {n_domains}개"
     )
+    if n_drills:
+        print(f"   📇 항목(회상 대상) {n_drills}개는 그래프에서 뺐다 — 그래프는 설명 대상만 담는다.")
+        for d in data["drills"][:6]:
+            print(f"      · {d['label']}  ({d['why_drill']})")
+        if n_drills > 6:
+            print(f"      · … 외 {n_drills - 6}개")
+        print("      개념인데 항목으로 잘못 빠졌다면 `## 개념 지도`에 `그 개념 ← 선수 개념` 한 줄을")
+        print("      남기면 다음 빌드에서 개념으로 돌아온다(위계에 참여하면 항상 개념이다).")
     if n_edges == 0:
         print("   ℹ️  선수관계가 아직 없다. 세션에서 러너가 `## 개념 지도`에 `A ← B` 를 남기면 쌓인다.")
+    if n_merged:
+        print(f"   🔗 분야 별칭 {n_merged}건을 subjects.yaml의 대표 이름으로 합쳤다.")
+    if n_filled:
+        print(f"   🧭 미분류 {n_filled}개를 선수관계 이웃의 분야로 채웠다(이웃이 한 분야일 때만).")
+    n_unclassified = sum(1 for c in data["concepts"] if c["domain"] == UNCLASSIFIED)
+    if n_unclassified:
+        print(
+            f"   ℹ️  아직 미분류 {n_unclassified}개 — 이웃이 여러 분야이거나 연결이 없다. "
+            "찍지 않고 남겨 둔다."
+        )
     if n_domains == 0:
         print("   ℹ️  분야가 아직 없다. `## 개념 지도` 안에 `### 선형대수` 같은 소제목을 두면 분류된다.")
     if n_sources == 0:
