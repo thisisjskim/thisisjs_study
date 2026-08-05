@@ -24,6 +24,12 @@ kind: mastery
 | Test Source | 설명가능 | H | 2026-08-03 | daily/2026-08-03-thevenin-norton-equivalent.md | Dependent source를 유지한 채 전압-전류 응답으로 Rth를 측정하는 이유를 설명함 |
 | Norton Equivalent | 설명가능 | H | 2026-08-04 | daily/2026-08-04-thevenin-norton-review-2.md | Thevenin과의 관계 및 Open/Short의 목적을 자신의 말로 설명함 |
 | Thevenin 알고리즘 | 설명가능 | H | 2026-08-04 | daily/2026-08-04-thevenin-norton-review-2.md | 풀이 순서를 스스로 수정하고 설명함 |
+| Infinite Gain | 설명가능 | H | 2026-08-05 | daily/2026-08-05-op-amp-recovery-start.md | 출력식과 V+=V-의 관계를 설명함 |
+| Input Current = 0 | 설명가능 | H | 2026-08-05 | daily/2026-08-05-op-amp-recovery-start.md | 입력 전류가 0인 이유를 설명함 |
+| Virtual Short | 암기 | H | 2026-08-05 | daily/2026-08-05-op-amp-recovery-start.md | 용어는 기억이 희미하며 Negative Feedback과의 관계를 복원 중 |
+| Comparator | 기억 안 남 | M | 2026-08-05 | daily/2026-08-05-op-amp-recovery-start.md | 다음 세션 복원 대상 |
+| Inverting Amplifier | 암기 | H | 2026-08-05 | daily/2026-08-05-op-amp-recovery-start.md | 회로를 보면 기억날 것으로 판단 |
+| Non-Inverting Amplifier | 암기 | H | 2026-08-05 | daily/2026-08-05-op-amp-recovery-start.md | 회로를 보면 기억날 것으로 판단 |
 <!-- MASTERY-TABLE:END -->
 
 ## 읽는 법

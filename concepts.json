@@ -1,0 +1,1237 @@
+{
+ "concepts": [
+  {
+   "id": "kcl",
+   "label": "KCL",
+   "domain": "전자회로 기초",
+   "state": "암기",
+   "importance": "H",
+   "prereq": [
+    "전하-보존",
+    "노드"
+   ],
+   "sources": [
+    {
+     "file": "daily/2026-08-02-circuit-recovery-scan.md",
+     "kind": "지식",
+     "match": "KCL에서 노드로 들어오는 전류의 합과 나가는 전류의 합이 같다는 계산 원리를 기억하고 있다."
+    },
+    {
+     "file": "daily/2026-08-02-circuit-recovery-scan.md",
+     "kind": "지식",
+     "match": "KCL은 전하 보존과 연결되고, KVL은 에너지 보존과 연결된다는 구분을 보완했다."
+    },
+    {
+     "file": "daily/2026-08-02-circuit-recovery-scan.md",
+     "kind": "내말",
+     "match": "\"KCL은 회로에서 전류에 대한 공식이야. 전류가 들어온 만큼, 전류가 나온다는 것이 기본적인 개념이며, 회로의 특정 부분을 기준으로 전류가 내부로 들어오는 양이 x라고 하면, 외부로 빠져나가는 양도 x로 일정하게 유지됨을 의미해. 그래서 KCL은 회로에서 전류의 입출력과정에서 특정 전류의 값을 모를 때 KCL을 통해 알 수 있지.\""
+    },
+    {
+     "file": "daily/2026-08-02-circuit-recovery-scan.md",
+     "kind": "내말",
+     "match": "\"KCL, KVL모두 전류나 전압이 보존된다는 점에 있어서 에너지보존법칙?과 연결된다고 볼 수도 있을 것 같아.\""
+    },
+    {
+     "file": "daily/2026-08-02-circuit-recovery-scan.md",
+     "kind": "교정",
+     "match": "KCL의 근거를 \"전하는 보존되지 않기 때문\"이라고 말했지만 반대다. KCL은 전하 보존 때문에 성립하며, 정상상태 노드에 전하가 계속 축적되지 않는다는 뜻이다."
+    },
+    {
+     "file": "daily/2026-08-02-circuit-recovery-scan.md",
+     "kind": "취약",
+     "match": "KCL을 전하 보존과 노드의 전하 축적 관점에서 정확히 설명하는 것"
+    },
+    {
+     "file": "daily/2026-08-02-circuit-recovery-scan.md",
+     "kind": "원장",
+     "match": ""
+    }
+   ],
+   "note": "2026-08-02"
+  },
+  {
+   "id": "kvl",
+   "label": "KVL",
+   "domain": "전자회로 기초",
+   "state": "암기",
+   "importance": "H",
+   "prereq": [
+    "에너지-보존",
+    "폐회로"
+   ],
+   "sources": [
+    {
+     "file": "daily/2026-08-02-circuit-recovery-scan.md",
+     "kind": "지식",
+     "match": "KVL에서 하나의 loop를 따라 전압 상승과 전압 강하를 반영하면 전압의 대수합이 0이 된다는 계산 원리를 기억하고 있다."
+    },
+    {
+     "file": "daily/2026-08-02-circuit-recovery-scan.md",
+     "kind": "지식",
+     "match": "KCL은 전하 보존과 연결되고, KVL은 에너지 보존과 연결된다는 구분을 보완했다."
+    },
+    {
+     "file": "daily/2026-08-02-circuit-recovery-scan.md",
+     "kind": "내말",
+     "match": "\"KVL은 전압강하에 대한 내용으로, 하나의 loop에서 주어진 voltage가 있다면, 회로의 한 바퀴를 돌 때 일어나는 전압강하를 다 반영했을 때 V-I1R1-I2R2... = 0이 되는 법칙이야. 이것 역시, 특정 전류나 전압을 알아내기 위해 쓰여.\""
+    },
+    {
+     "file": "daily/2026-08-02-circuit-recovery-scan.md",
+     "kind": "교정",
+     "match": "KVL에서 저항이 전압을 \"할당받는다\"기보다, 전원이 전하에 공급한 에너지가 저항에서 열 등으로 변환되고 한 바퀴 뒤 순에너지 변화가 0이 되기 때문에 전압의 대수합이 0이 된다."
+    },
+    {
+     "file": "daily/2026-08-02-circuit-recovery-scan.md",
+     "kind": "취약",
+     "match": "KVL을 전원의 에너지 공급, 저항에서의 에너지 변환, 한 바퀴 후 순에너지 변화 0으로 연결해 설명하는 것"
+    },
+    {
+     "file": "daily/2026-08-02-circuit-recovery-scan.md",
+     "kind": "퀴즈",
+     "match": "Q2: 에너지 관점에서 저항의 전압 강하와 KVL을 설명하라. / 내 답: \"전하가 저항을 통과하는 과정에서 에너지가 쓰이기 때문이지, 그리고 한 바퀴안에 모든 전압을 저항에 비례하게 할당하여 에너지를 사용하기 때문\" / 채점: 저항에서 에너지가 변환된다는 핵심은 맞음. 한 바퀴 후 순에너지 변화가 0이라는 설명은 보완 필요."
+    },
+    {
+     "file": "daily/2026-08-02-circuit-recovery-scan.md",
+     "kind": "원장",
+     "match": ""
+    }
+   ],
+   "note": "2026-08-02"
+  },
+  {
+   "id": "thevenin-equivalent",
+   "label": "Thevenin Equivalent",
+   "domain": "전자회로",
+   "state": "설명가능",
+   "importance": "H",
+   "prereq": [
+    "단자-관점",
+    "open-circuit-voltage",
+    "등가-저항"
+   ],
+   "sources": [
+    {
+     "file": "daily/2026-08-03-thevenin-norton-equivalent.md",
+     "kind": "지식",
+     "match": "Thevenin Equivalent는 복잡한 회로 전체를 그대로 단순화하는 것이 아니라, RL이 연결될 두 단자에서 본 회로의 특성을 Vth와 Rth로 모델링하는 방법이다."
+    },
+    {
+     "file": "daily/2026-08-03-thevenin-norton-equivalent.md",
+     "kind": "내말",
+     "match": "\"Thevenin Equivalent 이름이 기억나. 대충 그 원리도 알고 있어. 병렬도 연결되어 있는 current source를 전압과 저항의 직렬로 변환시켜서 회로의 이해를 돕는 방법이지. 그런데 내가 Thevenin Equivalent을 이용하여 문제를 푸는 과정이 솔직히 기억이 잘 안나. dependence source, independence source가 섞여 있거나, 이 중 하나만 있거나, 이런 과정마다 Thevenin Equivalent 를 사용하는 방법이 다 달랐던 것 같은데, 이 내용은 기억이 잘 안남. 같은 맥락으로 Norton 도 마찬가지\""
+    },
+    {
+     "file": "daily/2026-08-03-thevenin-norton-equivalent.md",
+     "kind": "교정",
+     "match": "병렬 current source를 직렬 voltage source와 저항으로 바꾸는 것은 Source Transformation이며, Thevenin Equivalent와 관련은 있지만 같은 개념은 아니다."
+    },
+    {
+     "file": "daily/2026-08-03-thevenin-norton-equivalent.md",
+     "kind": "교정",
+     "match": "Thevenin Equivalent의 목적은 특정 RL 하나만 푸는 것이 아니라, RL이 연결될 단자에서 본 원래 회로의 특성을 Vth와 Rth로 모델링하는 것이다."
+    },
+    {
+     "file": "daily/2026-08-03-thevenin-norton-equivalent.md",
+     "kind": "원장",
+     "match": ""
+    }
+   ],
+   "note": "2026-08-03"
+  },
+  {
+   "id": "vth",
+   "label": "Vth",
+   "domain": "회로 등가화",
+   "state": "설명가능",
+   "importance": "H",
+   "prereq": [
+    "open-circuit",
+    "단자-전압"
+   ],
+   "sources": [
+    {
+     "file": "daily/2026-08-03-thevenin-norton-equivalent.md",
+     "kind": "지식",
+     "match": "Thevenin Equivalent는 복잡한 회로 전체를 그대로 단순화하는 것이 아니라, RL이 연결될 두 단자에서 본 회로의 특성을 Vth와 Rth로 모델링하는 방법이다."
+    },
+    {
+     "file": "daily/2026-08-03-thevenin-norton-equivalent.md",
+     "kind": "지식",
+     "match": "Vth는 RL을 떼어낸 Open Circuit 상태의 단자 전압이다. Open Circuit에서는 전류가 0이므로 Rth에서 전압 강하가 없고, 단자 전압이 그대로 Vth가 된다."
+    },
+    {
+     "file": "daily/2026-08-03-thevenin-norton-equivalent.md",
+     "kind": "지식",
+     "match": "Vth와 Rth를 알면 RL이 바뀌어도 직렬회로의 전류와 전압분배를 이용해 RL의 전류와 전압을 계산할 수 있다."
+    },
+    {
+     "file": "daily/2026-08-03-thevenin-norton-equivalent.md",
+     "kind": "내말",
+     "match": "\"오케이 다시 설명해줄게, Vth를 RL을 떼어낸 상태에서 측정하는 이유는, 우리는 RL의 변화에 따라서 RL에 흐르는 전압강하나 전류를 구하고 싶은거야. 그러기 위해서는 RL이 포함되지 않은(떼어낸 상태)의 회로를 먼저 분석해야 해. 그래서 RL이 포함되지 않은 상태에서의 Vth를 측정한 후, 이후 여기에 우리가 궁금한 RL이 부착되었을 때 어떤식으로 변하는지를 측정하는 거야. 나의 설명이 어때\""
+    },
+    {
+     "file": "daily/2026-08-03-thevenin-norton-equivalent.md",
+     "kind": "내말",
+     "match": "\"전압이 떨어진 이유는, 핸드폰 내부 저항으로 인하여 내부 전압강하가 이루어졌기 때문이지. Vth는 핸드폰이 연결되지 이전의 전압이고, 내부 저항이 추가되면 언제든지 바꿀 수 있어\""
+    },
+    {
+     "file": "daily/2026-08-03-thevenin-norton-equivalent.md",
+     "kind": "내말",
+     "match": "\"그 어떤 저항을 연결해도, 그 저항을 연결하기 이전 회로에서의 전압차를 측정하여 그 전압차(Vth)의 특성을 지닌 회로를 분석하기 위해서지. 그 회로에 RL이 붙었을 때 기존 Vth와의 관계를 유도하여 회로를 풀어나갈꺼야\""
+    },
+    {
+     "file": "daily/2026-08-03-thevenin-norton-equivalent.md",
+     "kind": "내말",
+     "match": "\"복잡한 회로에서 만들어내는 전체 전압, 저항을 계산했기 때문에 RL이 왔을 때 Vth와 Rth값을 이용하여 RL에 얼마큼의 전류와 전압강하가 일어나는지 알 수 있어\""
+    },
+    {
+     "file": "daily/2026-08-03-thevenin-norton-equivalent.md",
+     "kind": "교정",
+     "match": "Thevenin Equivalent의 목적은 특정 RL 하나만 푸는 것이 아니라, RL이 연결될 단자에서 본 원래 회로의 특성을 Vth와 Rth로 모델링하는 것이다."
+    },
+    {
+     "file": "daily/2026-08-03-thevenin-norton-equivalent.md",
+     "kind": "취약",
+     "match": "실제 회로에서 Vth와 Rth를 계산하는 문제 풀이 순서"
+    },
+    {
+     "file": "daily/2026-08-03-thevenin-norton-equivalent.md",
+     "kind": "퀴즈",
+     "match": "Q1: 왜 Vth를 Open Circuit에서 구하는가? / 내 답: \"그 어떤 저항을 연결해도, 그 저항을 연결하기 이전 회로에서의 전압차를 측정하여 그 전압차(Vth)의 특성을 지닌 회로를 분석하기 위해서지. 그 회로에 RL이 붙었을 때 기존 Vth와의 관계를 유도하여 회로를 풀어나갈꺼야\" / 채점: 방향은 맞음. Open Circuit에서 I=0이라 Rth의 전압 강하가 0이고 단자 전압이 Vth가 된다는 물리적 이유를 보완함."
+    },
+    {
+     "file": "daily/2026-08-04-thevenin-norton-review-2.md",
+     "kind": "지식",
+     "match": "Thevenin 문제 풀이 순서는 RL 제거(Open Circuit) → Vth 계산 → Independent Source 제거 → Rth 계산 → 등가회로 구성이다."
+    },
+    {
+     "file": "daily/2026-08-04-thevenin-norton-review-2.md",
+     "kind": "지식",
+     "match": "Vth는 Source가 살아있는 원래 회로에서 구해야 한다. Source를 먼저 제거하면 원래 회로의 특성을 잃는다."
+    },
+    {
+     "file": "daily/2026-08-04-thevenin-norton-review-2.md",
+     "kind": "내말",
+     "match": "Independent source를 먼저 제거하고 Rth를 구한 뒤 Vth를 구한다고 설명함."
+    },
+    {
+     "file": "daily/2026-08-04-thevenin-norton-review-2.md",
+     "kind": "교정",
+     "match": "Vth 계산 시에는 Independent Source를 제거하지 않는다."
+    },
+    {
+     "file": "daily/2026-08-03-thevenin-norton-equivalent.md",
+     "kind": "원장",
+     "match": ""
+    }
+   ],
+   "note": "2026-08-03"
+  },
+  {
+   "id": "independent-voltage-source-제거",
+   "label": "Independent voltage source 제거",
+   "domain": "회로 등가화",
+   "state": "설명가능",
+   "importance": "H",
+   "prereq": [
+    "0v-전압원",
+    "short"
+   ],
+   "sources": [
+    {
+     "file": "daily/2026-08-03-thevenin-norton-equivalent.md",
+     "kind": "원장",
+     "match": ""
+    }
+   ],
+   "note": "2026-08-03"
+  },
+  {
+   "id": "independent-current-source-제거",
+   "label": "Independent current source 제거",
+   "domain": "회로 등가화",
+   "state": "설명가능",
+   "importance": "H",
+   "prereq": [
+    "0a-전류원",
+    "open"
+   ],
+   "sources": [
+    {
+     "file": "daily/2026-08-03-thevenin-norton-equivalent.md",
+     "kind": "원장",
+     "match": ""
+    }
+   ],
+   "note": "2026-08-03"
+  },
+  {
+   "id": "test-source",
+   "label": "Test Source",
+   "domain": "회로 등가화",
+   "state": "설명가능",
+   "importance": "H",
+   "prereq": [
+    "dependent-source",
+    "전압-전류-응답"
+   ],
+   "sources": [
+    {
+     "file": "daily/2026-08-03-thevenin-norton-equivalent.md",
+     "kind": "퀴즈",
+     "match": "Q4: 왜 Dependent source가 있으면 Test Source를 사용하는가? / 내 답: \"dependent source가 있을 때, 얘를 들면 V = 2Vx 일때, 우리는 Vx의 값을 몰라. 회로가 복잡하기 때문이지. 그래서 source를 함부로 끌 수 없을 뿐더러, Vx를 0으로 둘 수도 없어. 따라서 test current나 test voltage를 가해줌으로써 이 회로에서 일어나는 상호작용, 즉 전류와 전압의 비를 통해서 저항을 측정하는거야.\" / 채점: 핵심 원리 설명 가능."
+    },
+    {
+     "file": "daily/2026-08-03-thevenin-norton-equivalent.md",
+     "kind": "원장",
+     "match": ""
+    }
+   ],
+   "note": "2026-08-03"
+  },
+  {
+   "id": "norton-equivalent",
+   "label": "Norton Equivalent",
+   "domain": "전자회로",
+   "state": "설명가능",
+   "importance": "H",
+   "prereq": [
+    "thevenin-equivalent",
+    "short-circuit-current",
+    "등가-저항"
+   ],
+   "sources": [
+    {
+     "file": "daily/2026-08-03-thevenin-norton-equivalent.md",
+     "kind": "교정",
+     "match": "Norton Equivalent의 계산 절차와 Short Circuit Current는 아직 직접 검증하지 않았다."
+    },
+    {
+     "file": "daily/2026-08-03-thevenin-norton-equivalent.md",
+     "kind": "취약",
+     "match": "Norton Equivalent의 Short Circuit Current와 Thevenin-Norton 변환"
+    },
+    {
+     "file": "daily/2026-08-03-thevenin-norton-equivalent.md",
+     "kind": "취약",
+     "match": "Source Transformation과 Thevenin/Norton Equivalent의 구분"
+    },
+    {
+     "file": "daily/2026-08-04-thevenin-norton-review-2.md",
+     "kind": "지식",
+     "match": "Norton Equivalent는 Thevenin 이후에 만드는 것이 아니라 같은 회로를 표현하는 또 다른 등가 모델이다."
+    },
+    {
+     "file": "daily/2026-08-04-thevenin-norton-review-2.md",
+     "kind": "원장",
+     "match": ""
+    }
+   ],
+   "note": "2026-08-04"
+  },
+  {
+   "id": "thevenin-알고리즘",
+   "label": "Thevenin 알고리즘",
+   "domain": "미분류",
+   "state": "설명가능",
+   "importance": "H",
+   "prereq": [],
+   "sources": [
+    {
+     "file": "daily/2026-08-04-thevenin-norton-review-2.md",
+     "kind": "원장",
+     "match": ""
+    }
+   ],
+   "note": "2026-08-04"
+  },
+  {
+   "id": "infinite-gain",
+   "label": "Infinite Gain",
+   "domain": "전자회로",
+   "state": "설명가능",
+   "importance": "H",
+   "prereq": [
+    "operational-amplifier"
+   ],
+   "sources": [
+    {
+     "file": "daily/2026-08-05-op-amp-recovery-start.md",
+     "kind": "지식",
+     "match": "Infinite Gain 자체 때문에 항상 V+ = V-가 되는 것이 아니라,"
+    },
+    {
+     "file": "daily/2026-08-05-op-amp-recovery-start.md",
+     "kind": "교정",
+     "match": "\"Infinite Gain이라서 항상 V+=V-\"는 정확하지 않다."
+    },
+    {
+     "file": "daily/2026-08-05-op-amp-recovery-start.md",
+     "kind": "원장",
+     "match": ""
+    }
+   ],
+   "note": "2026-08-05"
+  },
+  {
+   "id": "input-current-0",
+   "label": "Input Current = 0",
+   "domain": "전자회로",
+   "state": "설명가능",
+   "importance": "H",
+   "prereq": [
+    "infinite-input-resistance"
+   ],
+   "sources": [
+    {
+     "file": "daily/2026-08-05-op-amp-recovery-start.md",
+     "kind": "지식",
+     "match": "Input Current = 0은"
+    },
+    {
+     "file": "daily/2026-08-05-op-amp-recovery-start.md",
+     "kind": "내말",
+     "match": "\"Input Current = 0 : 이것역시 Op-Amp로 들어가는 current의 양은 0으로 두고 회로를 이해하는 것.\""
+    },
+    {
+     "file": "daily/2026-08-05-op-amp-recovery-start.md",
+     "kind": "원장",
+     "match": ""
+    }
+   ],
+   "note": "2026-08-05"
+  },
+  {
+   "id": "virtual-short",
+   "label": "Virtual Short",
+   "domain": "전자회로",
+   "state": "암기",
+   "importance": "H",
+   "prereq": [
+    "negative-feedback",
+    "infinite-gain"
+   ],
+   "sources": [
+    {
+     "file": "daily/2026-08-05-op-amp-recovery-start.md",
+     "kind": "지식",
+     "match": "Virtual Short는"
+    },
+    {
+     "file": "daily/2026-08-05-op-amp-recovery-start.md",
+     "kind": "지식",
+     "match": "진짜 Short와 Virtual Short의 차이"
+    },
+    {
+     "file": "daily/2026-08-05-op-amp-recovery-start.md",
+     "kind": "지식",
+     "match": "Virtual Short : 전압은 거의 같지만 입력 전류는 0이다."
+    },
+    {
+     "file": "daily/2026-08-05-op-amp-recovery-start.md",
+     "kind": "교정",
+     "match": "Negative Feedback이 존재해야 Virtual Short를 사용할 수 있다."
+    },
+    {
+     "file": "daily/2026-08-05-op-amp-recovery-start.md",
+     "kind": "취약",
+     "match": "Virtual Short를 자신의 말로 설명하기"
+    },
+    {
+     "file": "daily/2026-08-05-op-amp-recovery-start.md",
+     "kind": "퀴즈",
+     "match": "Q1 : 왜 Virtual Short는 Short가 아닌가?"
+    },
+    {
+     "file": "daily/2026-08-05-op-amp-recovery-start.md",
+     "kind": "원장",
+     "match": ""
+    }
+   ],
+   "note": "2026-08-05"
+  },
+  {
+   "id": "comparator",
+   "label": "Comparator",
+   "domain": "전자회로",
+   "state": "기억 안 남",
+   "importance": "M",
+   "prereq": [
+    "open-loop-operational-amplifier"
+   ],
+   "sources": [
+    {
+     "file": "daily/2026-08-05-op-amp-recovery-start.md",
+     "kind": "내말",
+     "match": "\"Comparator : 비교자? 잘 기억안남.\""
+    },
+    {
+     "file": "daily/2026-08-05-op-amp-recovery-start.md",
+     "kind": "교정",
+     "match": "Comparator에서는 Negative Feedback이 없기 때문에"
+    },
+    {
+     "file": "daily/2026-08-05-op-amp-recovery-start.md",
+     "kind": "교정",
+     "match": "Comparator는 다음 세션에서 복원하기로 한다."
+    },
+    {
+     "file": "daily/2026-08-05-op-amp-recovery-start.md",
+     "kind": "취약",
+     "match": "Comparator"
+    },
+    {
+     "file": "daily/2026-08-05-op-amp-recovery-start.md",
+     "kind": "원장",
+     "match": ""
+    }
+   ],
+   "note": "2026-08-05"
+  },
+  {
+   "id": "inverting-amplifier",
+   "label": "Inverting Amplifier",
+   "domain": "전자회로",
+   "state": "암기",
+   "importance": "H",
+   "prereq": [
+    "virtual-short",
+    "negative-feedback"
+   ],
+   "sources": [
+    {
+     "file": "daily/2026-08-05-op-amp-recovery-start.md",
+     "kind": "취약",
+     "match": "Inverting Amplifier"
+    },
+    {
+     "file": "daily/2026-08-05-op-amp-recovery-start.md",
+     "kind": "원장",
+     "match": ""
+    }
+   ],
+   "note": "2026-08-05"
+  },
+  {
+   "id": "non-inverting-amplifier",
+   "label": "Non-Inverting Amplifier",
+   "domain": "전자회로",
+   "state": "암기",
+   "importance": "H",
+   "prereq": [
+    "virtual-short",
+    "negative-feedback"
+   ],
+   "sources": [
+    {
+     "file": "daily/2026-08-05-op-amp-recovery-start.md",
+     "kind": "취약",
+     "match": "Non-Inverting Amplifier"
+    },
+    {
+     "file": "daily/2026-08-05-op-amp-recovery-start.md",
+     "kind": "원장",
+     "match": ""
+    }
+   ],
+   "note": "2026-08-05"
+  },
+  {
+   "id": "전하-보존",
+   "label": "전하 보존",
+   "domain": "전자회로 기초",
+   "state": "미학습",
+   "importance": "M",
+   "prereq": [],
+   "sources": [
+    {
+     "file": "daily/2026-08-02-circuit-recovery-scan.md",
+     "kind": "지식",
+     "match": "KCL은 전하 보존과 연결되고, KVL은 에너지 보존과 연결된다는 구분을 보완했다."
+    },
+    {
+     "file": "daily/2026-08-02-circuit-recovery-scan.md",
+     "kind": "교정",
+     "match": "KCL의 근거를 \"전하는 보존되지 않기 때문\"이라고 말했지만 반대다. KCL은 전하 보존 때문에 성립하며, 정상상태 노드에 전하가 계속 축적되지 않는다는 뜻이다."
+    },
+    {
+     "file": "daily/2026-08-02-circuit-recovery-scan.md",
+     "kind": "취약",
+     "match": "KCL을 전하 보존과 노드의 전하 축적 관점에서 정확히 설명하는 것"
+    },
+    {
+     "file": "daily/2026-08-02-circuit-recovery-scan.md",
+     "kind": "퀴즈",
+     "match": "Q1: 노드로 2A와 3A가 들어오고 4A가 나갈 때 남은 가지 전류는 얼마이며 왜 그런가? / 내 답: \"1A가 흘러야 하지, 왜냐면 전하는 보존되지 않기 때문\" / 채점: 수치는 정답. 근거는 반대로 말했으며 전하 보존 때문에 1A가 나가야 한다."
+    }
+   ],
+   "note": ""
+  },
+  {
+   "id": "노드",
+   "label": "노드",
+   "domain": "전자회로 기초",
+   "state": "미학습",
+   "importance": "M",
+   "prereq": [],
+   "sources": [
+    {
+     "file": "daily/2026-08-02-circuit-recovery-scan.md",
+     "kind": "지식",
+     "match": "KCL에서 노드로 들어오는 전류의 합과 나가는 전류의 합이 같다는 계산 원리를 기억하고 있다."
+    },
+    {
+     "file": "daily/2026-08-02-circuit-recovery-scan.md",
+     "kind": "교정",
+     "match": "KCL의 근거를 \"전하는 보존되지 않기 때문\"이라고 말했지만 반대다. KCL은 전하 보존 때문에 성립하며, 정상상태 노드에 전하가 계속 축적되지 않는다는 뜻이다."
+    },
+    {
+     "file": "daily/2026-08-02-circuit-recovery-scan.md",
+     "kind": "취약",
+     "match": "KCL을 전하 보존과 노드의 전하 축적 관점에서 정확히 설명하는 것"
+    },
+    {
+     "file": "daily/2026-08-02-circuit-recovery-scan.md",
+     "kind": "퀴즈",
+     "match": "Q1: 노드로 2A와 3A가 들어오고 4A가 나갈 때 남은 가지 전류는 얼마이며 왜 그런가? / 내 답: \"1A가 흘러야 하지, 왜냐면 전하는 보존되지 않기 때문\" / 채점: 수치는 정답. 근거는 반대로 말했으며 전하 보존 때문에 1A가 나가야 한다."
+    }
+   ],
+   "note": ""
+  },
+  {
+   "id": "에너지-보존",
+   "label": "에너지 보존",
+   "domain": "전자회로 기초",
+   "state": "미학습",
+   "importance": "M",
+   "prereq": [],
+   "sources": [
+    {
+     "file": "daily/2026-08-02-circuit-recovery-scan.md",
+     "kind": "지식",
+     "match": "KCL은 전하 보존과 연결되고, KVL은 에너지 보존과 연결된다는 구분을 보완했다."
+    }
+   ],
+   "note": ""
+  },
+  {
+   "id": "폐회로",
+   "label": "폐회로",
+   "domain": "전자회로 기초",
+   "state": "미학습",
+   "importance": "M",
+   "prereq": [],
+   "sources": [],
+   "note": ""
+  },
+  {
+   "id": "node-analysis",
+   "label": "Node Analysis",
+   "domain": "전자회로 기초",
+   "state": "미학습",
+   "importance": "M",
+   "prereq": [
+    "kcl",
+    "기준-노드",
+    "node-voltage"
+   ],
+   "sources": [
+    {
+     "file": "daily/2026-08-02-circuit-recovery-scan.md",
+     "kind": "지식",
+     "match": "Node Analysis에서 GND, node voltage, supernode를 사용해 회로의 특정 전류나 전압을 계산한다는 내용은 단서를 주면 기억난다."
+    },
+    {
+     "file": "daily/2026-08-02-circuit-recovery-scan.md",
+     "kind": "취약",
+     "match": "Node Analysis, supernode는 인지 수준으로 확인했지만 아직 스스로 적용하거나 설명하는 검증은 하지 않음"
+    }
+   ],
+   "note": ""
+  },
+  {
+   "id": "기준-노드",
+   "label": "기준 노드",
+   "domain": "전자회로 기초",
+   "state": "미학습",
+   "importance": "M",
+   "prereq": [],
+   "sources": [],
+   "note": ""
+  },
+  {
+   "id": "node-voltage",
+   "label": "node voltage",
+   "domain": "전자회로 기초",
+   "state": "미학습",
+   "importance": "M",
+   "prereq": [],
+   "sources": [
+    {
+     "file": "daily/2026-08-02-circuit-recovery-scan.md",
+     "kind": "지식",
+     "match": "Node Analysis에서 GND, node voltage, supernode를 사용해 회로의 특정 전류나 전압을 계산한다는 내용은 단서를 주면 기억난다."
+    },
+    {
+     "file": "daily/2026-08-02-circuit-recovery-scan.md",
+     "kind": "내말",
+     "match": "\"이건 기억나. GND도 알고, node voltage, supernode 에 개념도 알어. 회로에서 특정 전류나 전압을 계산하는 과정은 알아.\""
+    }
+   ],
+   "note": ""
+  },
+  {
+   "id": "supernode",
+   "label": "supernode",
+   "domain": "전자회로 기초",
+   "state": "미학습",
+   "importance": "M",
+   "prereq": [
+    "node-analysis",
+    "전압원"
+   ],
+   "sources": [
+    {
+     "file": "daily/2026-08-02-circuit-recovery-scan.md",
+     "kind": "지식",
+     "match": "Node Analysis에서 GND, node voltage, supernode를 사용해 회로의 특정 전류나 전압을 계산한다는 내용은 단서를 주면 기억난다."
+    },
+    {
+     "file": "daily/2026-08-02-circuit-recovery-scan.md",
+     "kind": "내말",
+     "match": "\"이건 기억나. GND도 알고, node voltage, supernode 에 개념도 알어. 회로에서 특정 전류나 전압을 계산하는 과정은 알아.\""
+    },
+    {
+     "file": "daily/2026-08-02-circuit-recovery-scan.md",
+     "kind": "취약",
+     "match": "Node Analysis, supernode는 인지 수준으로 확인했지만 아직 스스로 적용하거나 설명하는 검증은 하지 않음"
+    }
+   ],
+   "note": ""
+  },
+  {
+   "id": "전압원",
+   "label": "전압원",
+   "domain": "전자회로 기초",
+   "state": "미학습",
+   "importance": "M",
+   "prereq": [],
+   "sources": [
+    {
+     "file": "daily/2026-08-04-thevenin-norton-review-2.md",
+     "kind": "지식",
+     "match": "Norton은 Short Circuit Current를 이용해 전류원을 대표하며, Thevenin은 Open Circuit Voltage를 이용해 전압원을 대표한다."
+    }
+   ],
+   "note": ""
+  },
+  {
+   "id": "단자-관점",
+   "label": "단자 관점",
+   "domain": "전자회로",
+   "state": "미학습",
+   "importance": "M",
+   "prereq": [],
+   "sources": [],
+   "note": ""
+  },
+  {
+   "id": "open-circuit-voltage",
+   "label": "Open Circuit Voltage",
+   "domain": "전자회로",
+   "state": "미학습",
+   "importance": "M",
+   "prereq": [
+    "vth"
+   ],
+   "sources": [
+    {
+     "file": "daily/2026-08-04-thevenin-norton-review-2.md",
+     "kind": "지식",
+     "match": "Norton은 Short Circuit Current를 이용해 전류원을 대표하며, Thevenin은 Open Circuit Voltage를 이용해 전압원을 대표한다."
+    }
+   ],
+   "note": ""
+  },
+  {
+   "id": "등가-저항",
+   "label": "등가 저항",
+   "domain": "전자회로",
+   "state": "미학습",
+   "importance": "M",
+   "prereq": [],
+   "sources": [
+    {
+     "file": "daily/2026-08-03-thevenin-norton-equivalent.md",
+     "kind": "교정",
+     "match": "\"복잡한 회로의 전체 전압과 전체 저항\"보다는 \"RL이 연결될 단자에서 본 등가 전압과 등가 저항\"이라고 표현해야 정확하다."
+    }
+   ],
+   "note": ""
+  },
+  {
+   "id": "open-circuit",
+   "label": "Open Circuit",
+   "domain": "회로 등가화",
+   "state": "미학습",
+   "importance": "M",
+   "prereq": [],
+   "sources": [
+    {
+     "file": "daily/2026-08-03-thevenin-norton-equivalent.md",
+     "kind": "지식",
+     "match": "Vth는 RL을 떼어낸 Open Circuit 상태의 단자 전압이다. Open Circuit에서는 전류가 0이므로 Rth에서 전압 강하가 없고, 단자 전압이 그대로 Vth가 된다."
+    },
+    {
+     "file": "daily/2026-08-03-thevenin-norton-equivalent.md",
+     "kind": "퀴즈",
+     "match": "Q1: 왜 Vth를 Open Circuit에서 구하는가? / 내 답: \"그 어떤 저항을 연결해도, 그 저항을 연결하기 이전 회로에서의 전압차를 측정하여 그 전압차(Vth)의 특성을 지닌 회로를 분석하기 위해서지. 그 회로에 RL이 붙었을 때 기존 Vth와의 관계를 유도하여 회로를 풀어나갈꺼야\" / 채점: 방향은 맞음. Open Circuit에서 I=0이라 Rth의 전압 강하가 0이고 단자 전압이 Vth가 된다는 물리적 이유를 보완함."
+    },
+    {
+     "file": "daily/2026-08-04-thevenin-norton-review-2.md",
+     "kind": "지식",
+     "match": "Thevenin 문제 풀이 순서는 RL 제거(Open Circuit) → Vth 계산 → Independent Source 제거 → Rth 계산 → 등가회로 구성이다."
+    },
+    {
+     "file": "daily/2026-08-04-thevenin-norton-review-2.md",
+     "kind": "지식",
+     "match": "Open Circuit은 회로가 만들어내는 단자 전압을 측정하기 위한 상태이고, Short Circuit은 회로가 공급할 수 있는 단자 전류를 측정하기 위한 상태이다."
+    }
+   ],
+   "note": ""
+  },
+  {
+   "id": "단자-전압",
+   "label": "단자 전압",
+   "domain": "회로 등가화",
+   "state": "미학습",
+   "importance": "M",
+   "prereq": [],
+   "sources": [
+    {
+     "file": "daily/2026-08-03-thevenin-norton-equivalent.md",
+     "kind": "지식",
+     "match": "Vth는 RL을 떼어낸 Open Circuit 상태의 단자 전압이다. Open Circuit에서는 전류가 0이므로 Rth에서 전압 강하가 없고, 단자 전압이 그대로 Vth가 된다."
+    },
+    {
+     "file": "daily/2026-08-03-thevenin-norton-equivalent.md",
+     "kind": "퀴즈",
+     "match": "Q1: 왜 Vth를 Open Circuit에서 구하는가? / 내 답: \"그 어떤 저항을 연결해도, 그 저항을 연결하기 이전 회로에서의 전압차를 측정하여 그 전압차(Vth)의 특성을 지닌 회로를 분석하기 위해서지. 그 회로에 RL이 붙었을 때 기존 Vth와의 관계를 유도하여 회로를 풀어나갈꺼야\" / 채점: 방향은 맞음. Open Circuit에서 I=0이라 Rth의 전압 강하가 0이고 단자 전압이 Vth가 된다는 물리적 이유를 보완함."
+    },
+    {
+     "file": "daily/2026-08-04-thevenin-norton-review-2.md",
+     "kind": "지식",
+     "match": "Open Circuit은 회로가 만들어내는 단자 전압을 측정하기 위한 상태이고, Short Circuit은 회로가 공급할 수 있는 단자 전류를 측정하기 위한 상태이다."
+    }
+   ],
+   "note": ""
+  },
+  {
+   "id": "rth",
+   "label": "Rth",
+   "domain": "회로 등가화",
+   "state": "미학습",
+   "importance": "M",
+   "prereq": [
+    "independent-source-제거",
+    "test-source"
+   ],
+   "sources": [
+    {
+     "file": "daily/2026-08-03-thevenin-norton-equivalent.md",
+     "kind": "지식",
+     "match": "Thevenin Equivalent는 복잡한 회로 전체를 그대로 단순화하는 것이 아니라, RL이 연결될 두 단자에서 본 회로의 특성을 Vth와 Rth로 모델링하는 방법이다."
+    },
+    {
+     "file": "daily/2026-08-03-thevenin-norton-equivalent.md",
+     "kind": "지식",
+     "match": "Vth는 RL을 떼어낸 Open Circuit 상태의 단자 전압이다. Open Circuit에서는 전류가 0이므로 Rth에서 전압 강하가 없고, 단자 전압이 그대로 Vth가 된다."
+    },
+    {
+     "file": "daily/2026-08-03-thevenin-norton-equivalent.md",
+     "kind": "지식",
+     "match": "Vth와 Rth를 알면 RL이 바뀌어도 직렬회로의 전류와 전압분배를 이용해 RL의 전류와 전압을 계산할 수 있다."
+    },
+    {
+     "file": "daily/2026-08-03-thevenin-norton-equivalent.md",
+     "kind": "지식",
+     "match": "Dependent source가 있는 회로에서는 test voltage 또는 test current를 가하고, 회로의 응답에서 전압과 전류의 비를 구해 Rth를 측정한다."
+    },
+    {
+     "file": "daily/2026-08-03-thevenin-norton-equivalent.md",
+     "kind": "교정",
+     "match": "Thevenin Equivalent의 목적은 특정 RL 하나만 푸는 것이 아니라, RL이 연결될 단자에서 본 원래 회로의 특성을 Vth와 Rth로 모델링하는 것이다."
+    },
+    {
+     "file": "daily/2026-08-03-thevenin-norton-equivalent.md",
+     "kind": "교정",
+     "match": "휴대폰 연결 후 전압이 감소하는 Thevenin 예시에서는 휴대폰 내부저항이 아니라 전원 쪽의 Rth에서 전압 강하가 생긴다고 봐야 한다."
+    },
+    {
+     "file": "daily/2026-08-03-thevenin-norton-equivalent.md",
+     "kind": "취약",
+     "match": "실제 회로에서 Vth와 Rth를 계산하는 문제 풀이 순서"
+    },
+    {
+     "file": "daily/2026-08-03-thevenin-norton-equivalent.md",
+     "kind": "퀴즈",
+     "match": "Q1: 왜 Vth를 Open Circuit에서 구하는가? / 내 답: \"그 어떤 저항을 연결해도, 그 저항을 연결하기 이전 회로에서의 전압차를 측정하여 그 전압차(Vth)의 특성을 지닌 회로를 분석하기 위해서지. 그 회로에 RL이 붙었을 때 기존 Vth와의 관계를 유도하여 회로를 풀어나갈꺼야\" / 채점: 방향은 맞음. Open Circuit에서 I=0이라 Rth의 전압 강하가 0이고 단자 전압이 Vth가 된다는 물리적 이유를 보완함."
+    },
+    {
+     "file": "daily/2026-08-04-thevenin-norton-review-2.md",
+     "kind": "내말",
+     "match": "Independent source를 먼저 제거하고 Rth를 구한 뒤 Vth를 구한다고 설명함."
+    },
+    {
+     "file": "daily/2026-08-04-thevenin-norton-review-2.md",
+     "kind": "교정",
+     "match": "Source 제거는 Rth를 구할 때만 수행한다."
+    }
+   ],
+   "note": ""
+  },
+  {
+   "id": "independent-source-제거",
+   "label": "Independent source 제거",
+   "domain": "회로 등가화",
+   "state": "미학습",
+   "importance": "M",
+   "prereq": [
+    "rth-계산"
+   ],
+   "sources": [],
+   "note": ""
+  },
+  {
+   "id": "0v-전압원",
+   "label": "0V 전압원",
+   "domain": "회로 등가화",
+   "state": "미학습",
+   "importance": "M",
+   "prereq": [],
+   "sources": [
+    {
+     "file": "daily/2026-08-03-thevenin-norton-equivalent.md",
+     "kind": "내말",
+     "match": "\"0V 전압원은 사실상 전압강하가 일어나지 않고, 이는 저항이 없는 전류의 흐름으로 이해할 수 있기 때문에 단순한 도선으로 생각하여 short라고 판단할 수 있기 때문이야\""
+    },
+    {
+     "file": "daily/2026-08-03-thevenin-norton-equivalent.md",
+     "kind": "교정",
+     "match": "0V 전압원이 Short인 핵심 이유는 저항이 0이라고 가정해서가 아니라, 양단 전위차를 항상 0V로 강제해 이상적인 도선과 구별되지 않기 때문이다."
+    },
+    {
+     "file": "daily/2026-08-03-thevenin-norton-equivalent.md",
+     "kind": "퀴즈",
+     "match": "Q2: 왜 0V 전압원은 Short인가? / 내 답: \"0V 전압원은 사실상 전압강하가 일어나지 않고, 이는 저항이 없는 전류의 흐름으로 이해할 수 있기 때문에 단순한 도선으로 생각하여 short라고 판단할 수 있기 때문이야\" / 채점: 핵심 정답. 양단 전위차를 항상 0V로 강제한다는 표현으로 보완함."
+    }
+   ],
+   "note": ""
+  },
+  {
+   "id": "short",
+   "label": "Short",
+   "domain": "회로 등가화",
+   "state": "미학습",
+   "importance": "M",
+   "prereq": [],
+   "sources": [
+    {
+     "file": "daily/2026-08-03-thevenin-norton-equivalent.md",
+     "kind": "지식",
+     "match": "Independent voltage source를 0V로 만들면 양단 전위차가 0이 되어 Short와 동일하게 동작한다."
+    },
+    {
+     "file": "daily/2026-08-03-thevenin-norton-equivalent.md",
+     "kind": "교정",
+     "match": "0V 전압원이 Short인 핵심 이유는 저항이 0이라고 가정해서가 아니라, 양단 전위차를 항상 0V로 강제해 이상적인 도선과 구별되지 않기 때문이다."
+    },
+    {
+     "file": "daily/2026-08-03-thevenin-norton-equivalent.md",
+     "kind": "퀴즈",
+     "match": "Q2: 왜 0V 전압원은 Short인가? / 내 답: \"0V 전압원은 사실상 전압강하가 일어나지 않고, 이는 저항이 없는 전류의 흐름으로 이해할 수 있기 때문에 단순한 도선으로 생각하여 short라고 판단할 수 있기 때문이야\" / 채점: 핵심 정답. 양단 전위차를 항상 0V로 강제한다는 표현으로 보완함."
+    },
+    {
+     "file": "daily/2026-08-04-thevenin-norton-review-2.md",
+     "kind": "지식",
+     "match": "Open Circuit은 회로가 만들어내는 단자 전압을 측정하기 위한 상태이고, Short Circuit은 회로가 공급할 수 있는 단자 전류를 측정하기 위한 상태이다."
+    },
+    {
+     "file": "daily/2026-08-05-op-amp-recovery-start.md",
+     "kind": "지식",
+     "match": "Short : 전압이 같고 전류도 흐를 수 있다."
+    }
+   ],
+   "note": ""
+  },
+  {
+   "id": "0a-전류원",
+   "label": "0A 전류원",
+   "domain": "회로 등가화",
+   "state": "미학습",
+   "importance": "M",
+   "prereq": [],
+   "sources": [
+    {
+     "file": "daily/2026-08-03-thevenin-norton-equivalent.md",
+     "kind": "내말",
+     "match": "\"0A 전류원은 전류가 흐르지 않는 상태이기 때문에, 이는 open과 다름이 없지\""
+    },
+    {
+     "file": "daily/2026-08-03-thevenin-norton-equivalent.md",
+     "kind": "퀴즈",
+     "match": "Q3: 왜 0A 전류원은 Open인가? / 내 답: \"0A 전류원은 전류가 흐르지 않는 상태이기 때문에, 이는 open과 다름이 없지\" / 채점: 정답."
+    }
+   ],
+   "note": ""
+  },
+  {
+   "id": "open",
+   "label": "Open",
+   "domain": "회로 등가화",
+   "state": "미학습",
+   "importance": "M",
+   "prereq": [],
+   "sources": [
+    {
+     "file": "daily/2026-08-03-thevenin-norton-equivalent.md",
+     "kind": "지식",
+     "match": "Independent current source를 0A로 만들면 해당 가지에 전류가 흐르지 않아 Open과 동일하게 동작한다."
+    },
+    {
+     "file": "daily/2026-08-03-thevenin-norton-equivalent.md",
+     "kind": "퀴즈",
+     "match": "Q3: 왜 0A 전류원은 Open인가? / 내 답: \"0A 전류원은 전류가 흐르지 않는 상태이기 때문에, 이는 open과 다름이 없지\" / 채점: 정답."
+    }
+   ],
+   "note": ""
+  },
+  {
+   "id": "dependent-source",
+   "label": "Dependent source",
+   "domain": "회로 등가화",
+   "state": "미학습",
+   "importance": "M",
+   "prereq": [],
+   "sources": [
+    {
+     "file": "daily/2026-08-03-thevenin-norton-equivalent.md",
+     "kind": "지식",
+     "match": "Dependent source는 회로 내부 변수 Vx나 Ix에 따라 값이 정해지므로 임의로 끌 수 없다."
+    },
+    {
+     "file": "daily/2026-08-03-thevenin-norton-equivalent.md",
+     "kind": "지식",
+     "match": "Dependent source가 있는 회로에서는 test voltage 또는 test current를 가하고, 회로의 응답에서 전압과 전류의 비를 구해 Rth를 측정한다."
+    },
+    {
+     "file": "daily/2026-08-03-thevenin-norton-equivalent.md",
+     "kind": "취약",
+     "match": "Independent source만 있는 회로와 Dependent source가 포함된 회로의 적용"
+    },
+    {
+     "file": "daily/2026-08-03-thevenin-norton-equivalent.md",
+     "kind": "퀴즈",
+     "match": "Q4: 왜 Dependent source가 있으면 Test Source를 사용하는가? / 내 답: \"dependent source가 있을 때, 얘를 들면 V = 2Vx 일때, 우리는 Vx의 값을 몰라. 회로가 복잡하기 때문이지. 그래서 source를 함부로 끌 수 없을 뿐더러, Vx를 0으로 둘 수도 없어. 따라서 test current나 test voltage를 가해줌으로써 이 회로에서 일어나는 상호작용, 즉 전류와 전압의 비를 통해서 저항을 측정하는거야.\" / 채점: 핵심 원리 설명 가능."
+    }
+   ],
+   "note": ""
+  },
+  {
+   "id": "전압-전류-응답",
+   "label": "전압-전류 응답",
+   "domain": "회로 등가화",
+   "state": "미학습",
+   "importance": "M",
+   "prereq": [],
+   "sources": [],
+   "note": ""
+  },
+  {
+   "id": "short-circuit-current",
+   "label": "Short Circuit Current",
+   "domain": "전자회로",
+   "state": "미학습",
+   "importance": "M",
+   "prereq": [
+    "in"
+   ],
+   "sources": [
+    {
+     "file": "daily/2026-08-03-thevenin-norton-equivalent.md",
+     "kind": "교정",
+     "match": "Norton Equivalent의 계산 절차와 Short Circuit Current는 아직 직접 검증하지 않았다."
+    },
+    {
+     "file": "daily/2026-08-03-thevenin-norton-equivalent.md",
+     "kind": "취약",
+     "match": "Norton Equivalent의 Short Circuit Current와 Thevenin-Norton 변환"
+    },
+    {
+     "file": "daily/2026-08-04-thevenin-norton-review-2.md",
+     "kind": "지식",
+     "match": "Norton은 Short Circuit Current를 이용해 전류원을 대표하며, Thevenin은 Open Circuit Voltage를 이용해 전압원을 대표한다."
+    }
+   ],
+   "note": ""
+  },
+  {
+   "id": "source-transformation",
+   "label": "Source Transformation",
+   "domain": "회로 등가화",
+   "state": "미학습",
+   "importance": "M",
+   "prereq": [
+    "전압원-전류원-변환"
+   ],
+   "sources": [
+    {
+     "file": "daily/2026-08-03-thevenin-norton-equivalent.md",
+     "kind": "교정",
+     "match": "병렬 current source를 직렬 voltage source와 저항으로 바꾸는 것은 Source Transformation이며, Thevenin Equivalent와 관련은 있지만 같은 개념은 아니다."
+    },
+    {
+     "file": "daily/2026-08-03-thevenin-norton-equivalent.md",
+     "kind": "취약",
+     "match": "Source Transformation과 Thevenin/Norton Equivalent의 구분"
+    }
+   ],
+   "note": ""
+  },
+  {
+   "id": "전압원-전류원-변환",
+   "label": "전압원-전류원 변환",
+   "domain": "회로 등가화",
+   "state": "미학습",
+   "importance": "M",
+   "prereq": [],
+   "sources": [],
+   "note": ""
+  },
+  {
+   "id": "in",
+   "label": "In",
+   "domain": "전자회로",
+   "state": "미학습",
+   "importance": "M",
+   "prereq": [],
+   "sources": [],
+   "note": ""
+  },
+  {
+   "id": "independent-source-제거",
+   "label": "Independent Source 제거",
+   "domain": "전자회로",
+   "state": "미학습",
+   "importance": "M",
+   "prereq": [
+    "rth-계산"
+   ],
+   "sources": [
+    {
+     "file": "daily/2026-08-04-thevenin-norton-review-2.md",
+     "kind": "지식",
+     "match": "Thevenin 문제 풀이 순서는 RL 제거(Open Circuit) → Vth 계산 → Independent Source 제거 → Rth 계산 → 등가회로 구성이다."
+    }
+   ],
+   "note": ""
+  },
+  {
+   "id": "rth-계산",
+   "label": "Rth 계산",
+   "domain": "전자회로",
+   "state": "미학습",
+   "importance": "M",
+   "prereq": [],
+   "sources": [
+    {
+     "file": "daily/2026-08-04-thevenin-norton-review-2.md",
+     "kind": "지식",
+     "match": "Thevenin 문제 풀이 순서는 RL 제거(Open Circuit) → Vth 계산 → Independent Source 제거 → Rth 계산 → 등가회로 구성이다."
+    }
+   ],
+   "note": ""
+  },
+  {
+   "id": "operational-amplifier",
+   "label": "Operational Amplifier",
+   "domain": "전자회로",
+   "state": "미학습",
+   "importance": "M",
+   "prereq": [
+    "differential-amplifier"
+   ],
+   "sources": [],
+   "note": ""
+  },
+  {
+   "id": "differential-amplifier",
+   "label": "Differential Amplifier",
+   "domain": "전자회로",
+   "state": "미학습",
+   "importance": "M",
+   "prereq": [],
+   "sources": [],
+   "note": ""
+  },
+  {
+   "id": "infinite-input-resistance",
+   "label": "Infinite Input Resistance",
+   "domain": "전자회로",
+   "state": "미학습",
+   "importance": "M",
+   "prereq": [],
+   "sources": [],
+   "note": ""
+  },
+  {
+   "id": "negative-feedback",
+   "label": "Negative Feedback",
+   "domain": "전자회로",
+   "state": "미학습",
+   "importance": "M",
+   "prereq": [
+    "operational-amplifier"
+   ],
+   "sources": [
+    {
+     "file": "daily/2026-08-05-op-amp-recovery-start.md",
+     "kind": "교정",
+     "match": "Negative Feedback이 존재해야 Virtual Short를 사용할 수 있다."
+    },
+    {
+     "file": "daily/2026-08-05-op-amp-recovery-start.md",
+     "kind": "교정",
+     "match": "Comparator에서는 Negative Feedback이 없기 때문에"
+    },
+    {
+     "file": "daily/2026-08-05-op-amp-recovery-start.md",
+     "kind": "취약",
+     "match": "Negative Feedback의 역할"
+    }
+   ],
+   "note": ""
+  },
+  {
+   "id": "open-loop-operational-amplifier",
+   "label": "Open-loop Operational Amplifier",
+   "domain": "전자회로",
+   "state": "미학습",
+   "importance": "M",
+   "prereq": [],
+   "sources": [],
+   "note": ""
+  },
+  {
+   "id": "아래-헤딩은-수집기가-자동-보정했다-세션에-실제-기록이-없었다는-뜻이다",
+   "label": "> ⚠️ 아래 헤딩은 수집기가 자동 보정했다 — 세션에 실제 기록이 없었다는 뜻이다.",
+   "domain": "전자회로",
+   "state": "미학습",
+   "importance": "M",
+   "prereq": [],
+   "sources": [],
+   "note": ""
+  }
+ ],
+ "drills": []
+}

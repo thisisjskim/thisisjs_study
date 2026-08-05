@@ -21,19 +21,29 @@ kind: status
 
 ## 🎯 오늘의 추천 목표 — 오늘 할 것 (15~60분)
 
-- 통합 개념 지도에서 첫 병목 개념을 하나 골라 사용자가 자기 말로 설명하고 검증한다.
+- Virtual Short를 설명가능 수준으로 복원한다.
+- Comparator와 Negative Feedback의 차이를 이해한다.
+- Inverting / Non-Inverting Amplifier를 복원한다.
 
 ## 지금 약한 것 (top 5 — 세션은 여기서 시작)
 > 전체는 [[mastery.md]]. 아직 `설명가능`이 아닌 것부터.
-
+1. Virtual Short를 자신의 말로 설명하기
+2. Negative Feedback의 역할
+3. Comparator
+4. Inverting Amplifier
+5. Non-Inverting Amplifier
 
 ## 다음 복습 질문 (top 5 — 세션 시작 시 1~2개 예측용)
 > 러너가 채워 나간다.
-
+1. 왜 Virtual Short라고 부르는가?
+2. Negative Feedback은 어떤 역할을 하는가?
+3. Comparator에서는 왜 V+ = V-를 사용할 수 없는가?
+4. Inverting Amplifier를 어떻게 유도하는가?
+5. Non-Inverting Amplifier를 어떻게 유도하는가?
 
 ## 최근 궤적 (러너가 갱신)
 
-
+- 2026-08-05 · Op-Amp 복원 시작 → [daily/2026-08-05-op-amp-recovery-start.md](daily/2026-08-05-op-amp-recovery-start.md)
 
 ## 세션 진행 프로토콜 (러너가 따르는 대본)
 **① 목표 → ② 예측(내가 먼저 자기 말로) → ③ 설명·교정(오개념을 근거와 함께) → ④ 퀴즈/적용 → ⑤ 채점·기록.**
