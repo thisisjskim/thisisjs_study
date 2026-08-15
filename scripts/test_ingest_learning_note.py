@@ -238,6 +238,78 @@ def main():
         "Parking Lot" not in rich["body"] and "## 아티팩트" not in rich["body"],
     )
 
+    # ⑥-b `root:` 지시행 — 앱의 읽기 화면이 파킹랏·주석을 저장소로 올리게 되면서 열었다
+    #     (2026-08-14, 유지훈: *"파킹랏이나 주석이 … 항상 gpt가 읽을 수 있는 온라인으로"*).
+    #     렉처노트·교재는 `materials/`에 사는데 파킹랏을 받는 곳이 `papers/`밖에 없어서,
+    #     자료에 남긴 표시는 러너가 볼 수 없었다.
+    print("\n[논문] root: 지시행")
+    MARKS_BODY = """root: materials
+slug: ee202-lec08
+
+앱 읽기 화면에서 남긴 표시 2건 — 파킹랏 1 · 주석 1.
+
+## Parking Lot
+- phasor domain — 3쪽 · 왜 j가 붙나
+
+## 주석
+> "impedance is the ratio of phasors"
+— 저항과 무엇이 다른가 (4쪽)
+"""
+    marks = ingest.build_paper_session(
+        {"number": 51, "title": "[논문] ee202-lec08 — 읽기 표시 2026-08-14",
+         "body": MARKS_BODY, "comments": []},
+        "2026-08-14",
+    )
+    check("root: materials가 잡힌다", marks["root"] == "materials", marks["root"])
+    check("root 지시행은 세션 원문에서 빠진다", "root:" not in marks["body"], marks["body"][:80])
+    check("slug 지시행이 제목보다 이긴다", marks["slug"] == "ee202-lec08", marks["slug"])
+    check("파킹랏 항목이 잡힌다", "phasor domain" in marks["parking"])
+    check("주석이 annotations.md로 간다", "annotations.md" in marks["section_patches"])
+
+    check("root:가 없으면 papers가 기본이다", paper["root"] == "papers", paper["root"])
+
+    # 모르는 뿌리는 **기본값으로 떨어뜨린다.** 거부하면 러너가 오타 하나로 세션 기록을
+    # 잃는다. 그리고 이 값이 `os.path.join`의 첫 칸이 되므로 경로 탈출은 절대 통과하면 안 된다.
+    for bad in ("../../etc", "daily", ".github", "/papers", "papers/../..", ""):
+        got = ingest.parse_root(bad)
+        check(f"모르는 뿌리는 papers로 떨어진다 ({bad!r})", got == "papers", got)
+    check("papers는 그대로", ingest.parse_root("papers") == "papers")
+    check("materials는 그대로", ingest.parse_root("materials") == "materials")
+    check("앞뒤 공백·슬래시를 다듬는다", ingest.parse_root("  materials/  ") == "materials")
+
+    # 실제로 `materials/<slug>/`에 쓰는지 — 경로가 갈리는 지점이라 파일로 확인한다.
+    import tempfile as _tf
+    _cwd = os.getcwd()
+    with _tf.TemporaryDirectory() as tmp2:
+        os.chdir(tmp2)
+        try:
+            touched, _applied, extra = ingest.write_paper_session(
+                marks, {"number": 51}, "2026-08-14")
+            parking_path = os.path.join("materials", "ee202-lec08", "parking-lot.md")
+            check("세션이 materials/ 아래로 간다",
+                  touched[0].startswith(os.path.join("materials", "ee202-lec08")), touched[0])
+            check("파킹랏이 materials/<slug>/parking-lot.md에 생긴다",
+                  os.path.exists(parking_path), str(touched))
+            check("papers/ 아래에는 아무것도 안 생긴다",
+                  not os.path.exists(os.path.join("papers", "ee202-lec08")))
+            text = open(parking_path, encoding="utf-8").read()
+            check("파킹랏 항목이 담긴다", "phasor domain" in text, text)
+            check("새 항목으로 센다", extra["parked"][0] == 1, str(extra["parked"]))
+            annot = open(os.path.join("materials", "ee202-lec08", "annotations.md"),
+                         encoding="utf-8").read()
+            check("주석이 Issue 번호 블록으로 감싸인다", "<!-- issue:51 -->" in annot, annot[:120])
+
+            # 같은 Issue를 다시 돌려도 중복이 안 쌓인다(코멘트마다 CI가 다시 돈다).
+            ingest.write_paper_session(marks, {"number": 51}, "2026-08-14")
+            again = open(os.path.join("materials", "ee202-lec08", "annotations.md"),
+                         encoding="utf-8").read()
+            check("재실행에도 주석이 한 벌이다",
+                  again.count("impedance is the ratio of phasors") == 1, again)
+            twice = open(parking_path, encoding="utf-8").read()
+            check("재실행에도 파킹랏이 한 벌이다", twice.count("phasor domain") == 1, twice)
+        finally:
+            os.chdir(_cwd)
+
     import tempfile
     with tempfile.TemporaryDirectory() as tmp:
         path = os.path.join(tmp, "parking-lot.md")
@@ -294,6 +366,80 @@ def main():
         ingest.ensure_status_file(fresh_path, ingest.READING_STATUS_TEMPLATE, "2026-08-08")
         check("새로 만든 파일은 처음부터 Position 절을 가진다",
               "## Position" in open(fresh_path, encoding="utf-8").read())
+
+        # ⑧ 자료 삭제 — 이 저장소에서 **파일을 지우는 유일한 경로**다. 앱도 자기 쪽에서
+        #    막지만 Issue는 사람이 손으로도 만들 수 있으므로 여기가 마지막 관문이다.
+        print("\n자료 삭제 — 모양 가드")
+        good, bad = ingest.parse_delete_targets(
+            "- papers/attn-demo\n- materials/피어싱-논문\n- `papers/quoted`\n"
+        )
+        check("정상 경로를 읽는다", good == [
+            ("papers", "attn-demo"), ("materials", "피어싱-논문"), ("papers", "quoted"),
+        ], str(good))
+        check("정상만 있으면 버린 것이 없다", bad == [], str(bad))
+
+        # 이 목록이 통과하면 CI가 repo 루트에서 그것을 지운다.
+        danger = (
+            "- papers/..\n"
+            "- papers/../../etc\n"
+            "- ../papers/x\n"
+            "- daily/2026-08-01\n"
+            "- .github/workflows\n"
+            "- papers/a/b\n"
+            "- papers/\n"
+            "- /etc/passwd\n"
+            "- papers/a b\n"
+        )
+        d_ok, d_bad = ingest.parse_delete_targets(danger)
+        check("경로 탈출·다른 뿌리를 전부 막는다", d_ok == [], str(d_ok))
+        check("막은 것을 보고한다(조용히 버리지 않는다)", len(d_bad) == 9, str(d_bad))
+
+        check("안내용 인용줄은 대상이 아니다",
+              ingest.parse_delete_targets("> papers/x 를 지운다\n")[0] == [])
+
+        # 실제로 지운다 — 폴더 통째로 + 옛 단일 파일 + 진도 파일의 그 slug 줄.
+        del_dir = os.path.join(tmp, "delete-case")
+        os.makedirs(os.path.join(del_dir, "papers", "gone", "sessions"))
+        os.makedirs(os.path.join(del_dir, "papers", "keep"))
+        os.makedirs(os.path.join(del_dir, "materials"))
+        for p, body in [
+            (["papers", "gone", "source.md"], "원문"),
+            (["papers", "gone", "paper.md"], "정제본"),
+            (["papers", "gone", "sessions", "2026-08-01-methods.md"], "세션"),
+            (["papers", "keep", "source.md"], "남아야 한다"),
+            (["materials", "old-single.md"], "옛 단일 파일"),
+        ]:
+            with open(os.path.join(del_dir, *p), "w", encoding="utf-8") as f:
+                f.write(body)
+        with open(os.path.join(del_dir, "papers", "READING_STATUS.md"), "w", encoding="utf-8") as f:
+            f.write(
+                "# 논문 읽기 상태\n\n## Progress\n\n- gone: 3장까지 읽음\n- keep: 1장\n\n"
+                "## Position\n\n- gone: \"인용문\"\n"
+            )
+
+        cwd = os.getcwd()
+        try:
+            os.chdir(del_dir)
+            removed, missing, touched = ingest.delete_materials(
+                [("papers", "gone"), ("materials", "old-single"), ("papers", "없는것")]
+            )
+        finally:
+            os.chdir(cwd)
+
+        check("폴더가 통째로 사라진다", not os.path.exists(os.path.join(del_dir, "papers", "gone")))
+        check("옛 단일 파일도 지운다",
+              not os.path.exists(os.path.join(del_dir, "materials", "old-single.md")))
+        check("다른 자료는 멀쩡하다",
+              os.path.exists(os.path.join(del_dir, "papers", "keep", "source.md")))
+        check("지운 것을 보고한다", sorted(removed) == ["materials/old-single", "papers/gone"], str(removed))
+        check("이미 없던 것을 구별한다", missing == ["papers/없는것"], str(missing))
+
+        status_after = open(os.path.join(del_dir, "papers", "READING_STATUS.md"), encoding="utf-8").read()
+        check("진도 파일에서 그 slug 줄이 빠진다", "gone:" not in status_after, status_after)
+        check("다른 자료의 진도는 남는다", "- keep: 1장" in status_after, status_after)
+        check("절 구조는 그대로다",
+              "## Progress" in status_after and "## Position" in status_after, status_after)
+        check("진도 파일을 고쳤다고 보고한다", len(touched) == 1, str(touched))
 
         art_dir = os.path.join(tmp, "artifacts")
         os.makedirs(art_dir)

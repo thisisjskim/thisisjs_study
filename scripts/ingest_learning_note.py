@@ -27,6 +27,7 @@ import datetime
 import json
 import os
 import re
+import shutil
 import sys
 
 DAILY_DIR = "daily"
@@ -141,6 +142,12 @@ DRILLS_HEADER = [
 # 2026-08-04(2): Parking Lot·아티팩트·meta는 `runner/paper-mode.md`의 루프가 실제로
 # 만들어 내는 산출물인데 받는 곳이 없어 세션 원문에만 묻혀 있었다. 묻히면 다음 세션의
 # 러너가 못 찾고, 못 찾으면 같은 선수지식을 매번 다시 미룬다.
+#
+# 2026-08-14: `root: materials` 지시행을 주면 위 경로가 통째로 `materials/<slug>/`로 간다
+# (`parse_root`). 앱 읽기 화면이 렉처노트·교재에 남긴 파킹랏·주석을 올리기 시작해서다 —
+# 그전에는 파킹랏을 받는 곳이 `papers/`뿐이라 자료에 남긴 표시를 러너가 볼 수 없었다.
+# `READING_STATUS 갱신`만은 예외로 `papers/READING_STATUS.md`에 남는다(자료 진도는
+# `## 자료 진도 갱신`이라는 다른 기계가 담당한다).
 PAPER_SECTIONS = {
     "정제본 갱신": "paper.md",
     "주석": "annotations.md",
@@ -944,7 +951,7 @@ def build_paper_session(payload, today):
 
     directives = {}
     lines = body.splitlines()
-    while lines and re.match(r"^(slug|runner|tags)\s*:\s*\S", lines[0].strip()):
+    while lines and re.match(r"^(slug|root|runner|tags)\s*:\s*\S", lines[0].strip()):
         key, value = lines[0].split(":", 1)
         directives[key.strip()] = value.strip()
         lines.pop(0)
@@ -977,6 +984,7 @@ def build_paper_session(payload, today):
 
     return {
         "slug": slug,
+        "root": parse_root(user_fm.get("root")),
         "section": section_name,
         "body": body,
         "reading_patch": reading_patch,
@@ -986,6 +994,30 @@ def build_paper_session(payload, today):
         "meta": parse_meta(meta),
         "runner": user_fm.get("runner", "paper-gpt"),
     }
+
+
+# `[논문]` 세션이 앉을 수 있는 뿌리. **이 둘뿐이다.**
+#
+# 2026-08-14: 앱의 읽기 화면이 파킹랏·주석을 저장소로 올리게 되면서 열었다(유지훈:
+# *"파킹랏이나 주석이 … 항상 gpt가 읽을 수 있는 온라인으로 올려야한다"*). 렉처노트·교재는
+# `materials/`에 사는데 파킹랏을 받는 곳이 `papers/`밖에 없어서, 자료에 남긴 표시는
+# 러너가 볼 수 없었다.
+#
+# 화이트리스트로 잠근 이유: 이 값이 `os.path.join`의 첫 칸이 되고 이 스크립트는 repo
+# 루트에서 돈다. 자유 문자열이면 `..`이나 `.github`가 들어올 수 있다 — `## 삭제`의
+# `DELETABLE_ROOTS`와 같은 판단이다.
+PAPER_ROOTS = (PAPERS_DIR, MATERIALS_DIR)
+
+
+def parse_root(value):
+    """`root:` 지시행 → 뿌리 이름. 모르는 값은 **기본값으로 떨어뜨린다.**
+
+    거부하지 않고 떨어뜨리는 이유: 이 절이 없던 시절의 러너 Issue가 계속 들어오고, 그것들은
+    전부 논문이다. 모르는 값에 실패로 답하면 러너가 오타 하나로 세션 기록을 잃는다 —
+    잘못된 뿌리에 쓰는 것보다 낫고, 안 쓰는 것보다도 낫다.
+    """
+    root = (value or "").strip().strip("/")
+    return root if root in PAPER_ROOTS else PAPERS_DIR
 
 
 def parse_meta(section):
@@ -1124,8 +1156,14 @@ def write_artifacts(folder, section, slug, today, issue_number):
 
 
 def write_paper_session(note, payload, today):
-    """세션 원문을 논문 폴더에 쓰고, 정제본·주석·READING_STATUS를 갱신한다."""
-    folder = os.path.join(PAPERS_DIR, note["slug"])
+    """세션 원문을 자료 폴더에 쓰고, 정제본·주석·READING_STATUS를 갱신한다.
+
+    뿌리는 `note["root"]`가 정한다(`papers/` 기본, `materials/`도 가능 — `parse_root`).
+    `READING_STATUS` 패치만은 여전히 `papers/READING_STATUS.md`로 간다: 자료의 진도는
+    `## 자료 진도 갱신`이라는 **다른 기계**가 담당하고(`MATERIAL_STATUS_PATH`), 그 둘을
+    섞으면 같은 파일을 두 경로가 쓰게 된다.
+    """
+    folder = os.path.join(note.get("root") or PAPERS_DIR, note["slug"])
     sessions = os.path.join(folder, "sessions")
     os.makedirs(sessions, exist_ok=True)
 
@@ -1803,6 +1841,87 @@ def ensure_status_file(path, template, today):
     return True
 
 
+DELETE_SECTION = "삭제"
+
+# 지울 수 있는 뿌리는 둘뿐이다. 다른 것을 여기 넣으면 이 스크립트가 repo 루트에서
+# 도는 것을 잊은 셈이 된다 — `daily/`나 `.github/`가 이 목록에 들어오면 안 된다.
+DELETABLE_ROOTS = (MATERIALS_DIR, PAPERS_DIR)
+
+# 앱의 `SLUG_RE`(`lib/knowledge/materialPaths.ts`)와 **같은 모양**이어야 한다.
+# `.`이 없으므로 `..`이 만들어질 수 없고, `/`가 없으므로 경로를 벗어날 수 없다.
+DELETE_SLUG_RE = re.compile(r"^[\w가-힣-]{1,64}$")
+
+
+def parse_delete_targets(body):
+    """`## 삭제` 절의 `- <root>/<slug>` 줄을 (root, slug) 목록으로.
+
+    **모양이 아닌 줄은 조용히 버리지 않고 돌려준다** — 왜 안 지워졌는지 보고해야 한다.
+    이 값이 `shutil.rmtree`의 경로가 되므로 여기가 마지막 관문이다(앱도 자기 쪽에서 막지만
+    Issue는 사람이 손으로도 만들 수 있다).
+    """
+    ok, bad = [], []
+    for raw in (body or "").splitlines():
+        line = re.sub(r"^\s*(?:\d+[.)]|[-*])\s*", "", raw).strip().strip("`")
+        if not line or line.startswith(">"):
+            continue
+        parts = line.split("/")
+        if len(parts) != 2:
+            bad.append(line)
+            continue
+        root, slug = parts[0].strip(), parts[1].strip()
+        if root not in DELETABLE_ROOTS or not DELETE_SLUG_RE.match(slug):
+            bad.append(line)
+            continue
+        if (root, slug) not in ok:
+            ok.append((root, slug))
+    return ok, bad
+
+
+def strip_slug_from_status(path, slug):
+    """진도 파일에서 그 자료를 말하는 불릿 줄을 뺀다.
+
+    폴더만 지우면 `READING_STATUS.md`에 없는 자료의 진도가 남는다. 화면은 자료가 없으니
+    그리지 않지만, **러너는 그 파일을 매 세션 읽는다** — 지운 논문을 계속 "다음에 읽을 것"으로
+    본다. 절 구조(`## Progress` 등)는 건드리지 않고 줄만 뺀다.
+    """
+    if not os.path.exists(path):
+        return False
+    with open(path, encoding="utf-8") as f:
+        lines = f.read().splitlines()
+
+    keep = [l for l in lines if not (l.lstrip().startswith(("-", "*", "1.")) and slug in l)]
+    if len(keep) == len(lines):
+        return False
+    with open(path, "w", encoding="utf-8") as f:
+        f.write("\n".join(keep).rstrip() + "\n")
+    return True
+
+
+def delete_materials(targets):
+    """자료 폴더를 통째로 지우고 진도 파일에서도 그 slug를 뺀다.
+
+    폴더형이 아닌 옛 단일 파일(`<root>/<slug>.md`)도 함께 지운다 — `build_material`이
+    승격할 때 지우던 그 파일이고, 남겨 두면 목록에 그대로 뜬다.
+    """
+    removed, missing, touched = [], [], []
+    for root, slug in targets:
+        folder = os.path.join(root, slug)
+        single = os.path.join(root, f"{slug}.md")
+        hit = False
+        if os.path.isdir(folder):
+            shutil.rmtree(folder)
+            hit = True
+        if os.path.exists(single):
+            os.remove(single)
+            hit = True
+        (removed if hit else missing).append(f"{root}/{slug}")
+
+        for status in (READING_STATUS_PATH, MATERIAL_STATUS_PATH):
+            if strip_slug_from_status(status, slug) and status not in touched:
+                touched.append(status)
+    return removed, missing, touched
+
+
 def ensure_reading_status(today):
     return ensure_status_file(READING_STATUS_PATH, READING_STATUS_TEMPLATE, today)
 
@@ -1848,14 +1967,14 @@ def main():
     if (payload.get("title") or "").startswith("[논문]"):
         note = build_paper_session(payload, args.today)
         if args.dry_run:
-            print(f"[dry-run] papers/{note['slug']}/sessions/… ({note['section']})\n")
+            print(f"[dry-run] {note['root']}/{note['slug']}/sessions/… ({note['section']})\n")
             print(note["body"])
             return
         touched, applied, extra = write_paper_session(note, payload, args.today)
         report = [
             f"✅ 논문 세션 기록 완료 — `{touched[0]}`",
             "",
-            f"- 논문: `{note['slug']}` · 섹션: {note['section']}",
+            f"- 자료: `{note['root']}/{note['slug']}` · 섹션: {note['section']}",
         ]
         if note["meta"].get("understanding"):
             report.append(f"- 이해 단계: **{note['meta']['understanding']}**")
@@ -1864,7 +1983,7 @@ def main():
             report.append(
                 f"- Parking Lot: 새 항목 {added}개"
                 + (f" · 해소 {resolved}개" if resolved else "")
-                + " → `papers/{}/parking-lot.md`".format(note["slug"])
+                + " → `{}/{}/parking-lot.md`".format(note["root"], note["slug"])
             )
         if extra["artifacts"]:
             report.append(f"- 아티팩트 {len(extra['artifacts'])}개 저장 (다음 세션 복습용)")
@@ -1886,6 +2005,53 @@ def main():
 
     # `[설정]` — 학습 기록이 아니라 설정 파일(topics.yaml)의 쓰기 경로다.
     if (payload.get("title") or "").startswith("[설정]"):
+        """
+        자료 삭제 — 앱의 「삭제」가 만든 Issue. **가장 먼저 본다**: 되돌리기 어려운 동작이므로
+        다른 절 파싱에 섞여 들어가지 않게 한다.
+
+        새 제목 prefix를 만들지 않은 이유: 워크플로의 `if:` 게이트와 아래 `PREFIXES` 배열이
+        같은 목록을 두 벌 들고 있고(이 파일이 스스로 경고한다 — *"한쪽만 열면 잡이 돌다가
+        실패한다"*), `[설정]`에 절을 더하면 그 두 곳을 안 건드린다.
+
+        워크플로도 안 고쳤다 — 커밋 스텝의 `git add -A … materials papers …`가 **삭제도 그대로
+        스테이징한다**(`os.remove(stale)`가 이미 이 경로로 동작 중인 증거).
+        """
+        _, delete_body = pop_section(assemble(payload), DELETE_SECTION)
+        if delete_body:
+            targets, bad = parse_delete_targets(delete_body)
+            if args.dry_run:
+                print(f"[dry-run] 삭제 대상 {len(targets)}건: {targets}")
+                if bad:
+                    print(f"[dry-run] 모양이 아니라 건너뜀: {bad}")
+                return
+            removed, missing, touched = delete_materials(targets)
+            report = [f"✅ 자료 {len(removed)}건 삭제", ""]
+            if removed:
+                report.append("- 지움: " + ", ".join(f"`{p}`" for p in removed))
+            if touched:
+                report.append("- 진도 파일에서도 뺐다: " + ", ".join(f"`{t}`" for t in touched))
+            if missing:
+                # 이미 없는 것을 지우라고 한 경우 — 실패가 아니지만 말해 준다(두 번 눌렀거나
+                # 앞선 삭제가 이미 처리했다).
+                report.append("- ℹ️ 이미 없었다: " + ", ".join(f"`{p}`" for p in missing))
+            if bad:
+                report.append(
+                    "- ⚠️ 모양이 아니라 **지우지 않았다**: "
+                    + ", ".join(f"`{b}`" for b in bad)
+                    + " (`materials/<slug>` 또는 `papers/<slug>` 꼴이어야 한다)"
+                )
+            report += [
+                "",
+                "> `concepts.json`은 다음 CI 실행에서 자동으로 다시 만들어진다 —"
+                " 지운 자료의 개념 간선은 그때 빠진다.",
+            ]
+            text = "\n".join(report)
+            print(text)
+            if args.report:
+                with open(args.report, "w", encoding="utf-8") as f:
+                    f.write(text + "\n")
+            return
+
         # 학습 설계도 — **새 사용자의 첫 파일.** 목표 한 줄에서 러너가 경로를 만들어
         # 승인받은 뒤 이 절로 보낸다. 세션 기록이 아니므로 `[설정]`이 맞는 자리다.
         _, spec_patch = extract_status_patch(assemble(payload), LEARNING_SPEC_SECTION)
