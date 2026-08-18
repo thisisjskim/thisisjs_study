@@ -18,6 +18,7 @@
 """
 import json
 import os
+import re
 import sys
 import tempfile
 
@@ -898,17 +899,132 @@ updated: 2026-08-02
         finally:
             os.chdir(cwd)
 
+    # ⚠️ 승급 조각의 자리 맞춤 (2026-08-17 실측) — MCP의 3열 표를 그대로 접으면 근거가
+    #    중요도 칸에 앉고, 영문 상태가 원장→concepts.json까지 흘러 「설명가능」 판정에
+    #    영영 안 잡힌다. 이 변환이 그 사슬의 입구다.
+    print("\n[이해도 승급] MCP 3열 표 → 원장 6열")
+    three_col = (
+        "| 개념 | 승급 | 근거 |\n"
+        "|---|---|---|\n"
+        "| DTW | can_explain | 시험에서 유도함 |\n"
+        "| SVD | memorized | 계산 수행 |\n"
+        "| 새어휘 | unknown_state | 근거 |\n"
+    )
+    fixed = ingest.normalize_mastery_table(three_col, "2026-08-17", "daily/2026-08-17-dtw.md")
+    check(
+        "6열 머리가 consolidate와 바이트 동일하다 (동조)",
+        fixed.splitlines()[0] == ingest.MASTERY_HEADER,
+        fixed.splitlines()[0],
+    )
+    check(
+        "상태가 원장 어휘로 번역된다 · 중요도는 비고 · 검증일=세션 날짜 · 증거=노트 링크",
+        "| DTW | 설명가능 |  | 2026-08-17 | [[daily/2026-08-17-dtw]] | 시험에서 유도함 |" in fixed,
+        fixed,
+    )
+    check("memorized → 암기", "| SVD | 암기 |" in fixed)
+    check(
+        "모르는 승급 어휘는 지어내지 않고 그대로 둔다",
+        "| 새어휘 | unknown_state |" in fixed,
+    )
+    six_col = (
+        "| 개념 | 상태 | 중요도 | 최근 검증일 | 증거 | 변화 메모 |\n"
+        "|---|---|---|---|---|---|\n"
+        "| p-value | 설명가능 | H | 2026-08-07 | [[daily/2026-08-07-eeg]] | 조건부 확률로 설명 |\n"
+    )
+    check(
+        "옛 6열 표는 손대지 않는다",
+        ingest.normalize_mastery_table(six_col, "2026-08-17", "daily/x.md") == six_col,
+    )
+    esc = "| 개념 | 승급 | 근거 |\n|---|---|---|\n| A | memorized | 좌\\|우 구분 |\n"
+    check(
+        "이스케이프된 파이프는 칸 경계가 아니다",
+        "| A | 암기 |  | 2026-08-17 | [[daily/x]] | 좌\\|우 구분 |"
+        in ingest.normalize_mastery_table(esc, "2026-08-17", "daily/x.md"),
+    )
+
+    # ⚠️ `[설정]` 절 사슬 (2026-08-17) — 한 Issue에 몇 절을 적든 전부 반영되고 보고가
+    #    쌓인다. 전에는 ① 트랙만 dry-run 관문이 없어 확인 실행이 tracks.yaml을 썼고
+    #    ② 뒤 절의 보고가 "w"로 앞 절 보고를 덮어 러너가 트랙 결과를 못 봤고
+    #    ③ 지도·분야 뒤의 return이 함께 적은 절을 조용히 버렸다.
+    print("\n[설정] 절 사슬 — dry-run 관문 · 보고 누적 · 이른 return 제거")
+    import subprocess
+    script = os.path.join(os.path.dirname(os.path.abspath(__file__)), "ingest_learning_note.py")
+
+    def run_settings(body, extra):
+        d = tempfile.mkdtemp()
+        pj = os.path.join(d, "payload.json")
+        with open(pj, "w", encoding="utf-8") as f:
+            json.dump({"title": "[설정] 시험", "body": body, "number": 1}, f, ensure_ascii=False)
+        r = subprocess.run(
+            [sys.executable, script, "--payload", pj, "--today", "2026-08-17"] + extra,
+            cwd=d, capture_output=True, text=True,
+        )
+        return d, r
+
+    combo = "## 트랙\n### math | 수학\nmode: 진도\n\n## 주제\n### nep\nquery: neural entrainment\n"
+
+    d, r = run_settings(combo, ["--dry-run"])
+    check(
+        "① 트랙 dry-run이 tracks.yaml을 쓰지 않는다",
+        r.returncode == 0 and not os.path.exists(os.path.join(d, "tracks.yaml")),
+        r.stdout + r.stderr,
+    )
+    check(
+        "dry-run 출력에 두 절이 다 보인다",
+        "[dry-run] tracks.yaml" in r.stdout and "[dry-run] topics.yaml" in r.stdout,
+        r.stdout,
+    )
+
+    d, r = run_settings(combo, ["--report", "report.md"])
+    rep_path = os.path.join(d, "report.md")
+    rep_text = open(rep_path, encoding="utf-8").read() if os.path.exists(rep_path) else ""
+    check(
+        "트랙과 주제가 모두 반영된다",
+        os.path.exists(os.path.join(d, "tracks.yaml")) and os.path.exists(os.path.join(d, "topics.yaml")),
+        r.stdout + r.stderr,
+    )
+    check("② 보고에 트랙 절이 남는다 — 뒤 절이 덮지 않는다", "학습 트랙 갱신" in rep_text, rep_text)
+    check("보고에 주제 절도 함께 남는다", "연구 주제 갱신" in rep_text, rep_text)
+
+    d, r = run_settings(
+        "## 지도\n### 감추기\n- 옛것\n\n## 분야\n### 시계열\n- 시계열 분석\n",
+        ["--report", "report.md"],
+    )
+    rep_text = open(os.path.join(d, "report.md"), encoding="utf-8").read()
+    check(
+        "③ 지도+분야를 한 Issue에 적어도 둘 다 반영된다",
+        os.path.exists(os.path.join(d, "concepts-overrides.yaml"))
+        and os.path.exists(os.path.join(d, "subjects.yaml")),
+        r.stdout + r.stderr,
+    )
+    check("보고도 둘 다 남는다", "지식 그래프 손보기" in rep_text and "분야 갱신" in rep_text, rep_text)
+
+    d, r = run_settings("아무 절도 없다", [])
+    check("어느 절도 없으면 여전히 실패로 말한다", r.returncode != 0, r.stdout)
+
     # ⚠️ 워크플로가 파일을 쓰고도 커밋하지 않는 조용한 실패 — 경계 주석과 `git add`가
     #    함께 갱신돼야 한다. 하나만 고치면 설계도가 영원히 저장소에 안 올라간다.
-    print("\n[워크플로] 설계도가 커밋 범위에 있다")
+    print("\n[워크플로] 쓰는 경로가 전부 커밋 범위에 있다")
     repo_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     wf = open(os.path.join(repo_root, ".github", "workflows", "learning-note-ingest.yml"),
               encoding="utf-8").read()
-    add_line = [l for l in wf.splitlines() if "git add -A daily" in l]
-    check("git add 범위에 learning-spec.md", bool(add_line) and "learning-spec.md" in add_line[0],
-          add_line[0] if add_line else "(git add 줄을 못 찾음)")
+    # 커밋 스텝의 `for p in … ; do git add …` 목록을 통째로 읽는다. 줄바꿈(`\`)이 있어서
+    # 한 줄만 보면 안 된다 — 2026-08-15에 목록을 늘리며 여러 줄이 됐다.
+    m = re.search(r"for p in (.+?); do\s*\n\s*git add", wf, re.S)
+    add_scope = (m.group(1).replace("\\\n", " ") if m else "")
+    #
+    # 2026-08-15 실측: 셋이 빠져 있었고 `|| git add -A` 폴백이 그것을 가리고 있었다.
+    # `mastery/` 조각이 가장 위험하다 — 안 남으면 한 세션의 승급을 복구할 곳이 없다.
+    for want in ("daily", "materials", "papers", "STATUS.md", "mastery.md", "drills.md",
+                 "concepts.json", "topics.yaml", "tracks.yaml", "learning-spec.md",
+                 "subjects.yaml", "concepts-overrides.yaml", "mastery/**"):
+        check(f"커밋 범위에 {want}", want in add_scope, add_scope or "(git add 목록을 못 찾음)")
+    # 폴백에 기대면 목록이 틀려도 안 터진다 — 그래서 폴백이 목록을 대신하면 안 된다.
+    check("`|| git add -A` 폴백에 기대지 않는다", "|| git add -A\n" not in wf and
+          "|| git add -A " not in wf, "폴백이 아직 목록을 대신하고 있다")
     boundary = [l for l in wf.splitlines() if l.startswith("# 경계:")]
-    check("경계 주석도 함께 갱신됐다", bool(boundary) and "learning-spec.md" in boundary[0],
+    check("경계 주석도 함께 갱신됐다",
+          bool(boundary) and all(w in boundary[0] for w in ("learning-spec.md", "subjects.yaml")),
           boundary[0] if boundary else "(경계 주석을 못 찾음)")
 
     print("\n[학습] 자료 진도 갱신")
