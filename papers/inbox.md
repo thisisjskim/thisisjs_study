@@ -1,10 +1,10 @@
 ---
-title: "논문 인박스 — 2026-08-24"
-updated: 2026-08-24
+title: "논문 인박스 — 2026-08-31"
+updated: 2026-08-31
 kind: papers
 ---
 
-# 📬 논문 인박스 — 2026-08-24
+# 📬 논문 인박스 — 2026-08-31
 
 > 새 논문 **17편** — 🆕 신간(최근 14일, 최신순) + ✅ 검증(최근 2년, 인용순). 🚧 = 내 막힌 길목과 닿는 논문.
 > 세션에서 *"이번 주 새 논문 같이 보자"* 라고 하면 러너가 여기서 골라 준다.
@@ -16,97 +16,97 @@ kind: papers
 
 ## Yoo, Hoi-Jun
 
-### ✅ [A Survey on Deep Learning Hardware Accelerators for Heterogeneous HPC Platforms](https://doi.org/10.1145/3729215)
-<sub>2025-04-18 · Cristina Silvano, Daniele Ielmini, Fabrizio Ferrandi 외 · ACM Computing Surveys</sub>
+### ✅ [Design and Development of a Neuromorphic Silicon Suite: PVT Sensing, Stochastic LIF Inference, On-Chip STDP Learning, and Crossbar Programming](https://arxiv.org/abs/2606.22635)
+<sub>2026-06-21 · Poornima Kumaresan, Santhosh Sivasubramani · arXiv (Cornell University) · 🚧 node voltage · Open Circuit Voltage</sub>
 
-> Recent trends in deep learning (DL) have made hardware accelerators essential for various high-performance computing (HPC) applications, including image classification, computer vision, and speech recognition. This survey summarizes and classifies the most recent developments in DL accelerators, focusing on their role in meeting the performance demands of HPC applications. We explore cutting-edge 
+> Edge neuromorphic systems need compact, configurable hardware that combines probabilistic inference, local learning, and an interface to emerging analogue memory. We present four interface-compatible digital IP blocks implemented as standard-cell CMOS on the SkyWater 130 nm process: a process, voltage and temperature (PVT) sensor built from five selectable ring oscillators that also provides a jit
 
-### ✅ [3D-PATH: A Hierarchy LUT Processing-in-memory Accelerator with Thermal-aware Hybrid Bonding Integration](https://doi.org/10.1145/3725843.3756087)
-<sub>2025-10-17 · Zhiheng Yue, Yang Wang, Chao Li 외</sub>
+### ✅ [SA-Kura: An Energy-Efficient Systolic Array Accelerator for Locally-Coupled Kuramoto Drift in Diffusion Sampling](https://arxiv.org/abs/2605.24016)
+<sub>2026-05-20 · Jeongmin Jin, Kyeongwon Lee, 정문도 외 · arXiv (Cornell University) · 🚧 Dependent source</sub>
 
-> LUT-based processing-in-memory (PIM) architectures enable generalpurpose in-situ computing by retrieving precomputed results.However, they suffer from limited computing precision, redundancy, and high latency of off-table access.To address these challenges, we present 3D-PATH, a novel PIM architecture that employs 3D hybrid bonding to integrate a DRAM-LUT, enhancing system capacity and reducing ac
+> Diffusion inference remains costly for edge deployment, yet existing accelerators focus almost exclusively on score networks because standard drift is merely a trivial linear scaling. Kuramoto orientation diffusion replaces this trivial drift with locally coupled phase interactions, improving sampling efficiency but introducing a new hardware bottleneck: a center-dependent nonlinear 5 x 5 stencil 
 
 
 ## On-device AI accelerator
 
-### 🆕 [A broadband lithium tantalate-on-silicon nitride heterogeneous modulator for optical and terahertz communications and radar sensing](https://doi.org/10.1038/s41467-026-76800-0)
-<sub>2026-08-20 · Jinwei Su, Yuqin Yuan, Yiqi Dai 외 · Nature Communications · 🚧 Open Circuit Voltage · Open Circuit</sub>
+### 🆕 [The Effect of AI Skin Diagnosis Service Quality on AI Source Credibility, Brand Trust, and Purchase Intention: Focusing on a Trust Transfer-Based Serial Mediation Model](https://doi.org/10.52660/jksc.2026.32.4.1014)
+<sub>2026-08-26 · Na-Young Kim, Hyo-Jin Jo · Journal of the Korean Society of Cosmetology · 🚧 Node Analysis · Independent source 제거</sub>
 
-> Photonic integrated circuits have driven advances in optical interconnects, wireless communications, seamless sensing. Electro-optic modulators, which bridge the electronic and optical domains, act as the cornerstone of these systems. To address the ultra-broadband demands of next-generation information systems while enabling heterogeneous integration with other functional components, here we pres
+> This study investigated the effect of AI skin diagnosis service quality on purchase intention through AI source credibility and brand trust. Data were collected from 250 consumers with AI skin diagnosis experience, and confirmatory factor analysis, path analysis, and bootstrap mediation analysis were conducted. The findings revealed that service quality positively affected AI source credibility, b
 
-### 🆕 [From product to knowledge: the life cycle of health technologies 2.0 as a framework for health system improvement](https://doi.org/10.3389/fphar.2026.1869110)
-<sub>2026-08-10 · M. Otte, I. Gutiérrez-Ibarluzea, H. P. Dauben 외 · Frontiers in Pharmacology · 🚧 Dependent source · Infinite Input Resistance</sub>
+### 🆕 [A Decision-Analytic Event-Study Framework for Evaluating Digital Health Technology Investments](https://doi.org/10.70693/nk41wx71)
+<sub>2026-08-27 · Ruiqing Geng · Empirical Studies in Econimics and Finance · 🚧 Virtual Short · Short</sub>
 
-> Background Existing life cycle frameworks for health technologies have mainly adopted a product-oriented perspective. They treating evidence as a linear input to discrete regulatory and coverage decisions, and failing to capture the iterative, context-dependent, stakeholder-specific nature of knowledge generation needed for contemporary health-technology governance. Objectives This article introdu
+> Digital health investments are strategic technology-management decisions for healthcare firms, yet their short-run external evaluation is diﬀicult to observe. This paper develops a decision-analytic event-study framework for assessing market reactions to twenty-five public digital health technology investment announcements by listed healthcare and life-sciences firms from 2018 to 2024. The events 
 
-### 🆕 [Wearable-Derived Digital Biomarkers in Preventive and Personalized Medicine: Promise, Evidence, and Barriers to Clinical Translation](https://doi.org/10.58613/jbb633)
-<sub>2026-08-13 · Damilola Alabi, Anyebe Daniel Ameh, Deborah Ave Okon 외 · Journal of Biomedicine and Biosensors. · 🚧 Short Circuit Current</sub>
+### 🆕 [ADAPTIVE DDR FREQUENCY SCALING FOR DETERMINISTIC COGNITIVE PROCESSING IN MOBILE SYSTEM-ON-CHIPS](https://doi.org/10.34218/ijecet_17_02_004)
+<sub>2026-08-25 · Prasad Rao · INTERNATIONAL JOURNAL OF ELECTRONICS & COMMUNICATION ENGINEERING & TECHNOLOGY  · 🚧 Independent source 제거 · Dependent source</sub>
 
-> Wearable technologies now permit near-continuous measurement of physiological and behavioral parameters under free-living conditions. Combined with advances in artificial intelligence (AI), these devices support the development of wearable-derived digital biomarkers that may shift healthcare from a reactive to a preventive and personalized model. This narrative review synthesizes current evidence 
+> This research investigates the integration of large-scale foundation models (FMs) directly into System-on-Chip (SoC) firmware to facilitate real-time cognitive computation within the stringent resource bounds of mobile hardware.By embedding optimized architectures below the hardware abstraction layer, we establish a framework for ultra-low-latency inference that circumvents traditionl operating sy
 
-### ✅ [Tiny Language Models for Automation and Control: Overview, Potential Applications, and Future Research Directions](https://doi.org/10.3390/s25051318)
-<sub>2025-02-21 · Ismail Lamaakal, Yassine Maleh, Khalid El Makkaoui 외 · Sensors · 🚧 Independent source 제거 · Dependent source</sub>
+### ✅ [Application of artificial intelligence in the health management of chronic disease: bibliometric analysis](https://doi.org/10.3389/fmed.2024.1506641)
+<sub>2025-01-07 · Mingxia Pan, Rong Li, Junfan Wei 외 · Frontiers in Medicine · 🚧 Node Analysis · Short Circuit Current</sub>
 
-> Large Language Models (LLMs), like GPT and BERT, have significantly advanced Natural Language Processing (NLP), enabling high performance on complex tasks. However, their size and computational needs make LLMs unsuitable for deployment on resource-constrained devices, where efficiency, speed, and low power consumption are critical. Tiny Language Models (TLMs), also known as BabyLMs, offer compact 
+> Background: With the rising global burden of chronic diseases, traditional health management models are encountering significant challenges. The integration of artificial intelligence (AI) into chronic disease management has enhanced patient care efficiency, optimized treatment strategies, and reduced healthcare costs, providing innovative solutions in this field. However, current research remains
 
-### ✅ [Artificial Intelligence in Orthopedic Surgery: Current Applications, Challenges, and Future Directions](https://doi.org/10.1002/mco2.70260)
-<sub>2025-06-25 · Fei Han, Xiao Huang, Xin Wang 외 · MedComm · 🚧 Short Circuit Current · Rth 계산</sub>
+### ✅ [Empowering Edge Intelligence: A Comprehensive Survey on On-Device AI Models](https://doi.org/10.1145/3724420)
+<sub>2025-03-17 · Xubin Wang, Zhiqing Tang, Jianxiong Guo 외 · ACM Computing Surveys · 🚧 Short Circuit Current</sub>
 
-> Artificial intelligence (AI) drives transformative changes in orthopedic surgery, steering it toward precision and personalization through intelligent applications in preoperative planning, intraoperative assistance, and postoperative rehabilitation/monitoring. Breakthroughs in deep learning, robotics, and multimodal data fusion have enabled AI to demonstrate significant advantages. Nonetheless, c
+> The rapid advancement of artificial intelligence (AI) technologies has led to an increasing deployment of AI models on edge and terminal devices, driven by the proliferation of the Internet of Things (IoT) and the need for real-time data processing. This survey comprehensively explores the current state, technical challenges, and future trends of on-device AI models. We define on-device AI models 
 
 
 ## Neural rendering and NeRF accelerator
 
-### 🆕 [Lightweight deep learning rendering framework for edge-deployed virtual reality art therapy systems](https://doi.org/10.1038/s41598-026-66755-z)
-<sub>2026-08-17 · Yiting Liu · Scientific Reports · 🚧 Virtual Short · Independent source 제거</sub>
+### 🆕 [Method of contours filtering for three-dimensional images in problems of reservoir geological modeling](https://doi.org/10.17586/2226-1494-2026-26-4-835-843)
+<sub>2026-08-27 · P.A. Litvinov, Igor Bessmertny · Scientific and technical journal of information technologies mechanics and optics · 🚧 Node Analysis · Independent source 제거</sub>
 
-> Real-time neural rendering of emotionally expressive visual content is central to virtual reality art therapy, yet deploying such models on resource-constrained edge devices remains an unsolved engineering challenge because of strict latency, power, and memory limits. This paper proposes a lightweight deep learning rendering framework tailored to edge-deployed VR art therapy systems, positioned as
+> Filtering methods for three-dimensional object contours in reservoir geological modeling problems are investigated to improve the efficiency of resource base analysis. The problem is solved by applying the mathematical methods of the contourlet transform, diffusion, and contour analysis to filtering the contours of three-dimensional images. The proposed method combines the advantages of multi-scal
 
-### 🆕 [Kinetic description and numerical study of a network of noisy resonate and fire neurons - long version](https://doi.org/10.33774/coe-2026-n2ssp)
-<sub>2026-08-18 · Nicolas Zadeh · 🚧 Differential Amplifier</sub>
+### 🆕 [Similarity-Aware Viseme Caching for Efficient Lip-Synchronization of English Speech](https://doi.org/10.1007/s44230-026-00170-5)
+<sub>2026-08-25 · Deniz Kenan Kılıç, Bahadir İrfan Katıpoğlu, Mehmet Salih Zeman 외 · Human-Centric Intelligent Systems · 🚧 Virtual Short · Short</sub>
 
-> Networks of coupled resonate and fire neurons are studied in their mean-field limit through the formal derivation of a nonlinear kinetic Fokker-Planck equation in a half-plane with a threshold-reset mechanism. After structural considerations on the model and on the associated partial differential equation, an original finite-difference scheme is introduced and studied, with non-negativity and mass
+> Speech-driven lip-synchronization systems are increasingly used in virtual avatars, digital assistants, and interactive media. Although recent models can generate realistic talking-head videos, visual synthesis remains computationally expensive, particularly when large numbers of short utterances must be produced in real time. In practical deployments, many generated segments contain perceptually 
 
-### 🆕 [A REVIEW OF NEURAL RADIANCE FIELDS AND GAUSSIAN SPLATTING TECHNIQUES FOR SCENE REPRESENTATION AND RENDERING](https://doi.org/10.58257/ijprems37523)
-<sub>2026-08-18 · International Journal of Progressive Research in Engineering Management and Science · 🚧 Rth 계산</sub>
+### 🆕 [Source-Face Authenticity Detection for 3D Gaussian Heads Reconstructed from a Single Portrait: A Benchmark and Dedicated Detector](https://doi.org/10.48550/arxiv.2608.23984)
+<sub>2026-08-25 · Yujie Gao, Zijian Yu, Yan Hong 외 · arXiv (Cornell University) · 🚧 Independent source 제거 · Dependent source</sub>
 
-> This paper reviews advances of the representation and rendering of 3D scenes emphasizing methodologies proposed by Neural Radiance Fields (NeRF) and Gaussian splatting methods.We review earlier works that established foundational methodologies: first, NeRF's neural-based volumetric rendering and subsequent work on Gaussian splatting for real-time applications.We also look further at segmentation o
+> Recent advances in single-image 3D Gaussian head reconstruction have enabled highly realistic and freely renderable digital heads from a single portrait. However, reconstruction and rendering can weaken the forgery traces in the source portrait, making the resulting 3D face difficult to classify whether its underlying face is real or fake, and thereby posing risks to identity authentication and fa
 
-### ✅ [Artificial intelligence-enhanced retinal imaging as a biomarker for systemic diseases](https://doi.org/10.7150/thno.100786)
-<sub>2025-02-18 · Jinyuan Wang, Ya Xing Wang, Dian Zeng 외 · Theranostics · 🚧 Open Circuit Voltage · Open Circuit</sub>
+### ✅ [Image Analysis Artificial Intelligence Technologies for Plant Phenotyping: Current State of the Art](https://doi.org/10.3390/agriengineering6030193)
+<sub>2024-09-17 · Chrysanthos Maraveas · AgriEngineering · 🚧 Node Analysis · Short Circuit Current</sub>
 
-> Retinal images provide a non-invasive and accessible means to directly visualize human blood vessels and nerve fibers. Growing studies have investigated the intricate microvascular and neural circuitry within the retina, its interactions with other systemic vascular and nervous systems, and the link between retinal biomarkers and various systemic diseases. Using the eye to study systemic health, b
+> Modern agriculture is characterized by the use of smart technology and precision agriculture to monitor crops in real time. The technologies enhance total yields by identifying requirements based on environmental conditions. Plant phenotyping is used in solving problems of basic science and allows scientists to characterize crops and select the best genotypes for breeding, hence eliminating manual
 
-### ✅ [An Analysis of Research Trends for Using Artificial Intelligence in Cultural Heritage](https://doi.org/10.3390/electronics13183738)
-<sub>2024-09-20 · Florin Gîrbacia · Electronics · 🚧 Node Analysis · Short Circuit Current</sub>
+### ✅ [Physics-informed neural networks for PDE problems: a comprehensive review](https://doi.org/10.1007/s10462-025-11322-7)
+<sub>2025-07-24 · Kuang Luo, J. Zhao, Ying‐Ping Wang 외 · Artificial Intelligence Review · 🚧 Differential Amplifier</sub>
 
-> Artificial intelligence (AI) techniques have been increasingly applied in assisting various cultural heritage (CH)-related tasks. The aim of this study is to examine the research trends and current applications of AI in this vast domain. After obtaining a dataset from the Web of Science and Scopus databases, a scientometric analysis of research publications from 2019 to 2023 related to the use of 
+> As AI for Science continues to grow, Physics-informed neural networks (PINNs) have emerged as a transformative approach within the realm of scientific computing and deep learning, offering a robust and flexible framework for solving partial differential equations (PDEs) and other complex physical systems. By embedding physical laws directly into the architecture of neural networks, PINNs enable th
 
 
 ## Computing-in-memory and processing-in-memory
 
-### 🆕 [Adaptive Edge Resource Management Through Deep Reinforcement Learning Techniques](https://doi.org/10.38124/ijisrt/26aug614)
-<sub>2026-08-21 · Amit K. Mogal, Rahul A. Patil, Sahebrao N. Shinde 외 · International Journal of Innovative Science and Research Technology (IJISRT) · 🚧 Independent source 제거 · Dependent source</sub>
+### 🆕 [The beginning of the end for manual chart review: LLM-mediated database construction](https://doi.org/10.1038/s41746-026-03179-z)
+<sub>2026-08-27 · Jacob M. Knorr, Sahil Patel, Haya T. Abusafieh 외 · npj Digital Medicine · 🚧 Open Circuit Voltage · Open Circuit</sub>
 
-> Edge computing has emerged as a foundational paradigm for intelligent digital infrastructure because it reduces latency, improves bandwidth utilization, and enables real-time analytics close to data sources. Yet modern edge environments remain highly volatile. Resource availability changes continuously. IoT traffic fluctuates unpredictably. Mobile users migrate across heterogeneous networks. Conve
+> Manual clinical data abstraction is the reference standard for research databases but is labor-intensive, costly, and susceptible to human error. We evaluated the accuracy of a locally deployed open-source large language model (LLM) framework for automated extraction of structured kidney cancer data from unstructured clinical documentation. In this retrospective study, 8366 patients undergoing nep
 
-### 🆕 [Blackboard Mixture of Experts: A Unique Edge Architecture for Multi-Agent Neural Networks](https://doi.org/10.5281/zenodo.22028011)
-<sub>2026-08-20 · Oliverio Colon · Zenodo (CERN European Organization for Nuclear Research) · 🚧 Independent source 제거 · Dependent source</sub>
+### 🆕 [Securing the Internet of Things (IoT) Edge: A Lightweight Authentication Protocol for Resource-constrained Devices](https://doi.org/10.22266/ijies2026.0930.50)
+<sub>2026-08-29 · Senan Ali, Mohammed Basil Abdulkareem, Ahmed Hadi Ali AL-Jumaili 외 · International journal of intelligent engineering and systems · 🚧 Independent source 제거 · Dependent source</sub>
 
-> The paper introduces a resource-efficient edge architecture designed to bring advanced multi-agent capabilities and spatial awareness to resource-constrained microcontrollers (e.g., ARM Cortex-M, RP2040) without the heavy compute and memory overhead of traditional floating-point models.
+> The rapid scalability of IoT has brought computing power to the edge of the network where low powered devices have a great deal of difficulty protecting themselves from cyber-attack due to their limited resources (memory, processing, power).Current authentication protocols (i.e., TLS/DTLS, IPSec) are certainly statistically secure but computationally too expensive for low powered devices and as su
 
-### 🆕 [Blackboard Mixture of Experts: A Unique Edge Architecture for Multi-Agent Neural Networks](https://doi.org/10.5281/zenodo.22049637)
-<sub>2026-08-20 · Oliverio Colon · Zenodo (CERN European Organization for Nuclear Research) · 🚧 Independent source 제거 · Dependent source</sub>
+### 🆕 [多时空计算机系统架构 Multi-Spacetime Computer System Architecture](https://doi.org/10.5281/zenodo.22144990)
+<sub>2026-08-28 · 向洵 向 · Zenodo (CERN European Organization for Nuclear Research) · 🚧 Independent source 제거 · Dependent source</sub>
 
-> The paper introduces a resource-efficient edge architecture designed to bring advanced multi-agent capabilities and spatial awareness to resource-constrained microcontrollers (e.g., ARM Cortex-M, RP2040) without the heavy compute and memory overhead of traditional floating-point models.
+> This paper presents the Multi-Spacetime Computer System Architecture, a three-layer computational framework that redefines computing from a purely logical process to a causally evolving physical ecosystem. The architecture consists of: (1) a Physical Skeleton Layer (8 hardware-fused spacetimes with independent clock domains and power rails, dual-binary addressing, and compute-in-memory); (2) a Log
 
-### ✅ [Deep learning based approaches for intelligent industrial machinery health management and fault diagnosis in resource-constrained environments](https://doi.org/10.1038/s41598-024-79151-2)
-<sub>2025-01-07 · Ali Saeed, Muazzam A. Khan, Usman Akram 외 · Scientific Reports · 🚧 Independent source 제거 · Dependent source</sub>
+### ✅ [An integrated large-scale photonic accelerator with ultralow latency](https://doi.org/10.1038/s41586-025-08786-6)
+<sub>2025-04-09 · Shiyue Hua, Erwan Divita, Shanshan Yu 외 · Nature · 🚧 Virtual Short · Short</sub>
 
-> Industry 4.0 represents the fourth industrial revolution, which is characterized by the incorporation of digital technologies, the Internet of Things (IoT), artificial intelligence, big data, and other advanced technologies into industrial processes. Industrial Machinery Health Management (IMHM) is a crucial element, based on the Industrial Internet of Things (IIoT), which focuses on monitoring th
+> Integrated photonics, particularly silicon photonics, have emerged as cutting-edge technology driven by promising applications such as short-reach communications, autonomous driving, biosensing and photonic computing1–4. As advances in AI lead to growing computing demands, photonic computing has gained considerable attention as an appealing candidate. Nonetheless, there are substantial technical c
 
-### ✅ [A comprehensive review of model compression techniques in machine learning](https://doi.org/10.1007/s10489-024-05747-w)
-<sub>2024-09-02 · Pierre V. Dantas, Waldir Sabino da Silva, Lucas C. Cordeiro 외 · Applied Intelligence · 🚧 Independent source 제거 · Dependent source</sub>
+### ✅ [Hybrid Renewable Energy Systems—A Review of Optimization Approaches and Future Challenges](https://doi.org/10.3390/app15041744)
+<sub>2025-02-08 · Akvile Giedraityte, Sigitas Rimkevičius, Mantas Marčiukaitis 외 · Applied Sciences · 🚧 Independent source 제거 · Dependent source</sub>
 
-> Abstract This paper critically examines model compression techniques within the machine learning (ML) domain, emphasizing their role in enhancing model efficiency for deployment in resource-constrained environments, such as mobile devices, edge computing, and Internet of Things (IoT) systems. By systematically exploring compression techniques and lightweight design architectures, it is provided a 
+> The growing need for sustainable energy solutions has propelled the development of Hybrid Renewable Energy Systems (HRESs), which integrate diverse renewable sources like solar, wind, biomass, geothermal, hydropower and tidal. This review paper focuses on balancing economic, environmental, social and technical criteria to enhance system performance and resilience. Using comprehensive methodologies
 
