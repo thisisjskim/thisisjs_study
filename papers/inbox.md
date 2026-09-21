@@ -1,10 +1,10 @@
 ---
-title: "논문 인박스 — 2026-09-14"
-updated: 2026-09-14
+title: "논문 인박스 — 2026-09-21"
+updated: 2026-09-21
 kind: papers
 ---
 
-# 📬 논문 인박스 — 2026-09-14
+# 📬 논문 인박스 — 2026-09-21
 
 > 새 논문 **17편** — 🆕 신간(최근 14일, 최신순) + ✅ 검증(최근 2년, 인용순). 🚧 = 내 막힌 길목과 닿는 논문.
 > 세션에서 *"이번 주 새 논문 같이 보자"* 라고 하면 러너가 여기서 골라 준다.
@@ -16,97 +16,97 @@ kind: papers
 
 ## Yoo, Hoi-Jun
 
-### ✅ [THERMOS: Thermally-Aware Multi-Objective Scheduling of AI Workloads on Heterogeneous Multi-Chiplet PIM Architectures](https://doi.org/10.1145/3762655)
-<sub>2025-08-22 · Alish Kanani, Lukas Pfromm, Harsh Sharma 외 · ACM Transactions on Embedded Computing Systems</sub>
+### ✅ [Towards an Energy-Efficient and Sustainable IIoT using Embedded Neuromorphic AI](https://doi.org/10.1145/3770501.3770529)
+<sub>2025-11-18 · Behrooz Azadi, Bernhard Anzengruber-Tanase, Georgios Sopidis 외</sub>
 
-> Chiplet-based integration enables large-scale systems that combine diverse technologies, enabling higher yield, lower costs, and scalability, making them well-suited to AI workloads. Processing-in-Memory (PIM) has emerged as a promising solution for AI inference, leveraging technologies such as ReRAM, SRAM, and FeFET, each offering unique advantages and tradeoffs. A heterogeneous chiplet-based PIM
+> Leveraging AI hardware, such as GPUs and NPUs, in the Industrial Internet of Things continues to grow, and therefore, the number of IoT devices is increasing. While this growth provides computational advantages, it also creates a major challenge: these devices consume significant amounts of energy. Neuromorphic hardware offers a promising alternative, with the potential for much lower energy consu
 
-### ✅ [FlexNeRFer: A Multi-Dataflow, Adaptive Sparsity-Aware Accelerator for On-Device NeRF Rendering](https://doi.org/10.1145/3695053.3731107)
-<sub>2025-06-20 · Seock-Hwan Noh, Banseok Shin, Jeik Choi 외</sub>
+### ✅ [DA-VinCi: A Deep-Learning Accelerator Overlay Using In-Memory Computing](https://doi.org/10.1145/3770756)
+<sub>2025-10-07 · MD Arafat Kabir, Nathaniel Fredricks, Tendayi Kamucheka 외 · ACM Transactions on Reconfigurable Technology and Systems</sub>
 
-> Neural Radiance Fields (NeRF), an AI-driven approach for 3D view reconstruction, has demonstrated impressive performance, sparking active research across fields.As a result, a range of advanced NeRF models has emerged, leading on-device applications to increasingly adopt NeRF for highly realistic scene reconstructions.With the advent of diverse NeRF models, NeRF-based applications leverage a varie
+> The matrix operations that underpin today’s deep learning models are routinely implemented in Single Instruction Multiple Data (SIMD) domain specific accelerators. SIMD accelerators including GPUs and array processors can effectively leverage parallelism in models that are compute-bound, but their effectiveness can be diminished for models that are memory-bound. Processing-in-Memory (PIM) architec
 
 
 ## On-device AI accelerator
 
-### 🆕 [A Review of Cloud Computing-Internet of Things: Issues and Solutions, Open Challenges, and Research Directions](https://doi.org/10.54361/ajmas.269915)
-<sub>2026-09-08 · Murad Althabet · AlQalam Journal of Medical and Applied Sciences · 🚧 Open Circuit Voltage · Open Circuit</sub>
+### 🆕 [Artificial Intelligence-Supported Critical Translanguaging Pedagogy in Language and Literacy Education: Transforming Teaching and Learning Practices](https://doi.org/10.71317/jgst.2.9.1.2026.617)
+<sub>2026-09-16 · Aqsa Chaudari, Khadija Bahadar, Waqas Noor 외 · Journal of Global Social Transformation · 🚧 Independent source 제거 · Dependent source</sub>
 
-> The integration of both technologies, the Internet of Things (IoT) and the Cloud, is bringing many advantages. These two technologies can be used in different domains and applications such as smart cities, environmental monitoring, healthcare, education, E-commerce, and others. However, Cloud-IoT technologies are facing various issues and challenges which are needed to be studied and highlighted. 
+> Artificial Intelligence (AI) is increasingly transforming language and literacy education by providing new opportunities for personalized learning, multilingual communication, feedback, and digital literacy development. However, the use of AI in language education has often focused on standardized language learning without sufficient attention to learners’ diverse linguistic resources and identiti
 
-### 🆕 [Effect of Photobiomodulation‑Based LED on Myopia Control in Children: An Exploratory Randomized Clinical Trial](https://doi.org/10.1007/s40123-026-01498-8)
-<sub>2026-09-07 · Yuye Duan, Ziyi Qi, Feiran Yu 외 · Ophthalmology and Therapy · 🚧 Virtual Short · Short</sub>
+### 🆕 [Xiaomi Technology India Private Ltd.: A Strategic Analysis of Foreign Subsidiary Success in Indian Consumer Markets](https://doi.org/10.64818/pijtrcs.3107.8494.0065)
+<sub>2026-09-14 · Kavyashree Kulal, Manwitha N., P. S. Aithal 외 · Poornaprajna International Journal of Teaching & Research Case Studies (PIJTRCS) · 🚧 Node Analysis · Operational Amplifier</sub>
 
-> INTRODUCTION: Laser-based repeated low-level red-light (RLRL) therapy may slow myopia progression, but evidence for lower-intensity noncoherent photobiomodulation-based light-emitting diode (PBM-LED) therapy remains limited. We evaluated its short-term efficacy and safety in children with myopia. METHODS: In this single-center, double-masked, sham-controlled exploratory trial, 40 children aged 8-1
+> Purpose: The purpose of developing this scholarly article on “Xiaomi Technology India Pvt. Ltd.: A Strategic Analysis of Foreign Subsidiary Success in Indian Consumer Markets” is to examine the strategic, financial, operational, technological, and organizational factors that have contributed to Xiaomi India’s growth and competitive positioning in the Indian consumer technology market. The article 
 
-### 🆕 [TASTE: Throughput-Aware Batch Size Tuning for On-Device Edge Learning](https://doi.org/10.48550/arxiv.2609.07444)
-<sub>2026-09-07 · Avik Bhatnagar, Federico Nicolás Peccia, Oliver Bringmann 외 · arXiv (Cornell University) · 🚧 Independent source 제거 · Dependent source</sub>
+### 🆕 [Artificial intelligence-based PET/CT analysis in lymphoma: segmentation, differential diagnosis, and prognostic stratification](https://doi.org/10.1007/s44178-026-00294-5)
+<sub>2026-09-15 · Qi Liu, Rui Sun, Xiaoliang Chen 외 · Holistic Integrative Oncology · 🚧 Node Analysis · Differential Amplifier</sub>
 
-> The rise of privacy-preserving artificial intelligence (AI) has shifted the focus of model adaptation and personalization towards on-device learning, where deep learning models are finetuned directly on edge hardware using local user data. However, this shift requires optimization of deep learning training on resource-constrained hardware to maximize throughput while maintaining predictive accurac
+> Abstract Lymphoma is biologically and prognostically heterogeneous, making accurate imaging-based assessment essential for individualized management. 18 F-fluorodeoxyglucose positron emission tomography/computed tomography ( 18 F-FDG PET/CT) is central to staging, response assessment, and follow-up, but manual lesion delineation and visual interpretation remain time-consuming and variable. Artific
 
-### ✅ [Global Harmonization of Artificial Intelligence-Enabled Software as a Medical Device Regulation: Addressing Challenges and Unifying Standards](https://doi.org/10.1016/j.mcpdig.2024.100191)
-<sub>2024-12-24 · Sandeep Reddy · Mayo Clinic Proceedings Digital Health · 🚧 Rth 계산</sub>
+### ✅ [Artificial intelligence, machine learning, and deep learning in cloud, edge, and quantum computing: A review of trends, challenges, and future directions](https://doi.org/10.70593/978-81-981271-0-5_1)
+<sub>2024-10-16 · Jayesh Rane, Ömer Kaya, Suraj Kumar Mallick 외 · 🚧 Node Analysis · Short Circuit Current</sub>
 
-> The growing incorporation of artificial intelligence (AI) into medical device software offers substantial prospects and regulatory hurdles. As AI software as a medical device (AI-SaMD) continues to advance, ensuring its safety, effectiveness, and security is paramount. Nevertheless, the regulatory environment needs more cohesion, with various regions implementing diverse strategies. This paper und
+> With an emphasis on current trends, obstacles, and future directions, this research offers a thorough analysis of the intersection of cloud, edge, and quantum computing with artificial intelligence (AI), machine learning (ML), and deep learning (DL). Cloud computing provides scalable infrastructure as AI-driven applications grow quickly, and edge computing moves processing power closer to data sou
 
-### ✅ [AI security and cyber risk in IoT systems](https://doi.org/10.3389/fdata.2024.1402745)
-<sub>2024-10-10 · Petar Radanliev, David De Roure, Carsten Maple 외 · Frontiers in Big Data · 🚧 Short Circuit Current</sub>
+### ✅ [The synergy of artificial intelligence and nanotechnology towards advancing innovation and sustainability - A mini-review](https://doi.org/10.1016/j.nwnano.2024.100052)
+<sub>2024-09-30 · David B. Olawade, Abimbola O. Ige, Abimbola G. Olaremu 외 · Nano Trends</sub>
 
-> Internet-of-Things (IoT) refers to low-memory connected devices used in various new technologies, including drones, autonomous machines, and robotics. The article aims to understand better cyber risks in low-memory devices and the challenges in IoT risk management. The article includes a critical reflection on current risk methods and their level of appropriateness for IoT. We present a dependency
+> • AI enables optimization of nanomanufacturing processes, enhancing efficiency and precision in the production of nanoscale devices and materials. • AI-driven predictive modeling enables the simulation of complex nanoscale phenomena, aiding in the design and optimization of nanomaterials and devices. • AI plays a pivotal role in accelerating materials discovery, optimizing nanomaterial properties 
 
 
 ## Neural rendering and NeRF accelerator
 
-### 🆕 [Online dynamic scene reconstruction based on multi-view video](https://doi.org/10.1038/s41598-026-70126-z)
-<sub>2026-09-07 · Yang Dong, Jiaxuan Song, Dazhao Fan 외 · Scientific Reports · 🚧 Virtual Short · Independent source 제거</sub>
+### 🆕 [SignMimic: Robust High-Quality Sign Language Motion Generation via Human-Shape-Oblivious Pose Transfer Guidance](https://arxiv.org/abs/2609.14122)
+<sub>2026-09-12 · Zhewen He, Junyi Yu, Haomian Huang 외 · arXiv (Cornell University) · 🚧 Independent source 제거 · Dependent source</sub>
 
-> Dynamic-scene 4D reconstruction technology has great application potential in film and television production, virtual reality, and smart cities. However, existing methods generally suffer from limitations such as constraints on ultra-dense or single-view input, end-to-end black-box design, frame-by-frame independent output, and high computational requirements. To address these issues, this paper p
+> We study the challenge of sign language video mimicking: given a driving video and a single reference frame, synthesize a video where the target signer reproduces the source motion while preserving identity and linguistic form. Prior pipelines entangle rigid motion, non-rigid deformation, and view-dependent completion in a monolithic generator, causing handshape drift and spatio-temporal instabili
 
-### 🆕 [LightSplat: Real-Time High-Fidelity 3D Gaussian SLAM with Loop Closure](https://doi.org/10.48550/arxiv.2609.07274)
-<sub>2026-09-07 · Junze Bao, Ye Gao, Yiming Huang 외 · arXiv (Cornell University) · 🚧 Short Circuit Current · Operational Amplifier</sub>
+### 🆕 [Real-time RGB-D SLAM with Gaussian scene representation for dynamic environments](https://doi.org/10.1038/s41598-026-71588-x)
+<sub>2026-09-16 · Chaemin Lee, Hae Min Cho · Scientific Reports · 🚧 Infinite Input Resistance</sub>
 
-> SLAM systems based on 3D Gaussian Splatting (3DGS) have recently demonstrated promising reconstruction accuracy for dense 3D scene representations. However, current 3DGS systems struggle to meet the strict demands of real-world deployments due to severe limitations in operational performance and map adaptability. To this end, we propose LightSplat, a hybrid-representation RGB-D SLAM framework. It 
+> Abstract This paper presents a lightweight semantic front-end for improving registration-driven Gaussian RGB-D SLAM in dynamic scenes. In dynamic environments, dynamic objects significantly degrade the robustness of Gaussian-based RGB-D SLAM systems by introducing inconsistent geometric observations during registration and map fusion. To address this problem, we propose an input-level dynamic remo
 
-### 🆕 [CSRF: A Robust 3D Reconstruction Framework for Crowdsourced Street View Videos](https://doi.org/10.1007/s41651-026-00283-2)
-<sub>2026-09-08 · Mengchen Xie, Hongchao Fan, Yatong Zhou 외 · Journal of Geovisualization and Spatial Analysis · 🚧 Independent source 제거 · Dependent source</sub>
+### 🆕 [An improved geometric priors-based indoor 3D object detection in point clouds for mobile robots](https://doi.org/10.1088/1361-6501/aea7c1)
+<sub>2026-09-15 · Jianjun Ni, Sheng Wu, Jie Liu 외 · Measurement Science and Technology · 🚧 Short Circuit Current</sub>
 
-> _(초록이 공개돼 있지 않다 — 제목·저널로 판단하거나 원문을 열어 보자.)_
+> Abstract 3D object detection is an essential and highly challenging task for unmanned autonomous systems operating in indoor scenes. Current mainstream 3D detection approaches rely on the direct encoding of point cloud coordinates, while neglecting the underlying geometric priors, thereby limiting the expressiveness of learned features. To deal with these problems, an efficient indoor 3D object de
 
-### ✅ [Generative Artificial Intelligence and the Evolving Challenge of Deepfake Detection: A Systematic Analysis](https://doi.org/10.3390/jsan14010017)
-<sub>2025-02-06 · Reza Babaei, Samuel Cheng, Rui Duan 외 · Journal of Sensor and Actuator Networks · 🚧 Node Analysis</sub>
+### ✅ [NeRF-based 3D reconstruction pipeline for acquisition and analysis of tomato crop morphology](https://doi.org/10.3389/fpls.2024.1439086)
+<sub>2024-10-24 · Hak-Sun Choi, Jae-Kun Park, Soo Hyun Park 외 · Frontiers in Plant Science · 🚧 Node Analysis</sub>
 
-> Deepfake technology, which employs advanced generative artificial intelligence to create hyper-realistic synthetic media, poses significant challenges across various sectors, including security, entertainment, and education. This literature review explores the evolution of deepfake generation methods, ranging from traditional techniques to state-of-the-art models such as generative adversarial net
+> Recent advancements in digital phenotypic analysis have revolutionized the morphological analysis of crops, offering new insights into genetic trait expressions. This manuscript presents a novel 3D phenotyping pipeline utilizing the cutting-edge Neural Radiance Fields (NeRF) technology, aimed at overcoming the limitations of traditional 2D imaging methods. Our approach incorporates automated RGB i
 
-### ✅ [Foundation models in robotics: Applications, challenges, and the future](https://doi.org/10.1177/02783649241281508)
-<sub>2024-09-25 · Roya Firoozi, Johnathan Tucker, Stephen Tian 외 · The International Journal of Robotics Research</sub>
+### ✅ [FAST-LIVO2: Fast, Direct LiDAR–Inertial–Visual Odometry](https://doi.org/10.1109/tro.2024.3502198)
+<sub>2024-11-19 · Chunran Zheng, Wei Xu, Zuhao Zou 외 · IEEE Transactions on Robotics</sub>
 
-> We survey applications of pretrained foundation models in robotics. Traditional deep learning models in robotics are trained on small datasets tailored for specific tasks, which limits their adaptability across diverse applications. In contrast, foundation models pretrained on internet-scale data appear to have superior generalization capabilities, and in some instances display an emergent ability
+> This paper presents FAST-LIVO2, a fast and direct LiDAR-inertial-visual odometry framework designed for accurate and robust state estimation in SLAM tasks, enabling real-time robotic applications. FAST-LIVO2 integrates IMU, LiDAR, and image data through an efficient error-state iterated Kalman filter (ESIKF). To address the dimensional mismatch between LiDAR and image measurements, we adopt a sequ
 
 
 ## Computing-in-memory and processing-in-memory
 
-### 🆕 [MOPAR: A Model Partitioning Framework for Deep Learning Inference Services on Serverless Platforms](https://doi.org/10.1145/3832810.3832925)
-<sub>2026-09-13 · Jiaang Duan, Shiyou Qian, Hanwen Hu 외 · 🚧 Independent source 제거 · Dependent source</sub>
+### 🆕 [Predictable and Scalable Analog Matrix–Vector Multiplication in Memristor Crossbars via Closed‐Form Wire‐Resistance Compensation](https://doi.org/10.1002/aelm.70580)
+<sub>2026-09-17 · Davide Rossetti, Yichun Xu, Ludovica Asselta 외 · Advanced Electronic Materials · 🚧 node voltage · Open Circuit Voltage</sub>
 
-> With its elastic power and a pay-as-you-go cost model, the deployment of deep learning inference services (DLISs) on serverless platforms is emerging as a prevalent trend. However, the varying resource requirements of different layers in DL models hinder resource utilization and increase costs, when DLISs are deployed as a single function on serverless platforms. To tackle this problem, we propose
+> ABSTRACT Wire resistance in memristor crossbars introduces geometry‐dependent voltage attenuation that degrades analog matrix–vector multiplication (MVM), while parasitic sneak paths further distort output currents as array dimensions scale. Here, we develop a closed‐form distributed line‐resistance model that jointly accounts for horizontal and vertical interconnects as well as parasitic conducti
 
-### 🆕 [Robust feasible-domain modeling for resource-constrained spaceborne heterogeneous high-performance computing](https://doi.org/10.1038/s41598-026-70375-y)
-<sub>2026-09-09 · J. N. Rao, Wenjie Zhao, Junshe An 외 · Scientific Reports · 🚧 Independent source 제거 · Dependent source</sub>
+### 🆕 [Progress, Poetry, and Peace: Romantic Ideals and the Present Day](https://digitalcommons.liberty.edu/masters/1543)
+<sub>2026-09-17 · Kristen Dawn Morgan Hess · Digital Commons (Liberty University) · 🚧 Virtual Short · Short</sub>
 
-> A spaceborne heterogeneous computer must finish sensing, preprocessing, artificial-intelligence inference, compression, and data return within one mission window. Processor throughput alone is an incomplete guide because task placement simultaneously determines computation, transfer, energy, peak power, thermal accumulation, and reliability exposure. We developed a reproducible feasible-domain wor
+> In the busy, technologized, and mechanized life that most people live today, it can be difficult to find true rest, comfort, and peace because the very technology and machinery that is marketed as providing these 21st-century amenities often fall short in their delivery. Taking a look backward at the Romantic era ideals presented in the poetry of William Wordsworth can offer people today the chanc
 
-### 🆕 [Design and Analysis of Low Power CMOS Full Adders: A Comprehensive Review of Architectures, Logic Styles, and Performance Optimization](https://doi.org/10.48175/ijarsct-38252)
-<sub>2026-09-11 · Soniya Patel, Mrs. Deepali Sahu, Ms Madhu Vishwakarma · International Journal of Advanced Research in Science Communication and Technology · 🚧 Node Analysis</sub>
+### 🆕 [An Enhanced RSSI-based Secret Key Generation Framework for Secure Agricultural Edge-IoT Systems](https://doi.org/10.22266/ijies2026.1031.64)
+<sub>2026-09-19 · Naufal Fattah Rizqi, Mike Yuliana, Tita Karlita 외 · International journal of intelligent engineering and systems · 🚧 Independent source 제거 · Dependent source</sub>
 
-> The full adder (FA) remains the fundamental arithmetic building block in modern digital systems, serving as the critical component in arithmetic logic units (ALUs), multipliers, and digital signal processors (DSPs) . As CMOS technology continues scaling into the nanometer regime, power dissipation has emerged as the primary design constraint, driving extensive research into low-power full adder ar
+> Secure communication is essential for agricultural edge-IoT systems operating on resource-constrained wireless devices.Most RSSI-based secret key generation (SKG) methods improve only individual stages of the keygeneration pipeline and are rarely evaluated under realistic outdoor conditions.This paper presents HySKG, an endto-end RSSI-based SKG framework integrating parameter-tuned Moving Window A
 
-### ✅ [LLM Hallucinations in Practical Code Generation: Phenomena, Mechanism, and Mitigation](https://doi.org/10.1145/3728894)
-<sub>2025-06-22 · Ziyao Zhang, Chong Wang, Yanlin Wang 외 · Proceedings of the ACM on software engineering. · 🚧 Infinite Input Resistance</sub>
+### ✅ [Mitochondria in oxidative stress, inflammation and aging: from mechanisms to therapeutic advances](https://doi.org/10.1038/s41392-025-02253-4)
+<sub>2025-06-11 · Xiaojun Xu, Yan Pang, Xianqun Fan 외 · Signal Transduction and Targeted Therapy</sub>
 
-> Code generation aims to automatically generate code from input requirements, significantly enhancing development efficiency. Recent large language models (LLMs) based approaches have shown promising results and revolutionized code generation task. Despite the promising performance, LLMs often generate contents with hallucinations, especially for the code generation scenario requiring the handling 
+> Mitochondria are the energy production centers in cells and have unique genetic information. Due to the irreplaceable function of mitochondria, mitochondrial dysfunction often leads to pathological changes. Mitochondrial dysfunction induces an imbalance between oxidation and antioxidation, mitochondrial DNA (mtDNA) damage, mitochondrial dynamics dysregulation, and changes in mitophagy. It results 
 
-### ✅ [The neurobench framework for benchmarking neuromorphic computing algorithms and systems](https://doi.org/10.1038/s41467-025-56739-4)
-<sub>2025-02-11 · Jason Yik, Korneel Van den Berghe, Douwe den Blanken 외 · Nature Communications · 🚧 Short Circuit Current</sub>
+### ✅ [Smarter, Better, Faster, Longer: A Modern Bidirectional Encoder for Fast, Memory Efficient, and Long Context Finetuning and Inference](https://doi.org/10.18653/v1/2025.acl-long.127)
+<sub>2025-01-01 · Benjamin C. Warner, Antoine Chaffin, Benjamin Clavié 외</sub>
 
-> Neuromorphic computing shows promise for advancing computing efficiency and capabilities of AI applications using brain-inspired principles. However, the neuromorphic research field currently lacks standardized benchmarks, making it difficult to accurately measure technological advancements, compare performance with conventional methods, and identify promising future research directions. This arti
+> Benjamin Warner, Antoine Chaffin, Benjamin Clavié, Orion Weller, Oskar Hallström, Said Taghadouini, Alexis Gallagher, Raja Biswas, Faisal Ladhak, Tom Aarsen, Griffin Thomas Adams, Jeremy Howard, Iacopo Poli. Proceedings of the 63rd Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers). 2025.
 
