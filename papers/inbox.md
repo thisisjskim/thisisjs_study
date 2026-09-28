@@ -1,112 +1,103 @@
 ---
-title: "논문 인박스 — 2026-09-21"
-updated: 2026-09-21
+title: "논문 인박스 — 2026-09-28"
+updated: 2026-09-28
 kind: papers
 ---
 
-# 📬 논문 인박스 — 2026-09-21
+# 📬 논문 인박스 — 2026-09-28
 
-> 새 논문 **17편** — 🆕 신간(최근 14일, 최신순) + ✅ 검증(최근 2년, 인용순). 🚧 = 내 막힌 길목과 닿는 논문.
+> 새 논문 **15편** — 🆕 신간(최근 14일, 최신순) + ✅ 검증(최근 2년, 인용순). 🚧 = 내 막힌 길목과 닿는 논문.
 > 세션에서 *"이번 주 새 논문 같이 보자"* 라고 하면 러너가 여기서 골라 준다.
 > 다 읽을 필요 없다 — **제목과 초록만 훑고 1편만 골라** 깊게 보는 편이 낫다.
+
+> ⚠️ **조회 실패 1개 주제** — Yoo, Hoi-Jun
+> 새 논문이 없는 것이 아니라 **가져오지 못한** 것이다. Actions 로그를 보고
+> `paper-scan → Run workflow`로 다시 돌리면 된다.
 
 > ⚠️ **분야가 고정되지 않은 주제 4개** — Yoo, Hoi-Jun, On-device AI accelerator, Neural rendering and NeRF accelerator, Computing-in-memory and processing-in-memory
 > 이 주제들은 단어로만 검색된다. 약어가 겹치면 엉뚱한 분야의 논문이 섞인다(`HBM` → high bandwidth memory / human breast milk).
 > 세션에서 러너에게 **"이 주제 분야 고정해줘"** 라고 하면, 이미 읽은 논문을 씨앗으로 삼아 분야를 잡아 준다 — 사람이 코드를 찾을 필요는 없다.
 
-## Yoo, Hoi-Jun
-
-### ✅ [Towards an Energy-Efficient and Sustainable IIoT using Embedded Neuromorphic AI](https://doi.org/10.1145/3770501.3770529)
-<sub>2025-11-18 · Behrooz Azadi, Bernhard Anzengruber-Tanase, Georgios Sopidis 외</sub>
-
-> Leveraging AI hardware, such as GPUs and NPUs, in the Industrial Internet of Things continues to grow, and therefore, the number of IoT devices is increasing. While this growth provides computational advantages, it also creates a major challenge: these devices consume significant amounts of energy. Neuromorphic hardware offers a promising alternative, with the potential for much lower energy consu
-
-### ✅ [DA-VinCi: A Deep-Learning Accelerator Overlay Using In-Memory Computing](https://doi.org/10.1145/3770756)
-<sub>2025-10-07 · MD Arafat Kabir, Nathaniel Fredricks, Tendayi Kamucheka 외 · ACM Transactions on Reconfigurable Technology and Systems</sub>
-
-> The matrix operations that underpin today’s deep learning models are routinely implemented in Single Instruction Multiple Data (SIMD) domain specific accelerators. SIMD accelerators including GPUs and array processors can effectively leverage parallelism in models that are compute-bound, but their effectiveness can be diminished for models that are memory-bound. Processing-in-Memory (PIM) architec
-
-
 ## On-device AI accelerator
 
-### 🆕 [Artificial Intelligence-Supported Critical Translanguaging Pedagogy in Language and Literacy Education: Transforming Teaching and Learning Practices](https://doi.org/10.71317/jgst.2.9.1.2026.617)
-<sub>2026-09-16 · Aqsa Chaudari, Khadija Bahadar, Waqas Noor 외 · Journal of Global Social Transformation · 🚧 Independent source 제거 · Dependent source</sub>
+### 🆕 [Bridging AI-mediated educational inequalities in Open and Distance eLearning: lessons from Zimbabwe Open University](https://doi.org/10.3389/feduc.2026.1940879)
+<sub>2026-09-23 · Logic Magwa · Frontiers in Education · 🚧 Open Circuit Voltage · Open Circuit</sub>
 
-> Artificial Intelligence (AI) is increasingly transforming language and literacy education by providing new opportunities for personalized learning, multilingual communication, feedback, and digital literacy development. However, the use of AI in language education has often focused on standardized language learning without sufficient attention to learners’ diverse linguistic resources and identiti
+> This study explored strategies for bridging AI-mediated educational inequalities in Open and Distance eLearning (ODeL) using Zimbabwe Open University as a case study. The study was grounded in the Capability Approach, which emphasises individuals’ ability to access and effectively utilise resources to achieve valued outcomes. A qualitative instrumental case study design was employed to gain an in-
 
-### 🆕 [Xiaomi Technology India Private Ltd.: A Strategic Analysis of Foreign Subsidiary Success in Indian Consumer Markets](https://doi.org/10.64818/pijtrcs.3107.8494.0065)
-<sub>2026-09-14 · Kavyashree Kulal, Manwitha N., P. S. Aithal 외 · Poornaprajna International Journal of Teaching & Research Case Studies (PIJTRCS) · 🚧 Node Analysis · Operational Amplifier</sub>
+### 🆕 [A Novel Schematic–Layout Co-Analysis Framework for Selective Radiation Hardening in Nanoscale Technology](https://doi.org/10.1007/s11265-026-02017-5)
+<sub>2026-09-25 · Aobo Cui, Eleonora Vacca, Sarah Azimi 외 · Journal of Signal Processing Systems · 🚧 Node Analysis · Open Circuit Voltage</sub>
 
-> Purpose: The purpose of developing this scholarly article on “Xiaomi Technology India Pvt. Ltd.: A Strategic Analysis of Foreign Subsidiary Success in Indian Consumer Markets” is to examine the strategic, financial, operational, technological, and organizational factors that have contributed to Xiaomi India’s growth and competitive positioning in the Indian consumer technology market. The article 
+> Abstract Technology scaling in nanoscale FinFET technologies increases circuit susceptibility to radiation-induced single event effects (SEEs). This work proposes a schematic–layout co-analysis and selective hardening framework for radiation-aware circuit design. The methodology combines LET-based fault injection at the schematic level with three-dimensional layout-aware particle strike simulation
 
-### 🆕 [Artificial intelligence-based PET/CT analysis in lymphoma: segmentation, differential diagnosis, and prognostic stratification](https://doi.org/10.1007/s44178-026-00294-5)
-<sub>2026-09-15 · Qi Liu, Rui Sun, Xiaoliang Chen 외 · Holistic Integrative Oncology · 🚧 Node Analysis · Differential Amplifier</sub>
+### 🆕 [Intelligent Defect Detection of Design Materials Based on Edge AI](https://doi.org/10.67541/jdf2609)
+<sub>2026-09-22 · Jiayu Du, Mengyu Liu · Journal of Digital Frontier · 🚧 Independent source 제거 · Dependent source</sub>
 
-> Abstract Lymphoma is biologically and prognostically heterogeneous, making accurate imaging-based assessment essential for individualized management. 18 F-fluorodeoxyglucose positron emission tomography/computed tomography ( 18 F-FDG PET/CT) is central to staging, response assessment, and follow-up, but manual lesion delineation and visual interpretation remain time-consuming and variable. Artific
+> Aiming at the problems such as the imbalance between accuracy and efficiency, insufficient adaptability of multi-scale defects and limited inference resources in the deployment of design material defect detection at the edge end, this paper proposes a lightweight detection method based on edge AI. In the training stage, multi-branch topology is used to enhance feature expression, and in the infere
 
-### ✅ [Artificial intelligence, machine learning, and deep learning in cloud, edge, and quantum computing: A review of trends, challenges, and future directions](https://doi.org/10.70593/978-81-981271-0-5_1)
-<sub>2024-10-16 · Jayesh Rane, Ömer Kaya, Suraj Kumar Mallick 외 · 🚧 Node Analysis · Short Circuit Current</sub>
+### ✅ [Digital technologies for water use and management in agriculture: Recent applications and future outlook](https://doi.org/10.1016/j.agwat.2025.109347)
+<sub>2025-02-01 · Carlos Parra-López, Saker Ben Abdallah, Guillermo Garcia‐Garcia 외 · Agricultural Water Management</sub>
 
-> With an emphasis on current trends, obstacles, and future directions, this research offers a thorough analysis of the intersection of cloud, edge, and quantum computing with artificial intelligence (AI), machine learning (ML), and deep learning (DL). Cloud computing provides scalable infrastructure as AI-driven applications grow quickly, and edge computing moves processing power closer to data sou
+> This article provides a comprehensive overview of digital technologies for water use and management in agriculture , examining recent applications and future prospects. It examines key water-related challenges - scarcity, pollution, inefficient use and climate change - and shows how various digital technologies such as Remote Sensing , Artificial Intelligence, the Internet of Things, Big Data, Rob
 
-### ✅ [The synergy of artificial intelligence and nanotechnology towards advancing innovation and sustainability - A mini-review](https://doi.org/10.1016/j.nwnano.2024.100052)
-<sub>2024-09-30 · David B. Olawade, Abimbola O. Ige, Abimbola G. Olaremu 외 · Nano Trends</sub>
+### ✅ [Generalizability of FDA-Approved AI-Enabled Medical Devices for Clinical Use](https://doi.org/10.1001/jamanetworkopen.2025.8052)
+<sub>2025-04-30 · Daniel Windecker, Giovanni Baj, Isaac Shiri 외 · JAMA Network Open</sub>
 
-> • AI enables optimization of nanomanufacturing processes, enhancing efficiency and precision in the production of nanoscale devices and materials. • AI-driven predictive modeling enables the simulation of complex nanoscale phenomena, aiding in the design and optimization of nanomaterials and devices. • AI plays a pivotal role in accelerating materials discovery, optimizing nanomaterial properties 
+> Importance: The primary objective of any newly developed medical device using artificial intelligence (AI) is to ensure its safe and effective use in broader clinical practice. Objective: To evaluate key characteristics of AI-enabled medical devices approved by the US Food and Drug Administration (FDA) that are relevant to their clinical generalizability and are reported in the public domain. Desi
 
 
 ## Neural rendering and NeRF accelerator
 
-### 🆕 [SignMimic: Robust High-Quality Sign Language Motion Generation via Human-Shape-Oblivious Pose Transfer Guidance](https://arxiv.org/abs/2609.14122)
-<sub>2026-09-12 · Zhewen He, Junyi Yu, Haomian Huang 외 · arXiv (Cornell University) · 🚧 Independent source 제거 · Dependent source</sub>
+### 🆕 [Closed-loop artificial intelligence agents for animal epidemic prediction and decision support in livestock farming: a review](https://doi.org/10.3389/fvets.2026.1968632)
+<sub>2026-09-23 · Yuzhi Wang, Yingtong Zhou, Liyu Li 외 · Frontiers in Veterinary Science · 🚧 Open Circuit Voltage · Open Circuit</sub>
 
-> We study the challenge of sign language video mimicking: given a driving video and a single reference frame, synthesize a video where the target signer reproduces the source motion while preserving identity and linguistic form. Prior pipelines entangle rigid motion, non-rigid deformation, and view-dependent completion in a monolithic generator, causing handshape drift and spatio-temporal instabili
+> Animal diseases continuously threaten livestock production and public health, yet current surveillance approaches remain largely passive and fragmented. Conventional artificial intelligence models typically function as open-loop predictors, delivering static outputs that fail to accommodate the dynamic operational needs of veterinarians in real-world farm settings. This review explores an emerging
 
-### 🆕 [Real-time RGB-D SLAM with Gaussian scene representation for dynamic environments](https://doi.org/10.1038/s41598-026-71588-x)
-<sub>2026-09-16 · Chaemin Lee, Hae Min Cho · Scientific Reports · 🚧 Infinite Input Resistance</sub>
+### 🆕 [Contributions to Integrity and Collaboration in Dynamic Sensor Networks](https://doi.org/10.1007/s41064-026-00420-y)
+<sub>2026-09-24 · Rozhin Moftizadeh, Max Mehltretter, Rasho Ali 외 · PFG – Journal of Photogrammetry Remote Sensing and Geoinformation Science · 🚧 Open Circuit Voltage · Open Circuit</sub>
 
-> Abstract This paper presents a lightweight semantic front-end for improving registration-driven Gaussian RGB-D SLAM in dynamic scenes. In dynamic environments, dynamic objects significantly degrade the robustness of Gaussian-based RGB-D SLAM systems by introducing inconsistent geometric observations during registration and map fusion. To address this problem, we propose an input-level dynamic remo
+> Abstract Reliable and safe navigation of autonomous systems is an active field of research, particularly in the context of complex urban environments. A key challenge is navigation integrity, defined as the trust in the correctness of the estimated system state; the transfer of this concept from aviation to collaborative multi-agent systems remains an open research challenge. Addressing this gap, 
 
-### 🆕 [An improved geometric priors-based indoor 3D object detection in point clouds for mobile robots](https://doi.org/10.1088/1361-6501/aea7c1)
-<sub>2026-09-15 · Jianjun Ni, Sheng Wu, Jie Liu 외 · Measurement Science and Technology · 🚧 Short Circuit Current</sub>
+### 🆕 [Balancing accuracy, completeness, and efficiency for rice 3D reconstruction through CBAM-UNet-based multi-view segmentation and camera configuration optimization](https://doi.org/10.3389/fpls.2026.1882534)
+<sub>2026-09-24 · Haoyang Zhou, Rongjie Chen, Hao Wang 외 · Frontiers in Plant Science · 🚧 Open Circuit Voltage · Open Circuit</sub>
 
-> Abstract 3D object detection is an essential and highly challenging task for unmanned autonomous systems operating in indoor scenes. Current mainstream 3D detection approaches rely on the direct encoding of point cloud coordinates, while neglecting the underlying geometric priors, thereby limiting the expressiveness of learned features. To deal with these problems, an efficient indoor 3D object de
+> Multi-view 3D reconstruction has been widely applied in plant phenotyping, but the complex canopy structure of rice plants poses significant challenges for reconstruction accuracy, completene7ss, and efficiency. In this study, we developed an optimized workflow for 3D reconstruction of rice using the self-developed Metatlas V1 multi-view imaging platform combined with the COLMAP + OpenMVS pipeline
 
-### ✅ [NeRF-based 3D reconstruction pipeline for acquisition and analysis of tomato crop morphology](https://doi.org/10.3389/fpls.2024.1439086)
-<sub>2024-10-24 · Hak-Sun Choi, Jae-Kun Park, Soo Hyun Park 외 · Frontiers in Plant Science · 🚧 Node Analysis</sub>
+### ✅ [Leveraging generative AI for urban digital twins: a scoping review on the autonomous generation of urban data, scenarios, designs, and 3D city models for smart city advancement](https://doi.org/10.1007/s44212-024-00060-w)
+<sub>2024-10-13 · Haowen Xu, Olufemi A. Omitaomu, Soheil Sabri 외 · Urban Informatics</sub>
 
-> Recent advancements in digital phenotypic analysis have revolutionized the morphological analysis of crops, offering new insights into genetic trait expressions. This manuscript presents a novel 3D phenotyping pipeline utilizing the cutting-edge Neural Radiance Fields (NeRF) technology, aimed at overcoming the limitations of traditional 2D imaging methods. Our approach incorporates automated RGB i
+> Abstract The digital transformation of modern cities by integrating advanced information, communication, and computing technologies has marked the epoch of data-driven smart city applications for efficient and sustainable urban management. Despite their effectiveness, these applications often rely on massive amounts of high-dimensional and multi-domain data for monitoring and characterizing differ
 
-### ✅ [FAST-LIVO2: Fast, Direct LiDAR–Inertial–Visual Odometry](https://doi.org/10.1109/tro.2024.3502198)
-<sub>2024-11-19 · Chunran Zheng, Wei Xu, Zuhao Zou 외 · IEEE Transactions on Robotics</sub>
+### ✅ [Conditional neural field latent diffusion model for generating spatiotemporal turbulence](https://doi.org/10.1038/s41467-024-54712-1)
+<sub>2024-11-29 · Pan Du, Meet Hemant Parikh, Xiantao Fan 외 · Nature Communications</sub>
 
-> This paper presents FAST-LIVO2, a fast and direct LiDAR-inertial-visual odometry framework designed for accurate and robust state estimation in SLAM tasks, enabling real-time robotic applications. FAST-LIVO2 integrates IMU, LiDAR, and image data through an efficient error-state iterated Kalman filter (ESIKF). To address the dimensional mismatch between LiDAR and image measurements, we adopt a sequ
+> Eddy-resolving turbulence simulations are essential for understanding and controlling complex unsteady fluid dynamics, with significant implications for engineering and scientific applications. Traditional numerical methods, such as direct numerical simulations (DNS) and large eddy simulations (LES), provide high accuracy but face severe computational limitations, restricting their use in high-Rey
 
 
 ## Computing-in-memory and processing-in-memory
 
-### 🆕 [Predictable and Scalable Analog Matrix–Vector Multiplication in Memristor Crossbars via Closed‐Form Wire‐Resistance Compensation](https://doi.org/10.1002/aelm.70580)
-<sub>2026-09-17 · Davide Rossetti, Yichun Xu, Ludovica Asselta 외 · Advanced Electronic Materials · 🚧 node voltage · Open Circuit Voltage</sub>
+### 🆕 [Simulation-based multi-objective resource optimization in fog computing using Genetic Algorithms](https://doi.org/10.1038/s41598-026-72350-z)
+<sub>2026-09-25 · Satyakam Rahul, Vinay Bhardwaj, Deepak Prashar 외 · Scientific Reports · 🚧 Independent source 제거 · Dependent source</sub>
 
-> ABSTRACT Wire resistance in memristor crossbars introduces geometry‐dependent voltage attenuation that degrades analog matrix–vector multiplication (MVM), while parasitic sneak paths further distort output currents as array dimensions scale. Here, we develop a closed‐form distributed line‐resistance model that jointly accounts for horizontal and vertical interconnects as well as parasitic conducti
+> Efficient task scheduling in heterogeneous fog computing environments remains a challenging problem because latency, energy consumption, and resource utilization are inherently conflicting optimization objectives. Conventional scheduling techniques often rely on static heuristics or single-objective optimization, limiting their ability to adapt to dynamic and resource-constrained fog infrastructur
 
-### 🆕 [Progress, Poetry, and Peace: Romantic Ideals and the Present Day](https://digitalcommons.liberty.edu/masters/1543)
-<sub>2026-09-17 · Kristen Dawn Morgan Hess · Digital Commons (Liberty University) · 🚧 Virtual Short · Short</sub>
+### 🆕 [Age-inclusive AI assessments: testing and refining open-ended prompts with human and LLM-simulated data](https://doi.org/10.1007/s10869-026-10152-w)
+<sub>2026-09-25 · Jingyi Li, Daphne Xin Hou, Louis Tay 외 · Journal of Business and Psychology · 🚧 Open Circuit Voltage · Open Circuit</sub>
 
-> In the busy, technologized, and mechanized life that most people live today, it can be difficult to find true rest, comfort, and peace because the very technology and machinery that is marketed as providing these 21st-century amenities often fall short in their delivery. Taking a look backward at the Romantic era ideals presented in the poetry of William Wordsworth can offer people today the chanc
+> As workforces become increasingly age-diverse, organizations are increasingly adopting AI-based tools, such as automated video interviews (AVIs) and chatbots, to evaluate job applicants. Although prior research has documented age-related differences in communication styles, we know less about how these differences appear in AI-based assessments or whether the design of the assessment can reduce th
 
-### 🆕 [An Enhanced RSSI-based Secret Key Generation Framework for Secure Agricultural Edge-IoT Systems](https://doi.org/10.22266/ijies2026.1031.64)
-<sub>2026-09-19 · Naufal Fattah Rizqi, Mike Yuliana, Tita Karlita 외 · International journal of intelligent engineering and systems · 🚧 Independent source 제거 · Dependent source</sub>
+### 🆕 [Toward Neurocognitive Intelligence for Assistive Humanoid Robots in Geriatric Care](https://doi.org/10.15439/2026f0447)
+<sub>2026-09-25 · Noorbakhsh Amiri Golilarz, Jiacheng Li, Shahram Rahimi 외 · Annals of Computer Science and Information Systems · 🚧 Virtual Short · Short</sub>
 
-> Secure communication is essential for agricultural edge-IoT systems operating on resource-constrained wireless devices.Most RSSI-based secret key generation (SKG) methods improve only individual stages of the keygeneration pipeline and are rarely evaluated under realistic outdoor conditions.This paper presents HySKG, an endto-end RSSI-based SKG framework integrating parameter-tuned Moving Window A
+> The increasing demand for elderly care assistance, combined with global caregiver shortages and the growing complexity of aging-related healthcare needs, has accelerated interest in assistive humanoid robots capable of supporting older adults in clinical and home environments.Despite recent advances in robotics, deep learning, multimodal perception, and embodied artificial intelligence, most curre
 
-### ✅ [Mitochondria in oxidative stress, inflammation and aging: from mechanisms to therapeutic advances](https://doi.org/10.1038/s41392-025-02253-4)
-<sub>2025-06-11 · Xiaojun Xu, Yan Pang, Xianqun Fan 외 · Signal Transduction and Targeted Therapy</sub>
+### ✅ [Beyond the Gut: Unveiling Butyrate’s Global Health Impact Through Gut Health and Dysbiosis-Related Conditions: A Narrative Review](https://doi.org/10.3390/nu17081305)
+<sub>2025-04-09 · Arda Erkan Kalkan, Mona N. BinMowyna, António Raposo 외 · Nutrients · 🚧 Virtual Short · Short</sub>
 
-> Mitochondria are the energy production centers in cells and have unique genetic information. Due to the irreplaceable function of mitochondria, mitochondrial dysfunction often leads to pathological changes. Mitochondrial dysfunction induces an imbalance between oxidation and antioxidation, mitochondrial DNA (mtDNA) damage, mitochondrial dynamics dysregulation, and changes in mitophagy. It results 
+> Short-chain fatty acids (SCFAs), mainly produced by gut microbiota through the fermentation process of dietary fibers and proteins, are crucial to human health, with butyrate, a famous four-carbon SCFA, standing out for its inevitably regulatory impact on both gut and immune functions. Within this narrative review, the vital physiological functions of SCFAs were examined, with emphasis on butyrate
 
-### ✅ [Smarter, Better, Faster, Longer: A Modern Bidirectional Encoder for Fast, Memory Efficient, and Long Context Finetuning and Inference](https://doi.org/10.18653/v1/2025.acl-long.127)
-<sub>2025-01-01 · Benjamin C. Warner, Antoine Chaffin, Benjamin Clavié 외</sub>
+### ✅ [Resistive Switching Random-Access Memory (RRAM): Applications and Requirements for Memory and Computing](https://doi.org/10.1021/acs.chemrev.4c00845)
+<sub>2025-05-02 · Daniele Ielmini, Giacomo Pedretti · Chemical Reviews</sub>
 
-> Benjamin Warner, Antoine Chaffin, Benjamin Clavié, Orion Weller, Oskar Hallström, Said Taghadouini, Alexis Gallagher, Raja Biswas, Faisal Ladhak, Tom Aarsen, Griffin Thomas Adams, Jeremy Howard, Iacopo Poli. Proceedings of the 63rd Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers). 2025.
+> In the information age, novel hardware solutions are urgently needed to efficiently store and process increasing amounts of data. In this scenario, memory devices must evolve significantly to provide the necessary bit capacity, performance, and energy efficiency needed in computation. In particular, novel computing paradigms have emerged to minimize data movement, which is known to contribute the 
 
