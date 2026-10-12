@@ -1,10 +1,10 @@
 ---
-title: "논문 인박스 — 2026-10-05"
-updated: 2026-10-05
+title: "논문 인박스 — 2026-10-12"
+updated: 2026-10-12
 kind: papers
 ---
 
-# 📬 논문 인박스 — 2026-10-05
+# 📬 논문 인박스 — 2026-10-12
 
 > 새 논문 **18편** — 🆕 신간(최근 14일, 최신순) + ✅ 검증(최근 2년, 인용순). 🚧 = 내 막힌 길목과 닿는 논문.
 > 세션에서 *"이번 주 새 논문 같이 보자"* 라고 하면 러너가 여기서 골라 준다.
@@ -16,102 +16,102 @@ kind: papers
 
 ## Yoo, Hoi-Jun
 
-### 🆕 [IMC-CLINIC: Coupled Loss-Informed Newton Iterations for Clipping in Analog In-Memory Computing](https://doi.org/10.48550/arxiv.2609.35586)
-<sub>2026-09-28 · Yung-Chin Chen, Chia‐Yu Chen, Dr. Naveen Verma 외 · arXiv (Cornell University) · 🚧 Independent source 제거 · Dependent source</sub>
+### 🆕 [Which Expert Misses Are Worth Waiting For? Substitution and Caching for Mixture-of-Experts Inference on a Consumer GPU](https://doi.org/10.21203/rs.3.rs-11268552/v1)
+<sub>2026-10-06 · ChaeWoo Son · Research Square · 🚧 Rth 계산</sub>
 
-> Analog in-memory computing (IMC) offers a promising path toward energy-efficient large language model (LLM) inference by executing matrix multiplications (MatMul) directly within memory arrays in the analog domain. Its efficiency, however, comes with an additional source of error: limited-precision analog-to-digital converters (ADCs) quantize accumulated analog partial sums, introducing output-sid
+> _(초록이 공개돼 있지 않다 — 제목·저널로 판단하거나 원문을 열어 보자.)_
 
-### ✅ [Design and Development of a Neuromorphic Silicon Suite: PVT Sensing, Stochastic LIF Inference, On-Chip STDP Learning, and Crossbar Programming](https://doi.org/10.48550/arxiv.2606.22635)
-<sub>2026-06-21 · Poornima Kumaresan, Santhosh Sivasubramani · arXiv (Cornell University) · 🚧 node voltage · Open Circuit Voltage</sub>
+### ✅ [Panacea: Novel DNN Accelerator using Accuracy-Preserving Asymmetric Quantization and Energy-Saving Bit-Slice Sparsity](https://doi.org/10.1109/hpca61900.2025.00059)
+<sub>2025-03-01 · Dongyun Kam, Myeongji Yun, Sunwoo Yoo 외 · Proceedings - International Symposium on High-Performance Computer Architecture/Proceedings</sub>
 
-> Edge neuromorphic systems need compact, configurable hardware that combines probabilistic inference, local learning, and an interface to emerging analogue memory. We present four interface-compatible digital IP blocks implemented as standard-cell CMOS on the SkyWater 130 nm process: a process, voltage and temperature (PVT) sensor built from five selectable ring oscillators that also provides a jit
+> Low bit-precisions and their bit-slice sparsity have recently been studied to accelerate general matrix-multiplications (GEMM) during large-scale deep neural network (DNN) inferences. While the conventional symmetric quantization facilitates low-resolution processing with bit-slice sparsity for both weight and activation, its accuracy loss caused by the activation’s asymmetric distributions cannot
 
-### ✅ [Fine-Grained Fusion: The Missing Piece in Area-Efficient State Space Model Acceleration](https://doi.org/10.1109/pact65351.2025.00034)
-<sub>2025-11-03 · Robin Geens, Arne Symons, Marian Verhelst 외 · 🚧 Node Analysis</sub>
+### ✅ [RedFuser: An Automatic Operator Fusion Framework for Cascaded Reductions on AI Accelerators](https://doi.org/10.1145/3779212.3790209)
+<sub>2026-03-10 · Xinsheng Tang, Yangcheng Li, Nan Wang 외 · ACM International Conference on Architectural Support for Programming Languages and Operating Systems (ASPLOS)</sub>
 
-> State Space Models (SSMs) offer a promising alternative to transformers for long-sequence processing. However, their efficiency remains hindered by memory-bound operations, particularly in the prefill stage. While MARCA, a recent first effort to accelerate SSMs through a dedicated hardware accelerator, achieves a great speedup over high-end GPUs, an analysis of the broader accelerator design space
+> Operator fusion, as a key performance optimization technique in the deployment of AI models, significantly improves execution efficiency and has been widely adopted in modern AI compilers. However, for cascaded reduction operations involving multiple loops with inter-loop data dependencies, such as the safe softmax followed by GEMM within attention mechanisms, existing compilers lack effective aut
 
 
 ## On-device AI accelerator
 
-### 🆕 [Smart Port Technologies: A Scoping Review](https://doi.org/10.65154/ijmst.57)
-<sub>2026-09-30 · Tran Xuan The, Thomas Do, Quoc Dong Hoang 외 · International Journal of Marine Science and Technology · 🚧 Node Analysis · node voltage</sub>
+### 🆕 [EdgePulse: A Runtime Observability Framework for Quantized Large Language Models on Consumer Edge Devices](https://doi.org/10.5281/zenodo.23248717)
+<sub>2026-10-08 · Muhammad Assad Ullah · Zenodo (CERN European Organization for Nuclear Research) · 🚧 Open Circuit Voltage · Open Circuit</sub>
 
-> The maritime industry is undergoing a profound digital transformation, with smart ports emerging as critical nodes in global supply chains. This comprehensive literature review synthesizes current research on key enabling technologies for smart ports, including Digital Twins, Blockchain, Artificial Intelligence, Internet of Things (IoT), Computer Vision, Unmanned Aerial Vehicles (UAVs), automation
+> On-device AI execution lacks unified runtime observability across mobile platforms. Existing tools focus on isolated model profiling or single-engine metrics and give no synchronized view of memory, thermal state, battery draw, and inference latency during real workloads. We present EdgePulse, an open-source runtime observability framework for on-device AI. EdgePulse captures structured InferenceT
 
-### 🆕 [Barriers to the Adoption of Industry 4.0 Technologies in the Digital Agri-Food Supply Chain](https://doi.org/10.33889/ijmems.2026.11.5.094)
-<sub>2026-09-29 · Mansi Singh, Viket Saurabh, Sagar Bharti 외 · International Journal of Mathematical Engineering and Management Sciences · 🚧 Independent source 제거 · Dependent source</sub>
+### 🆕 [SATE AI: A Fault Injection and Reliability Engineering Framework for On-Device AI Models in Mobile Applications](https://doi.org/10.5281/zenodo.23250417)
+<sub>2026-10-09 · Muhammad Assad Ullah · Zenodo (CERN European Organization for Nuclear Research) · 🚧 Independent source 제거 · Dependent source</sub>
 
-> Food waste in the agricultural sector remains a critical challenge with far-reaching impacts for food security and resource efficiency. In response, digitalization has increasingly been integrated into the Agri-Food Supply Chain (AFSC) to ease these losses. However, before effective digital solutions can be implemented, it is essential to identify and cognize the barriers within the digital AFSC. 
+> On-device artificial intelligence deployment in mobile applications confronts machine learning models with volatile hardware environments: unpredictable memory pressure, dynamic thermal constraints, and corrupted sensor inputs. Cloud-hosted systems enjoy active cooling, stable resource budgets, and established chaos engineering toolchains; mobile edge AI has none of these guarantees. Unhandled mod
 
-### 🆕 [Robust Edge Trade-off Index (RETI): A multi-criteria framework for reliable and resource-aware deep learning model selection](https://doi.org/10.1016/j.array.2026.101280)
-<sub>2026-09-26 · Oluwaseun O. Martins, Christiaan Coenrad Oosthuizen, Dawood Desai 외 · Array · 🚧 Independent source 제거 · Dependent source</sub>
+### 🆕 [Multi‐Timescale In‐Sensor Reservoir Computing With Composition‐Engineered InSnO Optoelectronic Synaptic Transistors](https://doi.org/10.1002/adfm.78910)
+<sub>2026-10-07 · Lan Ma, Xi Chen, Haoyang Shi 외 · Advanced Functional Materials · 🚧 Open Circuit Voltage · Open Circuit</sub>
 
-> The deployment of deep learning models on resource-constrained edge platforms requires model-selection strategies that account for predictive accuracy, reliability, robustness, and computational cost simultaneously. Conventional evaluation commonly treats these criteria independently, making the selection of an appropriate model difficult when candidate architectures exhibit conflicting performanc
+> ABSTRACT Real‐time dynamic visual scenes often involve multiple objects moving at different speeds, requiring in‐sensor computing devices with dynamic responses matched to diverse motion timescales. Existing multi‐timescale reservoir systems generally rely on external biasing and closed‐loop feedback to modulate device time constants, increasing the complexity of peripheral control circuits and li
 
-### ✅ [Predetermined Change Control Plans: Guiding Principles for Advancing Safe, Effective, and High-Quality AI-ML Technologies](https://doi.org/10.2196/76854)
-<sub>2025-10-31 · Eduardo Carvalho, Miguel Mascarenhas, Francisca Pinheiro 외 · JMIR AI · 🚧 Short Circuit Current</sub>
+### ✅ [Integrating Artificial Intelligence and the Internet of Things in Cultural Heritage Preservation: A Systematic Review of Risk Management and Environmental Monitoring Strategies](https://doi.org/10.3390/buildings14123979)
+<sub>2024-12-15 · Neeraparng Laohaviraphap, Tanut Waroonkun · Buildings</sub>
 
-> Unlabelled: The adaptive nature of artificial intelligence (AI), with its ability to improve performance through continuous learning, offers substantial benefits across various sectors. However, current regulatory frameworks are not intended to accommodate this adaptive nature, and they have prolonged approval timelines, sometimes exceeding one year for some AI-enabled devices. This creates signif
+> Heritage buildings are increasingly vulnerable to environmental challenges like air pollution and climate change. Traditional preservation methods primarily rely on periodic inspections and manual interventions and struggle to address these evolving and dynamic threats. This systematic review analyzes how integrating Artificial Intelligence (AI) and Internet of Things (IoT) technologies can transf
 
-### ✅ [Artificial intelligence advances in anomaly detection for telecom networks](https://doi.org/10.1007/s10462-025-11108-x)
-<sub>2025-01-25 · Enerst Edozie, Aliyu Nuhu Shuaibu, Bashir Olaniyi Sadiq 외 · Artificial Intelligence Review</sub>
+### ✅ [Digital Twins Generated by Artificial Intelligence in Personalized Healthcare](https://doi.org/10.3390/app14209404)
+<sub>2024-10-15 · M. Łukaniszyn, Łukasz Majka, Barbara Grochowicz 외 · Applied Sciences</sub>
 
-> Telecommunication networks are becoming increasingly dynamic and complex due to the massive amounts of data they process. As a result, detecting abnormal events within these networks is essential for maintaining security and ensuring seamless operation. Traditional methods of anomaly detection, which rely on rule-based systems, are no longer effective in today’s fast-evolving telecom landscape. Th
+> Digital society strategies in healthcare include the rapid development of digital twins (DTs) for patients and human organs in medical research and the use of artificial intelligence (AI) in clinical practice to develop effective treatments in a cheaper, quicker, and more effective manner. This is facilitated by the availability of large historical datasets from previous clinical trials and other 
 
 
 ## Neural rendering and NeRF accelerator
 
-### 🆕 [Algorithmic Storage: The Algorithmic disk on the Footprint–Compute–Horizon Triangle](https://doi.org/10.59256/ijsreat.20260605004)
-<sub>2026-09-29 · Patil Milind k · International Journal Of Scientific Research In Engineering & Technology · 🚧 Independent source 제거 · Dependent source</sub>
+### 🆕 [DigiFish: A flexible open-source tool for animating realistic virtual fish and reconstructing visual fields from tracking data](https://doi.org/10.64898/2026.10.02.755892)
+<sub>2026-10-06 · Katie Dunkley, Jolyon T. Troscianko, Anna Ahlberg 외 · bioRxiv (Cold Spring Harbor Laboratory) · 🚧 Virtual Short · Open Circuit Voltage</sub>
 
-> Algorithmic Storage is a paradigm in which data is regenerated rather than retained: a spatial cost, storage, is converted into a temporal one, regeneration time. Its device, the Algorithmic Disk, holds only shared generator engines and one small Seed per object, and regenerates any object on demand, bit-exactly, by running an engine—the Algorithmic NET—forward from the Seed. The three resources a
+> Abstract For many animals, vision represents the primary sensory modality governing a vast diversity of behaviours. Creating ‘virtual twins’, or visually realistic digital reconstructions of real individuals interacting within their environments, offers a promising approach for understanding how visual information guides an animal’s decisions, behaviours, and interactions. Such systems enable the 
 
-### 🆕 [BridgeDiff: A two-stage conditional diffusion model for bridge point clouds completion](https://doi.org/10.1016/j.aei.2026.105314)
-<sub>2026-09-29 · Yunping Fang, Mohammad Reza Salami, Stergios-Aristoteles Mitoulis 외 · Advanced Engineering Informatics · 🚧 Short Circuit Current · Rth 계산</sub>
+### 🆕 [Inaugural Editorial for Discover Computer Vision](https://doi.org/10.1007/s44584-026-00001-0)
+<sub>2026-10-09 · Ziyou Wu, Xiaojun Qi · 🚧 Open Circuit Voltage · Open Circuit</sub>
 
-> Scanned point clouds of civil infrastructure are often incomplete due to scanning limitations, making point cloud completion an essential task for Scan-to-BIM workflows. The complex geometries of structures further challenge point cloud completion methods. Currently, most completion models focus solely on synthetic small object datasets or autonomous driving scenarios. In this paper, going beyond 
+> We are delighted to introduce Discover Computer Vision , a peer-reviewed, fully open access journal published by Springer Nature.
 
-### 🆕 [A Survey of Robotic Navigation and Manipulation with Physics Simulators in the Era of Embodied AI](https://doi.org/10.1145/3856802)
-<sub>2026-10-03 · Liang Wei Wong, Xueyang Kang, Kaixin Bai 외 · ACM Computing Surveys</sub>
+### 🆕 [Pano-to-3D: Multi-view consistent 3D indoor scene reconstruction from a single panorama image](https://doi.org/10.1016/j.cag.2026.104775)
+<sub>2026-10-08 · Rong-Kai Xu, Lei Zhang · Computers & Graphics · 🚧 Independent source 제거 · Dependent source</sub>
 
-> Navigation and manipulation are core capabilities in Embodied AI, but training agents to perform them directly in the real world is costly, time-consuming, and unsafe. Therefore, sim-to-real transfer has emerged as a key approach, yet the sim-to-real gap persists. This survey examines how physics simulators address this gap by analyzing properties that have received limited attention in prior surv
+> Single-view scene reconstruction presents significant challenges due to the limited viewpoint information. Panorama images, as a form of image representation with a 360° field of view (FoV), offer a richer source of information for scene reconstruction. Therefore, more and more work utilizes a single panorama image for scene reconstruction. However, existing methods for scene reconstruction from a
 
-### ✅ [Toward a Ludic Architecture. The Space of Play and Games](https://doi.org/10.1184/r1/6686981)
-<sub>2024-10-28 · Steffen P. Walz · Figshare</sub>
+### ✅ [Vision-Language-Action Models for Robotics: A Review Towards Real-World Applications](https://doi.org/10.1109/access.2025.3609980)
+<sub>2025-01-01 · Kento Kawaharazuka, Jihoon Oh, Jun Yamada 외 · IEEE Access</sub>
 
-> Toward a Ludic Architecture is a pioneering publication, architecturally framing play and games as human practices in and of space. Filling the gap in literature, Steffen P. Walz considers game design theory and practice alongside architectural theory and practice, asking: how are play and games architected? What kind of architecture do they produce and in what way does architecture program play a
+> Amid growing efforts to leverage advances in large language models (LLMs) and vision-language models (VLMs) for robotics, Vision-Language-Action (VLA) models have recently gained significant attention. By unifying vision, language, and action data at scale, which have traditionally been studied separately, VLA models aim to learn policies that generalise across diverse tasks, objects, embodiments,
 
-### ✅ [A Survey on 3D Gaussian Splatting](https://doi.org/10.1145/3807511)
-<sub>2026-04-09 · Guikun Chen, Wenguan Wang · ACM Computing Surveys</sub>
+### ✅ [A Multifaceted Vision of the Human-AI Collaboration: A Comprehensive Review](https://doi.org/10.1109/access.2025.3536095)
+<sub>2025-01-01 · Maite Puerta-Beldarrain, Oihane Gómez–Carmona, Rubén Sánchez 외 · IEEE Access</sub>
 
-> 3D Gaussian splatting (GS) has emerged as a transformative technique in radiance fields. Unlike mainstream implicit neural models, 3D GS uses millions of learnable 3D Gaussians for an explicit scene representation. Paired with a differentiable rendering algorithm, this approach achieves real-time rendering and unprecedented editability, making it a potential game-changer for 3D reconstruction and 
+> Human-AI collaboration has evolved into a complex, multidimensional paradigm shaped by research in various domains. Key areas such as human-in-the-loop systems, Interactive Machine Learning (IML), Hybrid Intelligence, and Human-Agent Interaction have significantly contributed to this development. However, these fields often lack cohesion, underscoring the need for a cohesive perspective to advance
 
 
 ## Computing-in-memory and processing-in-memory
 
-### 🆕 [Intelligent Fault Diagnosis and Root-Cause Analytics for Renewable Power Converters Using Machine Learning Techniques Effectively](https://doi.org/10.7753/ijsea1510.1004)
-<sub>2026-10-01 · Ravanbakhsh Leikh · International Journal of Science and Engineering Applications · 🚧 node voltage · Open Circuit Voltage</sub>
+### 🆕 [A lightweight attention-enhanced intrusion detection method for anomalous network traffic analysis](https://doi.org/10.1038/s41598-026-69052-x)
+<sub>2026-10-09 · Xingguo Li, Peng Wu, Yuanyuan Xiong 외 · Scientific Reports · 🚧 Node Analysis · Independent source 제거</sub>
 
-> The accelerating integration of renewable energy resources into modern power systems has increased reliance on power electronic converters for efficient energy conversion, grid synchronization, voltage regulation, and power-quality management.However, converters deployed in photovoltaic, wind, and energy-storage systems operate under variable loading, switching stresses, thermal cycling, environme
+> Network intrusion detection in complex traffic environments requires a careful balance between detection performance and computational efficiency, particularly when models are intended for resource-constrained scenarios. Existing deep learning-based intrusion detection methods can achieve strong detection performance, but many of them rely on relatively complex architectures and may introduce cons
 
-### 🆕 [In‐Memory Computing Using Memristors](https://doi.org/10.1002/9781394390274.ch15)
-<sub>2026-10-02 · G. H. V. S. M. Soma Sai, P. Ramakrishna, S. Kala 외 · 🚧 Open Circuit Voltage · Open Circuit</sub>
+### 🆕 [Reproducible AES-128 Benchmarking and Security-Assessment Boundary for Resource-Constrained IoT Environments](https://doi.org/10.14445/23488379/ijeee-v13i9p105)
+<sub>2026-10-08 · Manisha Ahirrao, Bageshree V. Pathak, Mrudul Dixit 외 · International Journal of Electrical and Electronics Engineering · 🚧 Node Analysis · Independent source 제거</sub>
 
-> Memristors represent the fourth fundamental circuit element that is actively transforming in-memory computing (IMC) through solution of traditional von Neumann architecture issues. The arrangement of processing units and memory in conventional systems becomes obsolete because memristors allow computation to take place directly within memory arrays. Data transfers occur less frequently because of t
+> To meet the constraints of resource-constrained Internet of Things (IoT) devices, the encryption mechanism must provide confidentiality while adding little complexity and memory usage. This work presents a reproducible Advanced Encryption Standard (AES) -128 performance benchmarking and security boundary analysis for constrained IoT applications. Before any benchmarking, the AES-128 implementation
 
-### 🆕 [Strategy dependent recruitment of distributed cortical circuits during spatial navigation](https://doi.org/10.1523/jneurosci.0674-24.2026)
-<sub>2026-10-01 · Daniel A. Surinach, Mathew L. Rynes, Kapil Saxena 외 · Journal of Neuroscience · 🚧 Open Circuit Voltage · Open Circuit</sub>
+### 🆕 [Secure Boot and Firmware Update Framework for ARM Cortex-M Embedded IoT Devices](https://doi.org/10.31838/ece/03.02.01)
+<sub>2026-10-16 · Lau Wei Cheng, Beh L. Wei · Progress in Electronics and Communication Engineering · 🚧 Independent source 제거 · Dependent source</sub>
 
-> Spatial navigation involves neural computations in distributed regions of the brain. Little is known about how activity across cortical regions is coordinated when animals navigate novel spatial environments or how that coordination changes as environments become familiar. We recorded mesoscale calcium (Ca2+) dynamics across large swathes of the dorsal cortex in male mice solving the Barnes maze, 
+> The paper presents a lightweight and well-impervious security framework suitable to ARM Cortex-M-based IOEs embedded devices, which will serve an important purpose of presenting secure boot and firmware update operations in resource-constrained systems. As IoT implementations and applications in sensitive parts of our life like healthcare, smart infrastructure, and industrial control systems incre
 
-### ✅ [Cloud–edge–device collaborative computing in smart agriculture: architectures, applications, and future perspectives](https://doi.org/10.3389/fpls.2025.1668545)
-<sub>2025-10-14 · Pengpeng Yu, Fei Teng, Wenhui Zhu 외 · Frontiers in Plant Science · 🚧 Independent source 제거 · Dependent source</sub>
+### ✅ [Industrial applications of large language models](https://doi.org/10.1038/s41598-025-98483-1)
+<sub>2025-04-21 · Mubashar Raza, Zarmina Jahangir, Muhammad Bilal Riaz 외 · Scientific Reports</sub>
 
-> Smart agriculture is rapidly evolving in response to growing global demands for food security and sustainable resource management. Cloud-edge-device collaborative computing has emerged as a transformative paradigm, addressing the limitations of traditional centralized architectures by enabling distributed intelligence, real-time processing, and adaptive decision-making. This review provides a comp
+> Large language models (LLMs) are artificial intelligence (AI) based computational models designed to understand and generate human like text. With billions of training parameters, LLMs excel in identifying intricate language patterns, enabling remarkable performance across a variety of natural language processing (NLP) tasks. After the introduction of transformer architectures, they are impacting 
 
-### ✅ [A Survey of Security in UAVs and FANETs: Issues, Threats, Analysis of Attacks, and Solutions](https://doi.org/10.1109/comst.2024.3515051)
-<sub>2024-12-11 · Özlem Ceviz, Sevil Şen, Pinar Sadioglu 외 · IEEE Communications Surveys & Tutorials · 🚧 Node Analysis</sub>
+### ✅ [Tiny Machine Learning and On-Device Inference: A Survey of Applications, Challenges, and Future Directions](https://doi.org/10.3390/s25103191)
+<sub>2025-05-19 · Soroush Heydari, Qusay H. Mahmoud · Sensors</sub>
 
-> Thanks to the rapidly developing technology, unmanned aerial vehicles (UAVs) are able to complete a number of tasks in cooperation with each other without need for human intervention. In recent years, UAVs, which are widely utilized in military missions, have begun to be deployed in civilian applications and mostly for commercial purposes. With their growing numbers and range of applications, UAVs
+> The growth in artificial intelligence and its applications has led to increased data processing and inference requirements. Traditional cloud-based inference solutions are often used but may prove inadequate for applications requiring near-instantaneous response times. This review examines Tiny Machine Learning, also known as TinyML, as an alternative to cloud-based inference. The review focuses o
 
