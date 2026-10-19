@@ -1,12 +1,12 @@
 ---
-title: "논문 인박스 — 2026-10-12"
-updated: 2026-10-12
+title: "논문 인박스 — 2026-10-19"
+updated: 2026-10-19
 kind: papers
 ---
 
-# 📬 논문 인박스 — 2026-10-12
+# 📬 논문 인박스 — 2026-10-19
 
-> 새 논문 **18편** — 🆕 신간(최근 14일, 최신순) + ✅ 검증(최근 2년, 인용순). 🚧 = 내 막힌 길목과 닿는 논문.
+> 새 논문 **17편** — 🆕 신간(최근 14일, 최신순) + ✅ 검증(최근 2년, 인용순). 🚧 = 내 막힌 길목과 닿는 논문.
 > 세션에서 *"이번 주 새 논문 같이 보자"* 라고 하면 러너가 여기서 골라 준다.
 > 다 읽을 필요 없다 — **제목과 초록만 훑고 1편만 골라** 깊게 보는 편이 낫다.
 
@@ -16,102 +16,97 @@ kind: papers
 
 ## Yoo, Hoi-Jun
 
-### 🆕 [Which Expert Misses Are Worth Waiting For? Substitution and Caching for Mixture-of-Experts Inference on a Consumer GPU](https://doi.org/10.21203/rs.3.rs-11268552/v1)
-<sub>2026-10-06 · ChaeWoo Son · Research Square · 🚧 Rth 계산</sub>
+### ✅ [Effective Heterogeneous Federated Learning via Efficient Hypernetwork-based Weight Generation](https://doi.org/10.1145/3666025.3699326)
+<sub>2024-11-04 · Yujin Shin, Ki‐Chang Lee, Sungmin Lee 외 · ACM Conference on Embedded Networked Sensor Systems (SenSys) · 🚧 Independent source 제거 · Dependent source</sub>
 
-> _(초록이 공개돼 있지 않다 — 제목·저널로 판단하거나 원문을 열어 보자.)_
+> While federated learning leverages distributed client resources, it faces challenges due to heterogeneous client capabilities. This necessitates allocating models suited to clients' resources and careful parameter aggregation to accommodate this heterogeneity. We propose HypeMeFed, a novel federated learning framework for supporting client heterogeneity by combining a multi-exit network architectu
 
-### ✅ [Panacea: Novel DNN Accelerator using Accuracy-Preserving Asymmetric Quantization and Energy-Saving Bit-Slice Sparsity](https://doi.org/10.1109/hpca61900.2025.00059)
-<sub>2025-03-01 · Dongyun Kam, Myeongji Yun, Sunwoo Yoo 외 · Proceedings - International Symposium on High-Performance Computer Architecture/Proceedings</sub>
+### ✅ [All-Rounder: A Flexible AI Accelerator With Diverse Data Format Support and Morphable Structure for Multi-DNN Processing](https://doi.org/10.1109/tvlsi.2025.3540346)
+<sub>2025-02-28 · Seock-Hwan Noh, Seungpyo Lee, Banseok Shin 외 · IEEE Transactions on Very Large Scale Integration (VLSI) Systems · 🚧 Open Circuit Voltage · Open Circuit</sub>
 
-> Low bit-precisions and their bit-slice sparsity have recently been studied to accelerate general matrix-multiplications (GEMM) during large-scale deep neural network (DNN) inferences. While the conventional symmetric quantization facilitates low-resolution processing with bit-slice sparsity for both weight and activation, its accuracy loss caused by the activation’s asymmetric distributions cannot
-
-### ✅ [RedFuser: An Automatic Operator Fusion Framework for Cascaded Reductions on AI Accelerators](https://doi.org/10.1145/3779212.3790209)
-<sub>2026-03-10 · Xinsheng Tang, Yangcheng Li, Nan Wang 외 · ACM International Conference on Architectural Support for Programming Languages and Operating Systems (ASPLOS)</sub>
-
-> Operator fusion, as a key performance optimization technique in the deployment of AI models, significantly improves execution efficiency and has been widely adopted in modern AI compilers. However, for cascaded reduction operations involving multiple loops with inter-loop data dependencies, such as the safe softmax followed by GEMM within attention mechanisms, existing compilers lack effective aut
+> Recognizing the explosive increase in the use of artificial intelligence (AI)-based applications, several industrial companies developed custom application-specific integrated circuits (ASICs) (e.g., Google TPU, IBM RaPiD, and Intel NNP-I/NNP-T) and constructed a hyperscale cloud infrastructure with them. These ASICs perform operations of the inference or training process of AI models which are re
 
 
 ## On-device AI accelerator
 
-### 🆕 [EdgePulse: A Runtime Observability Framework for Quantized Large Language Models on Consumer Edge Devices](https://doi.org/10.5281/zenodo.23248717)
-<sub>2026-10-08 · Muhammad Assad Ullah · Zenodo (CERN European Organization for Nuclear Research) · 🚧 Open Circuit Voltage · Open Circuit</sub>
+### 🆕 [AI-Based Optimization Models for High-Performance Computing and Intelligent Network Architectures](https://doi.org/10.25258/ijddt.16.71s.154)
+<sub>2026-10-16 · Dr Atthapu Thirupathaiah, K. Arpitha, Kaushik Paul 외 · International Journal of Drug Delivery Technology · 🚧 Virtual Short · Independent source 제거</sub>
 
-> On-device AI execution lacks unified runtime observability across mobile platforms. Existing tools focus on isolated model profiling or single-engine metrics and give no synchronized view of memory, thermal state, battery draw, and inference latency during real workloads. We present EdgePulse, an open-source runtime observability framework for on-device AI. EdgePulse captures structured InferenceT
+> Artificial Intelligence (AI) has become a necessary technology to optimize High-Performance computers (HPC) systems and intelligent network architecture, such as optimizing the use of resources, the schedulization of workloads and network efficiency. This paper discusses how the three AI-based optimization tools, i.e., Deep Reinforcement Learning (DRL), Long Short-Term Memory (LSTM) and Extreme Gr
 
-### 🆕 [SATE AI: A Fault Injection and Reliability Engineering Framework for On-Device AI Models in Mobile Applications](https://doi.org/10.5281/zenodo.23250417)
-<sub>2026-10-09 · Muhammad Assad Ullah · Zenodo (CERN European Organization for Nuclear Research) · 🚧 Independent source 제거 · Dependent source</sub>
+### 🆕 [From Imaging Gatekeeper to Catheterisation Laboratory Co-Pilot: The Emerging Role of AI in Interventional Cardiology](https://doi.org/10.33590/emj/s66908rr)
+<sub>2026-10-12 · Kyvan Irannejad, Hassoon Sarwar, Joseph Thomas 외 · European Medical Journal · 🚧 Node Analysis · Open Circuit Voltage</sub>
 
-> On-device artificial intelligence deployment in mobile applications confronts machine learning models with volatile hardware environments: unpredictable memory pressure, dynamic thermal constraints, and corrupted sensor inputs. Cloud-hosted systems enjoy active cooling, stable resource budgets, and established chaos engineering toolchains; mobile edge AI has none of these guarantees. Unhandled mod
+> Background: AI is rapidly reshaping cardiovascular medicine, particularly within imaging-intensive fields such as interventional cardiology. Advances in machine learning and deep learning have enabled automated analysis of complex cardiovascular datasets and opened new opportunities for decision support across the coronary care continuum. Objectives: This review summarises current and emerging app
 
-### 🆕 [Multi‐Timescale In‐Sensor Reservoir Computing With Composition‐Engineered InSnO Optoelectronic Synaptic Transistors](https://doi.org/10.1002/adfm.78910)
-<sub>2026-10-07 · Lan Ma, Xi Chen, Haoyang Shi 외 · Advanced Functional Materials · 🚧 Open Circuit Voltage · Open Circuit</sub>
+### 🆕 [ixi-sLM: On-Device sLM for AI Call Agent Service](https://doi.org/10.48550/arxiv.2610.19382)
+<sub>2026-10-14 · Han-Sang Lee, Kyuho Lee, Juneyoung Park 외 · arXiv (Cornell University) · 🚧 Independent source 제거 · Dependent source</sub>
 
-> ABSTRACT Real‐time dynamic visual scenes often involve multiple objects moving at different speeds, requiring in‐sensor computing devices with dynamic responses matched to diverse motion timescales. Existing multi‐timescale reservoir systems generally rely on external biasing and closed‐loop feedback to modulate device time constants, increasing the complexity of peripheral control circuits and li
+> Running an AI call agent on-device makes it private, network-independent, and free of per-query cloud cost, but shipping one as a real-world service imposes constraints a cloud deployment never faces: ~1GiB memory budget, in-call latency and thermal limits, static-integer NPU execution, Korean STT input far from sLM pretraining, and cloud-level quality expectations. We bring ixi-sLM, a 1.2B Korean
 
-### ✅ [Integrating Artificial Intelligence and the Internet of Things in Cultural Heritage Preservation: A Systematic Review of Risk Management and Environmental Monitoring Strategies](https://doi.org/10.3390/buildings14123979)
-<sub>2024-12-15 · Neeraparng Laohaviraphap, Tanut Waroonkun · Buildings</sub>
+### ✅ [Inherent Bias in Electronic Health Records: A Scoping Review of Sources of Bias](https://doi.org/10.1145/3757924)
+<sub>2025-08-05 · Oriel Perets, Emanuela Stagno, Eyal Ben Yehuda 외 · ACM Transactions on Intelligent Systems and Technology · 🚧 Independent source 제거 · Dependent source</sub>
 
-> Heritage buildings are increasingly vulnerable to environmental challenges like air pollution and climate change. Traditional preservation methods primarily rely on periodic inspections and manual interventions and struggle to address these evolving and dynamic threats. This systematic review analyzes how integrating Artificial Intelligence (AI) and Internet of Things (IoT) technologies can transf
+> 1 ABSTRACT 1.1 Objectives Biases inherent in electronic health records (EHRs), and therefore in medical artificial intelligence (AI) models may significantly exacerbate health inequities and challenge the adoption of ethical and responsible AI in healthcare. Biases arise from multiple sources, some of which are not as documented in the literature. Biases are encoded in how the data has been collec
 
-### ✅ [Digital Twins Generated by Artificial Intelligence in Personalized Healthcare](https://doi.org/10.3390/app14209404)
-<sub>2024-10-15 · M. Łukaniszyn, Łukasz Majka, Barbara Grochowicz 외 · Applied Sciences</sub>
+### ✅ [A Comprehensive Survey of Small Language Models in the Era of Large Language Models: Techniques, Enhancements, Applications, Collaboration with LLMs, and Trustworthiness](https://doi.org/10.1145/3768165)
+<sub>2025-09-18 · Fali Wang, Zhiwei Zhang, Xianren Zhang 외 · ACM Transactions on Intelligent Systems and Technology · 🚧 Rth 계산</sub>
 
-> Digital society strategies in healthcare include the rapid development of digital twins (DTs) for patients and human organs in medical research and the use of artificial intelligence (AI) in clinical practice to develop effective treatments in a cheaper, quicker, and more effective manner. This is facilitated by the availability of large historical datasets from previous clinical trials and other 
+> Large language models (LLMs) have demonstrated emergent abilities in text generation, question answering, and reasoning, facilitating various tasks and domains. Despite their proficiency in various tasks, LLMs like PaLM 540B and Llama-3.1 405B face limitations due to large parameter sizes and computational demands, often requiring cloud API use, which raises privacy concerns, limits real-time appl
 
 
 ## Neural rendering and NeRF accelerator
 
-### 🆕 [DigiFish: A flexible open-source tool for animating realistic virtual fish and reconstructing visual fields from tracking data](https://doi.org/10.64898/2026.10.02.755892)
-<sub>2026-10-06 · Katie Dunkley, Jolyon T. Troscianko, Anna Ahlberg 외 · bioRxiv (Cold Spring Harbor Laboratory) · 🚧 Virtual Short · Open Circuit Voltage</sub>
+### 🆕 [Machine Translation for Sign Languages](https://doi.org/10.1146/annurev-linguistics-040125-043013)
+<sub>2026-10-14 · Özge Mercanoğlu Sincan, Anton Pelykh, Edward Fish 외 · Annual Review of Linguistics · 🚧 Independent source 제거 · Dependent source</sub>
 
-> Abstract For many animals, vision represents the primary sensory modality governing a vast diversity of behaviours. Creating ‘virtual twins’, or visually realistic digital reconstructions of real individuals interacting within their environments, offers a promising approach for understanding how visual information guides an animal’s decisions, behaviours, and interactions. Such systems enable the 
+> Sign language machine translation has progressed substantially over the past decade, evolving from isolated sign recognition to end-to-end translation systems. Advances in pose estimation, transformer architectures, and large-scale dataset collection have driven progress, yet challenges remain. Datasets are limited compared to spoken-language resources; evaluation metrics inadequately capture the 
 
-### 🆕 [Inaugural Editorial for Discover Computer Vision](https://doi.org/10.1007/s44584-026-00001-0)
-<sub>2026-10-09 · Ziyou Wu, Xiaojun Qi · 🚧 Open Circuit Voltage · Open Circuit</sub>
+### 🆕 [CrossPortrait: Cross-Species Portrait Animation via Adversarial Motion Alignment](https://doi.org/10.48550/arxiv.2610.17532)
+<sub>2026-10-13 · Gezhong Pan, Zhe Li, Yunfan Tao 외 · arXiv (Cornell University) · 🚧 Independent source 제거 · Dependent source</sub>
 
-> We are delighted to introduce Discover Computer Vision , a peer-reviewed, fully open access journal published by Springer Nature.
+> Cross-species portrait animation, which aims to animate a source portrait of species A using a driving video of species B, is particularly challenging due to substantial anatomical differences in facial structures across species. Previous works typically fine-tune human portrait animation models on animal video datasets but often suffer from driving-species leakage. To address this, we propose Cro
 
-### 🆕 [Pano-to-3D: Multi-view consistent 3D indoor scene reconstruction from a single panorama image](https://doi.org/10.1016/j.cag.2026.104775)
-<sub>2026-10-08 · Rong-Kai Xu, Lei Zhang · Computers & Graphics · 🚧 Independent source 제거 · Dependent source</sub>
+### 🆕 [Autonomous Robotic Systems in Agriculture 5.0: A Review on Technical Architecture, Operational Applications, and Future Perspectives](https://doi.org/10.15832/ankutbd.1957708)
+<sub>2026-10-12 · Mehmet Metin Özgüven · Tarım Bilimleri Dergisi · 🚧 Short Circuit Current · Operational Amplifier</sub>
 
-> Single-view scene reconstruction presents significant challenges due to the limited viewpoint information. Panorama images, as a form of image representation with a 360° field of view (FoV), offer a richer source of information for scene reconstruction. Therefore, more and more work utilizes a single panorama image for scene reconstruction. However, existing methods for scene reconstruction from a
+> This comprehensive narrative review examines the current state and future development perspectives of autonomous robotic systems within the scope of the Agriculture 5.0 paradigm, which aims for sustainable and efficient agricultural production. In this paper, the cognitive and physical structure of robotic systems is addressed through the "Eye-Brain-Foot Hand" hierarchy, and the role of next-gener
 
-### ✅ [Vision-Language-Action Models for Robotics: A Review Towards Real-World Applications](https://doi.org/10.1109/access.2025.3609980)
-<sub>2025-01-01 · Kento Kawaharazuka, Jihoon Oh, Jun Yamada 외 · IEEE Access</sub>
+### ✅ [Taming 3DGS: High-Quality Radiance Fields with Limited Resources](https://doi.org/10.1145/3680528.3687694)
+<sub>2024-12-03 · Saswat Subhajyoti Mallick, Rahul Goel, Bernhard Kerbl 외 · SIGGRAPH Asia Conference Papers · 🚧 Independent source 제거 · Dependent source</sub>
 
-> Amid growing efforts to leverage advances in large language models (LLMs) and vision-language models (VLMs) for robotics, Vision-Language-Action (VLA) models have recently gained significant attention. By unifying vision, language, and action data at scale, which have traditionally been studied separately, VLA models aim to learn policies that generalise across diverse tasks, objects, embodiments,
+> 3D Gaussian Splatting (3DGS) has transformed novel-view synthesis with its fast, interpretable, and high-fidelity rendering. However, its resource requirements limit its usability. Especially on constrained devices, training performance degrades quickly and often cannot complete due to excessive memory consumption of the model. The method converges with an indefinite number of Gaussians -- many of
 
-### ✅ [A Multifaceted Vision of the Human-AI Collaboration: A Comprehensive Review](https://doi.org/10.1109/access.2025.3536095)
-<sub>2025-01-01 · Maite Puerta-Beldarrain, Oihane Gómez–Carmona, Rubén Sánchez 외 · IEEE Access</sub>
+### ✅ [Aligning Cyber Space With Physical World: A Comprehensive Survey on Embodied AI](https://doi.org/10.1109/tmech.2025.3574943)
+<sub>2025-07-28 · Yang Liu, Weixing Chen, Yongjie Bai 외 · IEEE/ASME Transactions on Mechatronics</sub>
 
-> Human-AI collaboration has evolved into a complex, multidimensional paradigm shaped by research in various domains. Key areas such as human-in-the-loop systems, Interactive Machine Learning (IML), Hybrid Intelligence, and Human-Agent Interaction have significantly contributed to this development. However, these fields often lack cohesion, underscoring the need for a cohesive perspective to advance
+> Embodied artificial intelligence (Embodied AI) is crucial for achieving artificial general intelligence (AGI) and serves as a foundation for various applications (e.g., intelligent mechatronics systems, smart manufacturing) that bridge cyberspace and the physical world. Recently, the emergence of multimodal large models (MLMs) and World models (WMs) have attracted significant attention due to thei
 
 
 ## Computing-in-memory and processing-in-memory
 
-### 🆕 [A lightweight attention-enhanced intrusion detection method for anomalous network traffic analysis](https://doi.org/10.1038/s41598-026-69052-x)
-<sub>2026-10-09 · Xingguo Li, Peng Wu, Yuanyuan Xiong 외 · Scientific Reports · 🚧 Node Analysis · Independent source 제거</sub>
+### 🆕 [Comparative Analysis of IoT Security Architectures: A Context-Aware Security–Resource Suitability Framework](https://doi.org/10.48175/ijarsct-38873)
+<sub>2026-10-15 · Dr. S. B. Sarvaiya, Vedanti C. Yawalkar, Sakshi K. Rohankar · International Journal of Advanced Research in Science Communication and Technology · 🚧 Node Analysis · Independent source 제거</sub>
 
-> Network intrusion detection in complex traffic environments requires a careful balance between detection performance and computational efficiency, particularly when models are intended for resource-constrained scenarios. Existing deep learning-based intrusion detection methods can achieve strong detection performance, but many of them rely on relatively complex architectures and may introduce cons
+> The Internet of Things (IoT) links sensors, cameras, appliances, vehicles, medical devices and industrial controllers to networks and cloud platforms. This reach creates security problems that conventional networks rarely face: mixed hardware, scarce resources, devices that stay in service for years, wireless links and sensitive data. This paper compares three representative IoT security architect
 
-### 🆕 [Reproducible AES-128 Benchmarking and Security-Assessment Boundary for Resource-Constrained IoT Environments](https://doi.org/10.14445/23488379/ijeee-v13i9p105)
-<sub>2026-10-08 · Manisha Ahirrao, Bageshree V. Pathak, Mrudul Dixit 외 · International Journal of Electrical and Electronics Engineering · 🚧 Node Analysis · Independent source 제거</sub>
+### 🆕 [A Cryptographic Abstraction Layer for Integrating NIST Lightweight Cryptography into TLS 1.3](https://doi.org/10.22266/ijies2026.1130.30)
+<sub>2026-10-16 · HUSSEIN Ali Al-shmailawi, Emad H. Al-Hemiary, Axel Sikora 외 · International journal of intelligent engineering and systems · 🚧 Independent source 제거 · Dependent source</sub>
 
-> To meet the constraints of resource-constrained Internet of Things (IoT) devices, the encryption mechanism must provide confidentiality while adding little complexity and memory usage. This work presents a reproducible Advanced Encryption Standard (AES) -128 performance benchmarking and security boundary analysis for constrained IoT applications. Before any benchmarking, the AES-128 implementation
+> In the Industrial Internet of Things (IIoT) domain, security solutions must remain energy-efficient and reliable under strict latency and real-time requirements, especially for resource-constrained devices.Lightweight Cryptography (LWC) has emerged as a feasible solution to these challenges, offering new cryptographic algorithms developed for IIoT environments.The practical integration of LWC into
 
-### 🆕 [Secure Boot and Firmware Update Framework for ARM Cortex-M Embedded IoT Devices](https://doi.org/10.31838/ece/03.02.01)
-<sub>2026-10-16 · Lau Wei Cheng, Beh L. Wei · Progress in Electronics and Communication Engineering · 🚧 Independent source 제거 · Dependent source</sub>
+### 🆕 [Device-level stochastic switching enables tunable short-term memory in magnetic tunnel junction neurons](https://doi.org/10.1080/14686996.2026.2744549)
+<sub>2026-10-15 · Jingli Liu, Huannan Zheng, Zhaoyu Hao 외 · Science and Technology of Advanced Materials · 🚧 Virtual Short · Short</sub>
 
-> The paper presents a lightweight and well-impervious security framework suitable to ARM Cortex-M-based IOEs embedded devices, which will serve an important purpose of presenting secure boot and firmware update operations in resource-constrained systems. As IoT implementations and applications in sensitive parts of our life like healthcare, smart infrastructure, and industrial control systems incre
+> Short-term memory is essential for temporal information processing, yet its hardware implementation commonly requires recurrent connections or additional state storage. Here, we demonstrate a device-level short-term memory mechanism enabled by stochastic switching in magnetic tunnel junction neurons. Probabilistic RESET failures retain the neuronal state across time steps, generating an exponentia
 
-### ✅ [Industrial applications of large language models](https://doi.org/10.1038/s41598-025-98483-1)
-<sub>2025-04-21 · Mubashar Raza, Zarmina Jahangir, Muhammad Bilal Riaz 외 · Scientific Reports</sub>
+### ✅ [A Comprehensive Overview of Large Language Models](https://doi.org/10.1145/3744746)
+<sub>2025-06-18 · Humza Naveed, Asad Ullah Khan, Shi Qiu 외 · ACM Transactions on Intelligent Systems and Technology</sub>
 
-> Large language models (LLMs) are artificial intelligence (AI) based computational models designed to understand and generate human like text. With billions of training parameters, LLMs excel in identifying intricate language patterns, enabling remarkable performance across a variety of natural language processing (NLP) tasks. After the introduction of transformer architectures, they are impacting 
+> Large Language Models (LLMs) have recently demonstrated remarkable capabilities in natural language processing tasks and beyond. This success of LLMs has led to a large influx of research contributions in this direction. These works encompass diverse topics such as architectural innovations, better training strategies, context length improvements, fine-tuning, multimodal LLMs, robotics, datasets, 
 
-### ✅ [Tiny Machine Learning and On-Device Inference: A Survey of Applications, Challenges, and Future Directions](https://doi.org/10.3390/s25103191)
-<sub>2025-05-19 · Soroush Heydari, Qusay H. Mahmoud · Sensors</sub>
+### ✅ [A Survey on the Memory Mechanism of Large Language Model-based Agents](https://doi.org/10.1145/3748302)
+<sub>2025-07-11 · Zeyu Zhang, Quanyu Dai, Xiaohe Bo 외 · ACM Transactions on Information Systems</sub>
 
-> The growth in artificial intelligence and its applications has led to increased data processing and inference requirements. Traditional cloud-based inference solutions are often used but may prove inadequate for applications requiring near-instantaneous response times. This review examines Tiny Machine Learning, also known as TinyML, as an alternative to cloud-based inference. The review focuses o
+> Large language model (LLM)-based agents have recently attracted much attention from the research and industry communities. Compared with original LLMs, LLM-based agents are featured in their self-evolving capability, which is the basis for solving real-world problems that need long-term and complex agent-environment interactions. The key component to support agent-environment interactions is the m
 
