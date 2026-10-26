@@ -1,10 +1,10 @@
 ---
-title: "논문 인박스 — 2026-10-19"
-updated: 2026-10-19
+title: "논문 인박스 — 2026-10-26"
+updated: 2026-10-26
 kind: papers
 ---
 
-# 📬 논문 인박스 — 2026-10-19
+# 📬 논문 인박스 — 2026-10-26
 
 > 새 논문 **17편** — 🆕 신간(최근 14일, 최신순) + ✅ 검증(최근 2년, 인용순). 🚧 = 내 막힌 길목과 닿는 논문.
 > 세션에서 *"이번 주 새 논문 같이 보자"* 라고 하면 러너가 여기서 골라 준다.
@@ -16,97 +16,97 @@ kind: papers
 
 ## Yoo, Hoi-Jun
 
-### ✅ [Effective Heterogeneous Federated Learning via Efficient Hypernetwork-based Weight Generation](https://doi.org/10.1145/3666025.3699326)
-<sub>2024-11-04 · Yujin Shin, Ki‐Chang Lee, Sungmin Lee 외 · ACM Conference on Embedded Networked Sensor Systems (SenSys) · 🚧 Independent source 제거 · Dependent source</sub>
+### ✅ [SOFA: A Compute-Memory Optimized Sparsity Accelerator via Cross-Stage Coordinated Tiling](https://doi.org/10.1109/micro61859.2024.00093)
+<sub>2024-11-02 · Huizheng Wang, Jiahao Fang, Xinru Tang 외 · Proceedings of the ... annual International Symposium on Microarchitecture/Proceedings of the annual International Symposium on Microarchitecture</sub>
 
-> While federated learning leverages distributed client resources, it faces challenges due to heterogeneous client capabilities. This necessitates allocating models suited to clients' resources and careful parameter aggregation to accommodate this heterogeneity. We propose HypeMeFed, a novel federated learning framework for supporting client heterogeneity by combining a multi-exit network architectu
+> Benefiting from the self-attention mechanism, Transformer models have attained impressive contextual comprehension capabilities for lengthy texts. The requirements of high-throughput inference arise as the large language models (LLMs) become increasingly prevalent, which calls for large-scale token parallel processing (LTPP). However, existing dynamic sparse accelerators struggle to effectively ha
 
-### ✅ [All-Rounder: A Flexible AI Accelerator With Diverse Data Format Support and Morphable Structure for Multi-DNN Processing](https://doi.org/10.1109/tvlsi.2025.3540346)
-<sub>2025-02-28 · Seock-Hwan Noh, Seungpyo Lee, Banseok Shin 외 · IEEE Transactions on Very Large Scale Integration (VLSI) Systems · 🚧 Open Circuit Voltage · Open Circuit</sub>
+### ✅ [Spiking Transformer with Spatial-Temporal Attention](https://doi.org/10.1109/cvpr52734.2025.01302)
+<sub>2025-06-10 · Donghyun Lee, Yuhang Li, Youngeun Kim 외 · IEEE Computer Society Conference on Computer Vision and Pattern Recognition/Proceedings - IEEE Computer Society Conference on Computer Vision and Pattern Recognition/Proceedings</sub>
 
-> Recognizing the explosive increase in the use of artificial intelligence (AI)-based applications, several industrial companies developed custom application-specific integrated circuits (ASICs) (e.g., Google TPU, IBM RaPiD, and Intel NNP-I/NNP-T) and constructed a hyperscale cloud infrastructure with them. These ASICs perform operations of the inference or training process of AI models which are re
+> Spike-based Transformer presents a compelling and energy-efficient alternative to traditional Artificial Neural Network (ANN)-based Transformers, achieving impressive results through sparse binary computations. However, existing spike-based transformers predominantly focus on spatial attention while neglecting crucial temporal dependencies inherent in spike-based processing, leading to suboptimal 
 
 
 ## On-device AI accelerator
 
-### 🆕 [AI-Based Optimization Models for High-Performance Computing and Intelligent Network Architectures](https://doi.org/10.25258/ijddt.16.71s.154)
-<sub>2026-10-16 · Dr Atthapu Thirupathaiah, K. Arpitha, Kaushik Paul 외 · International Journal of Drug Delivery Technology · 🚧 Virtual Short · Independent source 제거</sub>
+### 🆕 [Effects of Model Scale and Quantization on Social Bias and Abstention in Question Answering](https://doi.org/10.48550/arxiv.2610.29657)
+<sub>2026-10-21 · Kuniko Paxton, Ifeoluwa Wuraola, Dhavalkumar Thakker 외 · arXiv (Cornell University) · 🚧 Independent source 제거 · Dependent source</sub>
 
-> Artificial Intelligence (AI) has become a necessary technology to optimize High-Performance computers (HPC) systems and intelligent network architecture, such as optimizing the use of resources, the schedulization of workloads and network efficiency. This paper discusses how the three AI-based optimization tools, i.e., Deep Reinforcement Learning (DRL), Long Short-Term Memory (LSTM) and Extreme Gr
+> The deployment of small and quantized language models in resource-constrained settings raises an important fairness question: when a compressed model produces fewer biased responses, does this reflect fairer behavior or greater abstention? We study this problem in Question Answering (QA) using the BBQ benchmark across multiple model sizes and quantization settings from Qwen3, Gemma-3, and SmolLM2.
 
-### 🆕 [From Imaging Gatekeeper to Catheterisation Laboratory Co-Pilot: The Emerging Role of AI in Interventional Cardiology](https://doi.org/10.33590/emj/s66908rr)
-<sub>2026-10-12 · Kyvan Irannejad, Hassoon Sarwar, Joseph Thomas 외 · European Medical Journal · 🚧 Node Analysis · Open Circuit Voltage</sub>
+### 🆕 [Designing A Digital Restoration Strategy For Museum Artifacts Using AI And Augmented Reality: From Conceptual Scenarios To Functional Application](https://doi.org/10.56734/ijahss.v7n10a2)
+<sub>2026-10-20 · Dr. Wasmeh Aleshawie, Dr. Mostafa Amin Soufy · International Journal of Arts Humanities & Social Science · 🚧 Virtual Short · Short Circuit Current</sub>
 
-> Background: AI is rapidly reshaping cardiovascular medicine, particularly within imaging-intensive fields such as interventional cardiology. Advances in machine learning and deep learning have enabled automated analysis of complex cardiovascular datasets and opened new opportunities for decision support across the coronary care continuum. Objectives: This review summarises current and emerging app
+> This study proposes a design-driven framework for restoring damaged museum artifacts using artificial intelligence (AI) and augmented reality (AR). Based on an evaluation of current virtual restoration methods, seven conceptual scenarios were formulated, with Scenario 6 implemented as a functional AR prototype. Three primary research questions guided this study: RQ1: How can AI and AR be combined 
 
-### 🆕 [ixi-sLM: On-Device sLM for AI Call Agent Service](https://doi.org/10.48550/arxiv.2610.19382)
-<sub>2026-10-14 · Han-Sang Lee, Kyuho Lee, Juneyoung Park 외 · arXiv (Cornell University) · 🚧 Independent source 제거 · Dependent source</sub>
+### 🆕 [Model Exposure on One Device Endangers Others: Rethinking Edge Neural Network Security across Devices](https://doi.org/10.48550/arxiv.2610.27152)
+<sub>2026-10-19 · Yuyang Zhang, Kangjie Chen, Yihui Jin 외 · arXiv (Cornell University) · 🚧 Node Analysis · node voltage</sub>
 
-> Running an AI call agent on-device makes it private, network-independent, and free of per-query cloud cost, but shipping one as a real-world service imposes constraints a cloud deployment never faces: ~1GiB memory budget, in-call latency and thermal limits, static-integer NPU execution, Korean STT input far from sLM pretraining, and cloud-level quality expectations. We bring ixi-sLM, a 1.2B Korean
+> Neural networks (NNs) are increasingly deployed on edge devices such as mobile and IoT platforms, offering low latency and improved privacy compared to cloud-based deployment. However, on-device models embedded in mobile applications can be unpacked and exposed to adversaries, enabling cross-node attacks in centrally distributed ecosystems, where adversarial examples crafted on one compromised dev
 
-### ✅ [Inherent Bias in Electronic Health Records: A Scoping Review of Sources of Bias](https://doi.org/10.1145/3757924)
-<sub>2025-08-05 · Oriel Perets, Emanuela Stagno, Eyal Ben Yehuda 외 · ACM Transactions on Intelligent Systems and Technology · 🚧 Independent source 제거 · Dependent source</sub>
+### ✅ [Advances in Composite Stimuli-Responsive Hydrogels for Wound Healing: Mechanisms and Applications](https://doi.org/10.3390/gels11060420)
+<sub>2025-05-31 · Ke Ding, Mingrui Liao, Yingyu Wang 외 · Gels</sub>
 
-> 1 ABSTRACT 1.1 Objectives Biases inherent in electronic health records (EHRs), and therefore in medical artificial intelligence (AI) models may significantly exacerbate health inequities and challenge the adoption of ethical and responsible AI in healthcare. Biases arise from multiple sources, some of which are not as documented in the literature. Biases are encoded in how the data has been collec
+> Stimuli-responsive hydrogels have emerged as a promising class of biomaterials for advanced wound healing applications, offering dynamic and controllable responses to the wound microenvironment. These hydrogels are designed to respond to specific stimuli, such as pH, temperature, light, and enzyme activity, enabling precise regulation of drug release, antimicrobial activity, and tissue regeneratio
 
-### ✅ [A Comprehensive Survey of Small Language Models in the Era of Large Language Models: Techniques, Enhancements, Applications, Collaboration with LLMs, and Trustworthiness](https://doi.org/10.1145/3768165)
-<sub>2025-09-18 · Fali Wang, Zhiwei Zhang, Xianren Zhang 외 · ACM Transactions on Intelligent Systems and Technology · 🚧 Rth 계산</sub>
+### ✅ [AI and Related Technologies in the Fields of Smart Agriculture: A Review](https://doi.org/10.3390/info16020100)
+<sub>2025-02-02 · Fotis Assimakopoulos, Costas Vassilakis, Dionisis Margaris 외 · Information</sub>
 
-> Large language models (LLMs) have demonstrated emergent abilities in text generation, question answering, and reasoning, facilitating various tasks and domains. Despite their proficiency in various tasks, LLMs like PaLM 540B and Llama-3.1 405B face limitations due to large parameter sizes and computational demands, often requiring cloud API use, which raises privacy concerns, limits real-time appl
+> The integration of cutting-edge technologies—such as the Internet of Things (IoT), artificial intelligence (AI), machine learning (ML), and various emerging technologies—is revolutionizing agricultural practices, enhancing productivity, sustainability, and efficiency. The objective of this study is to review the literature regarding the development and evolution of AI as well as other emerging tec
 
 
 ## Neural rendering and NeRF accelerator
 
-### 🆕 [Machine Translation for Sign Languages](https://doi.org/10.1146/annurev-linguistics-040125-043013)
-<sub>2026-10-14 · Özge Mercanoğlu Sincan, Anton Pelykh, Edward Fish 외 · Annual Review of Linguistics · 🚧 Independent source 제거 · Dependent source</sub>
+### 🆕 [CityPaint: A Free Lunch from 2D Diffusion for City-Scale 3D Texturing](https://doi.org/10.48550/arxiv.2610.27564)
+<sub>2026-10-20 · Yuchen Zou, Lihuang Fang, Siyu Zhu 외 · arXiv (Cornell University) · 🚧 Virtual Short · Independent source 제거</sub>
 
-> Sign language machine translation has progressed substantially over the past decade, evolving from isolated sign recognition to end-to-end translation systems. Advances in pose estimation, transformer architectures, and large-scale dataset collection have driven progress, yet challenges remain. Datasets are limited compared to spoken-language resources; evaluation metrics inadequately capture the 
+> Generating high-fidelity, city-scale 3D environments plays a crucial role in applications such as virtual reality, gaming, and urban digital twins. However, the scarcity of real-world city-scale 3D training data forces existing methods to either stitch independently generated assets or learn from synthetic urban corpora, often sacrificing realism and global consistency. In contrast, 2D image data 
 
-### 🆕 [CrossPortrait: Cross-Species Portrait Animation via Adversarial Motion Alignment](https://doi.org/10.48550/arxiv.2610.17532)
-<sub>2026-10-13 · Gezhong Pan, Zhe Li, Yunfan Tao 외 · arXiv (Cornell University) · 🚧 Independent source 제거 · Dependent source</sub>
+### 🆕 [Latent trajectory scheduling for endpoint-preserving emotional keyframe interpolation in digital animation](https://doi.org/10.1007/s44163-026-02527-y)
+<sub>2026-10-23 · Luyao Ma · Discover Artificial Intelligence · 🚧 Independent source 제거 · Dependent source</sub>
 
-> Cross-species portrait animation, which aims to animate a source portrait of species A using a driving video of species B, is particularly challenging due to substantial anatomical differences in facial structures across species. Previous works typically fine-tune human portrait animation models on animal video datasets but often suffer from driving-species leakage. To address this, we propose Cro
+> Abstract This study presents a Lightweight Nonlinear Scheduler (LNS) for endpoint-preserving facial keyframe interpolation. The work is positioned as a pilot-scale feasibility study rather than a full facial video synthesis system. Given source and target facial keyframes, LNS generates a 16-frame transition sequence while preserving the specified endpoints. The method combines a frozen Stable Dif
 
-### 🆕 [Autonomous Robotic Systems in Agriculture 5.0: A Review on Technical Architecture, Operational Applications, and Future Perspectives](https://doi.org/10.15832/ankutbd.1957708)
-<sub>2026-10-12 · Mehmet Metin Özgüven · Tarım Bilimleri Dergisi · 🚧 Short Circuit Current · Operational Amplifier</sub>
+### 🆕 [DriftNeRF: Cross-Ray Density Drifting for Sparse-View Neural Radiance Fields](https://doi.org/10.48550/arxiv.2610.29106)
+<sub>2026-10-21 · Juntang Wang, Yihan Wang, Sheng'en Li 외 · arXiv (Cornell University) · 🚧 Independent source 제거 · Dependent source</sub>
 
-> This comprehensive narrative review examines the current state and future development perspectives of autonomous robotic systems within the scope of the Agriculture 5.0 paradigm, which aims for sustainable and efficient agricultural production. In this paper, the cognitive and physical structure of robotic systems is addressed through the "Eye-Brain-Foot Hand" hierarchy, and the role of next-gener
+> Neural Radiance Fields (NeRF) synthesize photorealistic novel views from dense image collections, but degrade sharply when few views are available. We attribute a specific, measurable defect to the objective itself: the rendering loss is a sum over independent rays and contains no term comparing densities that different rays assign to the same region of space, so nearby 3D points can settle on con
 
-### ✅ [Taming 3DGS: High-Quality Radiance Fields with Limited Resources](https://doi.org/10.1145/3680528.3687694)
-<sub>2024-12-03 · Saswat Subhajyoti Mallick, Rahul Goel, Bernhard Kerbl 외 · SIGGRAPH Asia Conference Papers · 🚧 Independent source 제거 · Dependent source</sub>
+### ✅ [SegEarth-OV: Towards Training-Free Open-Vocabulary Segmentation for Remote Sensing Images](https://doi.org/10.1109/cvpr52734.2025.00986)
+<sub>2025-06-10 · Kaiyu Li, Ruixun Liu, Xiangyong Cao 외 · IEEE Computer Society Conference on Computer Vision and Pattern Recognition/Proceedings - IEEE Computer Society Conference on Computer Vision and Pattern Recognition/Proceedings · 🚧 Open Circuit Voltage · Open Circuit</sub>
 
-> 3D Gaussian Splatting (3DGS) has transformed novel-view synthesis with its fast, interpretable, and high-fidelity rendering. However, its resource requirements limit its usability. Especially on constrained devices, training performance degrades quickly and often cannot complete due to excessive memory consumption of the model. The method converges with an indefinite number of Gaussians -- many of
+> Current remote sensing semantic segmentation methods are mostly built on the close-set assumption, meaning that the model can only recognize pre-defined categories that exist in the training set. However, in practical Earth observation, there are countless new categories, and manual annotation is impractical. To address this challenge, we first attempt to introduce training-free1open-vocabulary se
 
-### ✅ [Aligning Cyber Space With Physical World: A Comprehensive Survey on Embodied AI](https://doi.org/10.1109/tmech.2025.3574943)
-<sub>2025-07-28 · Yang Liu, Weixing Chen, Yongjie Bai 외 · IEEE/ASME Transactions on Mechatronics</sub>
+### ✅ [SparseTrack: Multi-Object Tracking by Performing Scene Decomposition Based on Pseudo-Depth](https://doi.org/10.1109/tcsvt.2024.3524670)
+<sub>2025-01-01 · Zelin Liu, Xinggang Wang, Cheng Wang 외 · IEEE Transactions on Circuits and Systems for Video Technology</sub>
 
-> Embodied artificial intelligence (Embodied AI) is crucial for achieving artificial general intelligence (AGI) and serves as a foundation for various applications (e.g., intelligent mechatronics systems, smart manufacturing) that bridge cyberspace and the physical world. Recently, the emergence of multimodal large models (MLMs) and World models (WMs) have attracted significant attention due to thei
+> Exploring robust and efficient association methods has always been an important issue in multi-object tracking (MOT). Although existing tracking methods have achieved impressive performance, congestion and frequent occlusions still pose challenging problems in multi-object tracking. We reveal that performing sparse decomposition on dense scenes is a crucial step to enhance the performance of assoc
 
 
 ## Computing-in-memory and processing-in-memory
 
-### 🆕 [Comparative Analysis of IoT Security Architectures: A Context-Aware Security–Resource Suitability Framework](https://doi.org/10.48175/ijarsct-38873)
-<sub>2026-10-15 · Dr. S. B. Sarvaiya, Vedanti C. Yawalkar, Sakshi K. Rohankar · International Journal of Advanced Research in Science Communication and Technology · 🚧 Node Analysis · Independent source 제거</sub>
+### 🆕 [Modelling and Emulation of Afferent-Like Excitatory–Inhibitory Spiking Using Ovonic Threshold Devices for Neuromorphic Oscillatory Computing](https://doi.org/10.1021/acsami.6c15034)
+<sub>2026-10-24 · G Wang, Zeyu Hu, C Wang 외 · ACS Applied Materials & Interfaces · 🚧 Open Circuit Voltage · Open Circuit</sub>
 
-> The Internet of Things (IoT) links sensors, cameras, appliances, vehicles, medical devices and industrial controllers to networks and cloud platforms. This reach creates security problems that conventional networks rarely face: mixed hardware, scarce resources, devices that stay in service for years, wireless links and sensitive data. This paper compares three representative IoT security architect
+> Spike-based computing has attracted increasing attention for efficient information processing, creating demand for neuromorphic hardware capable of generating and processing spikes. Ovonic threshold switching (OTS) devices are promising spiking neurons because their threshold-switching behavior and negative differential resistance enable compact spike-generation circuits, while their scalability s
 
-### 🆕 [A Cryptographic Abstraction Layer for Integrating NIST Lightweight Cryptography into TLS 1.3](https://doi.org/10.22266/ijies2026.1130.30)
-<sub>2026-10-16 · HUSSEIN Ali Al-shmailawi, Emad H. Al-Hemiary, Axel Sikora 외 · International journal of intelligent engineering and systems · 🚧 Independent source 제거 · Dependent source</sub>
+### 🆕 [Channel-Aware Hierarchical Entity Attention and Free Resource Dividend for Collaborative Task Offloading in UAV-MEC Networks](https://doi.org/10.1088/2631-8695/aeb8e5)
+<sub>2026-10-23 · Yingnan Zhao, jinyong wang, Dan Lu 외 · Engineering Research Express · 🚧 Node Analysis · node voltage</sub>
 
-> In the Industrial Internet of Things (IIoT) domain, security solutions must remain energy-efficient and reliable under strict latency and real-time requirements, especially for resource-constrained devices.Lightweight Cryptography (LWC) has emerged as a feasible solution to these challenges, offering new cryptographic algorithms developed for IIoT environments.The practical integration of LWC into
+> Abstract UAV-assisted mobile edge computing (UAV-MEC) can flexibly support delay-sensitive Internet of Things services, yet large heterogeneous systems remain difficult to optimize with multi-agent deep reinforcement learning. Two issues are especially prominent in high-load settings: dense entity attention scales quadratically with the number of interacting nodes, and static penalty rewards encou
 
-### 🆕 [Device-level stochastic switching enables tunable short-term memory in magnetic tunnel junction neurons](https://doi.org/10.1080/14686996.2026.2744549)
-<sub>2026-10-15 · Jingli Liu, Huannan Zheng, Zhaoyu Hao 외 · Science and Technology of Advanced Materials · 🚧 Virtual Short · Short</sub>
+### 🆕 [Comparative Efficacy of eHealth ‐Based Interventions for Weight Loss in Adults With Overweight or Obesity: A Systematic Review and Network Meta‐Analysis](https://doi.org/10.1111/jan.70788)
+<sub>2026-10-23 · Hang Thi Le, Dwi Apriadi, Yu‐Kang Tu 외 · Journal of Advanced Nursing · 🚧 Node Analysis · Independent source 제거</sub>
 
-> Short-term memory is essential for temporal information processing, yet its hardware implementation commonly requires recurrent connections or additional state storage. Here, we demonstrate a device-level short-term memory mechanism enabled by stochastic switching in magnetic tunnel junction neurons. Probabilistic RESET failures retain the neuronal state across time steps, generating an exponentia
+> ABSTRACT Aims This systematic review and network meta‐analysis aimed to compare the efficacy of eHealth‐based interventions on body weight reduction in adults who are overweight or obesity. Design This study was designed as a systematic review and network meta‐analysis (NMA) following PRISMA 2020 guidelines. Data Sources Five electronic databases (i.e., PubMed, EMBASE, CINAHL, Cochrane Library and
 
-### ✅ [A Comprehensive Overview of Large Language Models](https://doi.org/10.1145/3744746)
-<sub>2025-06-18 · Humza Naveed, Asad Ullah Khan, Shi Qiu 외 · ACM Transactions on Intelligent Systems and Technology</sub>
+### ✅ [Flexible Neuromorphic Electronics for Wearable Near‐Sensor and In‐Sensor Computing Systems](https://doi.org/10.1002/adma.202416073)
+<sub>2025-01-19 · Hyowon Jang, Ji-Hwan Lee, Chang‐Jae Beak 외 · Advanced Materials</sub>
 
-> Large Language Models (LLMs) have recently demonstrated remarkable capabilities in natural language processing tasks and beyond. This success of LLMs has led to a large influx of research contributions in this direction. These works encompass diverse topics such as architectural innovations, better training strategies, context length improvements, fine-tuning, multimodal LLMs, robotics, datasets, 
+> Flexible neuromorphic architectures that emulate biological cognitive systems hold great promise for smart wearable electronics. To realize neuro-inspired sensing and computing electronics, artificial sensory neurons that detect and process external stimuli must be integrated with central nervous systems capable of parallel computation. In near-sensor computing, synaptic devices, and sensors are u
 
-### ✅ [A Survey on the Memory Mechanism of Large Language Model-based Agents](https://doi.org/10.1145/3748302)
-<sub>2025-07-11 · Zeyu Zhang, Quanyu Dai, Xiaohe Bo 외 · ACM Transactions on Information Systems</sub>
+### ✅ [Advancements in 2D layered material memristors: unleashing their potential beyond memory](https://doi.org/10.1038/s41699-024-00522-4)
+<sub>2024-12-21 · Kiran A. Nirmal, Dhananjay D. Kumbhar, Arul Varman Kesavan 외 · npj 2D Materials and Applications</sub>
 
-> Large language model (LLM)-based agents have recently attracted much attention from the research and industry communities. Compared with original LLMs, LLM-based agents are featured in their self-evolving capability, which is the basis for solving real-world problems that need long-term and complex agent-environment interactions. The key component to support agent-environment interactions is the m
+> The scalability of two-dimensional (2D) materials down to a single monolayer offers exciting prospects for high-speed, energy-efficient, scalable memristors. This review highlights the development of 2D material-based memristors and potential applications beyond memory, including neuromorphic, in-memory, in-sensor, and complex computing. This review also encompasses potential challenges and future
 
