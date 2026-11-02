@@ -1,10 +1,10 @@
 ---
-title: "논문 인박스 — 2026-10-26"
-updated: 2026-10-26
+title: "논문 인박스 — 2026-11-02"
+updated: 2026-11-02
 kind: papers
 ---
 
-# 📬 논문 인박스 — 2026-10-26
+# 📬 논문 인박스 — 2026-11-02
 
 > 새 논문 **17편** — 🆕 신간(최근 14일, 최신순) + ✅ 검증(최근 2년, 인용순). 🚧 = 내 막힌 길목과 닿는 논문.
 > 세션에서 *"이번 주 새 논문 같이 보자"* 라고 하면 러너가 여기서 골라 준다.
@@ -16,97 +16,97 @@ kind: papers
 
 ## Yoo, Hoi-Jun
 
-### ✅ [SOFA: A Compute-Memory Optimized Sparsity Accelerator via Cross-Stage Coordinated Tiling](https://doi.org/10.1109/micro61859.2024.00093)
-<sub>2024-11-02 · Huizheng Wang, Jiahao Fang, Xinru Tang 외 · Proceedings of the ... annual International Symposium on Microarchitecture/Proceedings of the annual International Symposium on Microarchitecture</sub>
+### ✅ [Quantization as a Foundation for Deployable High Performance Diffusion Models within the Landscape of Large Scale Generative AI](https://doi.org/10.36227/techrxiv.175624440.05705133/v1)
+<sub>2025-08-26 · Mikkel Sørensen, Freja Holm, Anders S. Kristensen 외</sub>
 
-> Benefiting from the self-attention mechanism, Transformer models have attained impressive contextual comprehension capabilities for lengthy texts. The requirements of high-throughput inference arise as the large language models (LLMs) become increasingly prevalent, which calls for large-scale token parallel processing (LTPP). However, existing dynamic sparse accelerators struggle to effectively ha
+> Diffusion models have emerged as a cornerstone of large-scale generative artificial intelligence, underpinning some of the most advanced text-to-image, text-to-video, and multimodal generation systems. Their remarkable capabilities, however, come at the cost of immense computational and memory demands, rendering them difficult to deploy outside of specialized high-performance computing infrastruct
 
-### ✅ [Spiking Transformer with Spatial-Temporal Attention](https://doi.org/10.1109/cvpr52734.2025.01302)
-<sub>2025-06-10 · Donghyun Lee, Yuhang Li, Youngeun Kim 외 · IEEE Computer Society Conference on Computer Vision and Pattern Recognition/Proceedings - IEEE Computer Society Conference on Computer Vision and Pattern Recognition/Proceedings</sub>
+### ✅ [A Hardware-Aware and Content-Adaptive Super Resolution System for Bandwidth-Limited IoT Video Delivery](https://doi.org/10.1145/3703790.3703793)
+<sub>2024-11-19 · Xuyang Duan, Zikang Zhou, Wu Qiu 외 · International Conference on the Internet of Things (IoT)</sub>
 
-> Spike-based Transformer presents a compelling and energy-efficient alternative to traditional Artificial Neural Network (ANN)-based Transformers, achieving impressive results through sparse binary computations. However, existing spike-based transformers predominantly focus on spatial attention while neglecting crucial temporal dependencies inherent in spike-based processing, leading to suboptimal 
+> The demand for video delivery in the Internet of Things (IoT) is increasing.Limited Internet bandwidth is under immense pressure and struggles to meet the requirements for low latency.This paper proposes a low-bandwidth IoT video delivery solution that transmits low-resolution videos over the Internet and uses superresolution (SR) technology at the edge to upscale the videos and restore their qual
 
 
 ## On-device AI accelerator
 
-### 🆕 [Effects of Model Scale and Quantization on Social Bias and Abstention in Question Answering](https://doi.org/10.48550/arxiv.2610.29657)
-<sub>2026-10-21 · Kuniko Paxton, Ifeoluwa Wuraola, Dhavalkumar Thakker 외 · arXiv (Cornell University) · 🚧 Independent source 제거 · Dependent source</sub>
+### 🆕 [Local AI for collections data](https://doi.org/10.5281/zenodo.23824412)
+<sub>2026-10-30 · Jack D. Hollister, Steen T.K. Dupont · Zenodo (CERN European Organization for Nuclear Research) · 🚧 Independent source 제거 · Dependent source</sub>
 
-> The deployment of small and quantized language models in resource-constrained settings raises an important fairness question: when a compressed model produces fewer biased responses, does this reflect fairer behavior or greater abstention? We study this problem in Question Answering (QA) using the BBQ benchmark across multiple model sizes and quantization settings from Qwen3, Gemma-3, and SmolLM2.
+> Tools for missing information in collections records, accompanying the TDWG 2026 extended abstract “On-Device AI for Data Cleaning, Standardisation, and Exploration in Collections Management”, by Jack D. Hollister and Steen Dupont, Natural History Museum, London. Missing countries: use run_country.py to find a country named in a record’s locality text, keep the source passage and review the propos
 
-### 🆕 [Designing A Digital Restoration Strategy For Museum Artifacts Using AI And Augmented Reality: From Conceptual Scenarios To Functional Application](https://doi.org/10.56734/ijahss.v7n10a2)
-<sub>2026-10-20 · Dr. Wasmeh Aleshawie, Dr. Mostafa Amin Soufy · International Journal of Arts Humanities & Social Science · 🚧 Virtual Short · Short Circuit Current</sub>
+### 🆕 [Watching without walls: a scoping review of electronic sitters for preventing falls and fall-related injuries among hospitalized patients](https://doi.org/10.3389/fdgth.2026.1969777)
+<sub>2026-10-29 · Alexis Harerimana, Gugu Gladness Mchunu · Frontiers in Digital Health · 🚧 Independent source 제거 · Dependent source</sub>
 
-> This study proposes a design-driven framework for restoring damaged museum artifacts using artificial intelligence (AI) and augmented reality (AR). Based on an evaluation of current virtual restoration methods, seven conceptual scenarios were formulated, with Scenario 6 implemented as a functional AR prototype. Three primary research questions guided this study: RQ1: How can AI and AR be combined 
+> Background Falls are among the most frequent and costly adverse events in hospitals, and conventional one-to-one sitters are resource-intensive with uncertain effectiveness. Electronic sitters offer a scalable alternative, but their characteristics, outcomes, and implementation determinants remain poorly mapped. This scoping review synthesizes the literature on electronic sitters for preventing fa
 
-### 🆕 [Model Exposure on One Device Endangers Others: Rethinking Edge Neural Network Security across Devices](https://doi.org/10.48550/arxiv.2610.27152)
-<sub>2026-10-19 · Yuyang Zhang, Kangjie Chen, Yihui Jin 외 · arXiv (Cornell University) · 🚧 Node Analysis · node voltage</sub>
+### 🆕 [Improving Faithfulness and Mitigating Hallucinations in RAG Systems Through Hierarchical Metadata Retrieval and Prompt Constraint Mechanisms](https://doi.org/10.47116/apjcri.2026.10.75)
+<sub>2026-10-29 · Jong-Min Park, Won-Hu Seo, Hyun-Soo Choi 외 · Asia-pacific Journal of Convergent Research Interchange · 🚧 Operational Amplifier · Open-loop Operational Amplifier</sub>
 
-> Neural networks (NNs) are increasingly deployed on edge devices such as mobile and IoT platforms, offering low latency and improved privacy compared to cloud-based deployment. However, on-device models embedded in mobile applications can be unpacked and exposed to adversaries, enabling cross-node attacks in centrally distributed ecosystems, where adversarial examples crafted on one compromised dev
+> This paper presents a domain-specific Retrieval-Augmented Generation (RAG) framework that mitigates hallucinations and is designed to strengthen factual consistency in large language model (LLM)-based question-answering systems.Here, hallucination is operationally defined in this study as the generation of an unsupported substantive response to an unanswerable question.Existing RAG frameworks may 
 
-### ✅ [Advances in Composite Stimuli-Responsive Hydrogels for Wound Healing: Mechanisms and Applications](https://doi.org/10.3390/gels11060420)
-<sub>2025-05-31 · Ke Ding, Mingrui Liao, Yingyu Wang 외 · Gels</sub>
+### ✅ [A general framework for governing marketed AI/ML medical devices](https://doi.org/10.1038/s41746-025-01717-9)
+<sub>2025-05-31 · Boris Babic, Ivan Glenn Cohen, Ariel Dora Stern 외 · npj Digital Medicine</sub>
 
-> Stimuli-responsive hydrogels have emerged as a promising class of biomaterials for advanced wound healing applications, offering dynamic and controllable responses to the wound microenvironment. These hydrogels are designed to respond to specific stimuli, such as pH, temperature, light, and enzyme activity, enabling precise regulation of drug release, antimicrobial activity, and tissue regeneratio
+> This project represents the first systematic assessment of the US Food and Drug Administration's postmarket surveillance of legally marketed artificial intelligence and machine learning based medical devices. We focus on the Manufacturer and User Facility Device Experience database-the FDA's central tool for tracking the safety of marketed AI/ML devices. In particular, we evaluate the data pertain
 
-### ✅ [AI and Related Technologies in the Fields of Smart Agriculture: A Review](https://doi.org/10.3390/info16020100)
-<sub>2025-02-02 · Fotis Assimakopoulos, Costas Vassilakis, Dionisis Margaris 외 · Information</sub>
+### ✅ [Review on 6G communication and its architecture, technologies included, challenges, security challenges and requirements, applications, with respect to AI domain](https://doi.org/10.1049/qtc2.12114)
+<sub>2024-12-30 · Pranita Bhide, Dhanush Shetty, Suresh Mikkili 외 · IET Quantum Communication</sub>
 
-> The integration of cutting-edge technologies—such as the Internet of Things (IoT), artificial intelligence (AI), machine learning (ML), and various emerging technologies—is revolutionizing agricultural practices, enhancing productivity, sustainability, and efficiency. The objective of this study is to review the literature regarding the development and evolution of AI as well as other emerging tec
+> Abstract The evolution of wireless communication systems has led to the emergence of the sixth generation (6G) communication architecture, characterised by transformative technologies and novel paradigms that transcend the capabilities of its predecessors. This paper presents an overview of the various aspects of 6G communication architecture, focusing on its technologies, challenges, and applicat
 
 
 ## Neural rendering and NeRF accelerator
 
-### 🆕 [CityPaint: A Free Lunch from 2D Diffusion for City-Scale 3D Texturing](https://doi.org/10.48550/arxiv.2610.27564)
-<sub>2026-10-20 · Yuchen Zou, Lihuang Fang, Siyu Zhu 외 · arXiv (Cornell University) · 🚧 Virtual Short · Independent source 제거</sub>
+### 🆕 [golgi: an open-source graphical platform for image-to-recruitment modeling of peripheral nerve stimulation](https://doi.org/10.1088/1741-2552/aeba17)
+<sub>2026-10-27 · David Lung, Yuting Jia, Roland Blumer 외 · Journal of Neural Engineering · 🚧 Open Circuit Voltage · Open Circuit</sub>
 
-> Generating high-fidelity, city-scale 3D environments plays a crucial role in applications such as virtual reality, gaming, and urban digital twins. However, the scarcity of real-world city-scale 3D training data forces existing methods to either stitch independently generated assets or learn from synthetic urban corpora, often sacrificing realism and global consistency. In contrast, 2D image data 
+> OBJECTIVE: Computational models of peripheral nerve stimulation-coupling finite-element bioelectric fields to biophysical axon models-are essential for designing electrodes and waveforms for neuromodulation, but established open tools are code-first, assume substantial modeling expertise, and often depend on commercial finite-element solvers. We present golgi, an open-source platform that takes a 
 
-### 🆕 [Latent trajectory scheduling for endpoint-preserving emotional keyframe interpolation in digital animation](https://doi.org/10.1007/s44163-026-02527-y)
-<sub>2026-10-23 · Luyao Ma · Discover Artificial Intelligence · 🚧 Independent source 제거 · Dependent source</sub>
+### 🆕 [Toward Edge-Assisted Live Synthesis of 3D Digital Twins in 6G](https://doi.org/10.1145/3842721.3850108)
+<sub>2026-10-30 · Yendoubouam Lalle, Fabio Pianese, Francesca Bassi 외 · ACM International Symposium on Theory, Algorithmic Foundations, and Protocol Design for Mobile Networks and Mobile Computing (MobiHoc) · 🚧 Virtual Short · Short</sub>
 
-> Abstract This study presents a Lightweight Nonlinear Scheduler (LNS) for endpoint-preserving facial keyframe interpolation. The work is positioned as a pilot-scale feasibility study rather than a full facial video synthesis system. Given source and target facial keyframes, LNS generates a 16-frame transition sequence while preserving the specified endpoints. The method combines a frozen Stable Dif
+> Live synthesis of 3D digital twins from vehicle-mounted and roadside camera streams could provide timely, spatially rich representations of urban environments. However, constructing radiance-field models from distributed camera streams with short processing delays introduces substantial computation, coordination, and localization requirements. This paper presents a controlled measurement study of 
 
-### 🆕 [DriftNeRF: Cross-Ray Density Drifting for Sparse-View Neural Radiance Fields](https://doi.org/10.48550/arxiv.2610.29106)
-<sub>2026-10-21 · Juntang Wang, Yihan Wang, Sheng'en Li 외 · arXiv (Cornell University) · 🚧 Independent source 제거 · Dependent source</sub>
+### 🆕 [2026 NSF Workshop on Research Data Management in Construction Engineering: Challenges and Opportunities](https://doi.org/10.37099/mtu.dc.michigantech-p2/3045)
+<sub>2026-10-29 · Bo Xiao, Ronghua Xu · 🚧 Independent source 제거 · Dependent source</sub>
 
-> Neural Radiance Fields (NeRF) synthesize photorealistic novel views from dense image collections, but degrade sharply when few views are available. We attribute a specific, measurable defect to the objective itself: the rendering loss is a sum over independent rays and contains no term comparing densities that different rays assign to the same region of space, so nearby 3D points can settle on con
+> The growing use of digital technologies and artificial intelligence (AI) in construction research has increased the demand for reliable, accessible, and reusable research data. Construction projects generate diverse datasets across different activities, organizations, and information systems, yet managing and sharing these resources for broader research use remains challenging. The 2026 NSF Worksh
 
-### ✅ [SegEarth-OV: Towards Training-Free Open-Vocabulary Segmentation for Remote Sensing Images](https://doi.org/10.1109/cvpr52734.2025.00986)
-<sub>2025-06-10 · Kaiyu Li, Ruixun Liu, Xiangyong Cao 외 · IEEE Computer Society Conference on Computer Vision and Pattern Recognition/Proceedings - IEEE Computer Society Conference on Computer Vision and Pattern Recognition/Proceedings · 🚧 Open Circuit Voltage · Open Circuit</sub>
+### ✅ [MASt3R-SLAM: Real-Time Dense SLAM with 3D Reconstruction Priors](https://doi.org/10.1109/cvpr52734.2025.01556)
+<sub>2025-06-10 · Riku Murai, Eric Dexheimer, Andrew J. Davison 외 · IEEE Computer Society Conference on Computer Vision and Pattern Recognition/Proceedings - IEEE Computer Society Conference on Computer Vision and Pattern Recognition/Proceedings</sub>
 
-> Current remote sensing semantic segmentation methods are mostly built on the close-set assumption, meaning that the model can only recognize pre-defined categories that exist in the training set. However, in practical Earth observation, there are countless new categories, and manual annotation is impractical. To address this challenge, we first attempt to introduce training-free1open-vocabulary se
+> We present a real-time monocular dense SLAM system designed bottom-up from MASt3R, a two-view 3D reconstruction and matching prior. Equipped with this strong prior, our system is robust on in-the-wild video sequences despite making no assumption on a fixed or parametric camera model beyond a unique camera centre. We introduce efficient methods for pointmap matching, camera tracking and local fusio
 
-### ✅ [SparseTrack: Multi-Object Tracking by Performing Scene Decomposition Based on Pseudo-Depth](https://doi.org/10.1109/tcsvt.2024.3524670)
-<sub>2025-01-01 · Zelin Liu, Xinggang Wang, Cheng Wang 외 · IEEE Transactions on Circuits and Systems for Video Technology</sub>
+### ✅ [DN-Splatter: Depth and Normal Priors for Gaussian Splatting and Meshing](https://doi.org/10.1109/wacv61041.2025.00241)
+<sub>2025-02-26 · Matias Turkulainen, Xuqian Ren, Iaroslav Melekhov 외 · IEEE Winter Conference on Applications of Computer Vision</sub>
 
-> Exploring robust and efficient association methods has always been an important issue in multi-object tracking (MOT). Although existing tracking methods have achieved impressive performance, congestion and frequent occlusions still pose challenging problems in multi-object tracking. We reveal that performing sparse decomposition on dense scenes is a crucial step to enhance the performance of assoc
+> High-fidelity 3D reconstruction of common indoor scenes is crucial for VR and AR applications. 3D Gaussian splat-ting, a novel differentiable rendering technique, has achieved state-of-the-art novel view synthesis results with high ren-dering speeds and relatively low training times. However, its performance on scenes commonly seen in indoor datasets is poor due to the lack of geometric constraint
 
 
 ## Computing-in-memory and processing-in-memory
 
-### 🆕 [Modelling and Emulation of Afferent-Like Excitatory–Inhibitory Spiking Using Ovonic Threshold Devices for Neuromorphic Oscillatory Computing](https://doi.org/10.1021/acsami.6c15034)
-<sub>2026-10-24 · G Wang, Zeyu Hu, C Wang 외 · ACS Applied Materials & Interfaces · 🚧 Open Circuit Voltage · Open Circuit</sub>
+### 🆕 [Heterogeneous self-couplings enable scale-invariant memory and cognitive flexibility without criticality](https://doi.org/10.64898/2026.10.25.761657)
+<sub>2026-10-30 · Francesco Damiani, Gabriele Di Antonio, Jacopo Epifanio 외 · bioRxiv (Cold Spring Harbor Laboratory) · 🚧 Node Analysis · node voltage</sub>
 
-> Spike-based computing has attracted increasing attention for efficient information processing, creating demand for neuromorphic hardware capable of generating and processing spikes. Ovonic threshold switching (OTS) devices are promising spiking neurons because their threshold-switching behavior and negative differential resistance enable compact spike-generation circuits, while their scalability s
+> The hierarchical organization of the brain underlies its ability to process information across multiple time scales and support flexible behavior through context-dependent computation. Here, we study a recurrent neural network model with heterogeneous self-interactions across nodes, capturing key features of neuronal circuits, including intrinsic diversity of dynamical time scales and multistable 
 
-### 🆕 [Channel-Aware Hierarchical Entity Attention and Free Resource Dividend for Collaborative Task Offloading in UAV-MEC Networks](https://doi.org/10.1088/2631-8695/aeb8e5)
-<sub>2026-10-23 · Yingnan Zhao, jinyong wang, Dan Lu 외 · Engineering Research Express · 🚧 Node Analysis · node voltage</sub>
+### 🆕 [Neurodevelopmental disorder-associated Nr2f1 haploinsufficiency disrupts dentate gyrus inhibitory circuits and impairs short-term spatial memory](https://doi.org/10.21203/rs.3.rs-11281870/v1)
+<sub>2026-10-30 · Eleonora Dallorto, Enis Hidişoğlu, Sara Bonzano 외 · Research Square · 🚧 Virtual Short · Open Circuit Voltage</sub>
 
-> Abstract UAV-assisted mobile edge computing (UAV-MEC) can flexibly support delay-sensitive Internet of Things services, yet large heterogeneous systems remain difficult to optimize with multi-agent deep reinforcement learning. Two issues are especially prominent in high-load settings: dense entity attention scales quadratically with the number of interacting nodes, and static penalty rewards encou
+> Abstract The dentate gyrus (DG) plays a central role in hippocampal information processing and spatial memory, functions that rely on a tightly regulated balance between excitation and inhibition, whose disruption is implicated in the pathophysiology of neurodevelopmental disorders. Here, we used adult constitutive Nr2f1 heterozygous knockout mice ( Nr2f1 +/− ) to investigate how Nr2f1 haploinsuff
 
-### 🆕 [Comparative Efficacy of eHealth ‐Based Interventions for Weight Loss in Adults With Overweight or Obesity: A Systematic Review and Network Meta‐Analysis](https://doi.org/10.1111/jan.70788)
-<sub>2026-10-23 · Hang Thi Le, Dwi Apriadi, Yu‐Kang Tu 외 · Journal of Advanced Nursing · 🚧 Node Analysis · Independent source 제거</sub>
+### 🆕 [Digital Forensics Using Memory and File-System Analysis: A Critical Review of Acquisition, Arte-fact Analysis and Correlation Techniques, with a Conceptual Integrated Architecture](https://doi.org/10.5281/zenodo.23803792)
+<sub>2026-10-30 · Waghole Krushna Subhash, Bangar Abhishek Popat, S. B. Bhosale 외 · Zenodo (CERN European Organization for Nuclear Research) · 🚧 Node Analysis · Open Circuit Voltage</sub>
 
-> ABSTRACT Aims This systematic review and network meta‐analysis aimed to compare the efficacy of eHealth‐based interventions on body weight reduction in adults who are overweight or obesity. Design This study was designed as a systematic review and network meta‐analysis (NMA) following PRISMA 2020 guidelines. Data Sources Five electronic databases (i.e., PubMed, EMBASE, CINAHL, Cochrane Library and
+> Evidence on a computer lives in two broad places. Volatile memory (RAM) captures what the system is doing right now, while persistent storage, through its file system, keeps a long-running record of what was created, edited, moved and erased. RAM can hold running processes, open network connections, loaded modules, injected code, credentials and encryption keys, much of which never touches the dis
 
-### ✅ [Flexible Neuromorphic Electronics for Wearable Near‐Sensor and In‐Sensor Computing Systems](https://doi.org/10.1002/adma.202416073)
-<sub>2025-01-19 · Hyowon Jang, Ji-Hwan Lee, Chang‐Jae Beak 외 · Advanced Materials</sub>
+### ✅ [YOLO Object Detection for Real-Time Fabric Defect Inspection in the Textile Industry: A Review of YOLOv1 to YOLOv11](https://doi.org/10.3390/s25072270)
+<sub>2025-04-03 · Makara Mao, Min Hong · Sensors</sub>
 
-> Flexible neuromorphic architectures that emulate biological cognitive systems hold great promise for smart wearable electronics. To realize neuro-inspired sensing and computing electronics, artificial sensory neurons that detect and process external stimuli must be integrated with central nervous systems capable of parallel computation. In near-sensor computing, synaptic devices, and sensors are u
+> Automated fabric defect detection is crucial for improving quality control, reducing manual labor, and optimizing efficiency in the textile industry. Traditional inspection methods rely heavily on human oversight, which makes them prone to subjectivity, inefficiency, and inconsistency in high-speed manufacturing environments. This review systematically examines the evolution of the You Only Look O
 
-### ✅ [Advancements in 2D layered material memristors: unleashing their potential beyond memory](https://doi.org/10.1038/s41699-024-00522-4)
-<sub>2024-12-21 · Kiran A. Nirmal, Dhananjay D. Kumbhar, Arul Varman Kesavan 외 · npj 2D Materials and Applications</sub>
+### ✅ [Digital Twin Technology for Renewable Energy, Smart Grids, Energy Storage and Vehicle‐to‐Grid Integration: Advancements, Applications, Key Players, Challenges and Future Perspectives in Modernising Sustainable Grids](https://doi.org/10.1049/stg2.70026)
+<sub>2025-01-01 · Ali Qasem Al-Shetwi, Ibrahem E. Atawi, Mohamed A. El‐Hameed 외 · IET Smart Grid</sub>
 
-> The scalability of two-dimensional (2D) materials down to a single monolayer offers exciting prospects for high-speed, energy-efficient, scalable memristors. This review highlights the development of 2D material-based memristors and potential applications beyond memory, including neuromorphic, in-memory, in-sensor, and complex computing. This review also encompasses potential challenges and future
+> ABSTRACT To address the challenges faced by modern power systems—such as efficiency, dynamics, reliability, control, stability, economy and planning—significant efforts have been made to develop advanced techniques, tools and scientific innovations across various disciplines. Among these, the ‘digital twin’ (DT) has emerged as one of the most reliable and rapidly evolving technologies, now widely 
 
